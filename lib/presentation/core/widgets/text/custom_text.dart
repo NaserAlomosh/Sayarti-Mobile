@@ -43,7 +43,7 @@ class _SemanticText extends StatelessWidget {
       overflow: overflow,
       style: TextStyle(
         color: color ?? defaultColor,
-        fontFamily: 'CapitalBank',
+        // fontFamily: 'CapitalBank',
         fontSize: fontSize,
         fontWeight: fontWeight ?? defaultWeight,
         height: height,

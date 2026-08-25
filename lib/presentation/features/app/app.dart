@@ -26,7 +26,7 @@ class MyApp extends StatelessWidget {
               theme: themeState.themeData,
               locale: languageState.locale,
               onGenerateRoute: AppRouter.generateRoute,
-              initialRoute: Routes.splashScreen,
+              initialRoute: Routes.splashView,
               supportedLocales: const [Locale('en'), Locale('ar')],
               localizationsDelegates: const [
                 S.delegate,

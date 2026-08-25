@@ -46,12 +46,12 @@ ThemeData buildSayartiTheme({
     cardColor: surface,
     dividerColor: border,
     textTheme: baseTheme.textTheme.apply(
-      fontFamily: 'CapitalBank',
+      // fontFamily: 'CapitalBank',
       bodyColor: onSurface,
       displayColor: onSurface,
     ),
     primaryTextTheme: baseTheme.primaryTextTheme.apply(
-      fontFamily: 'CapitalBank',
+      // fontFamily: 'CapitalBank',
       bodyColor: onPrimary,
       displayColor: onPrimary,
     ),
@@ -77,7 +77,7 @@ ThemeData buildSayartiTheme({
       actionsIconTheme: IconThemeData(color: onSurface),
       titleTextStyle: TextStyle(
         color: onSurface,
-        fontFamily: 'CapitalBank',
+        // fontFamily: 'CapitalBank',
         fontSize: 18,
         fontWeight: FontWeight.w500,
       ),

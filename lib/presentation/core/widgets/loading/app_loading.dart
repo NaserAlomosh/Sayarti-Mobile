@@ -1,7 +1,6 @@
 import 'package:sayarti_mobile/presentation/core/constants/images/app_images.dart';
 import 'package:sayarti_mobile/presentation/core/helper/navigator_key/app_key.dart';
 import 'package:flutter/material.dart';
-import 'package:lottie/lottie.dart';
 
 class LoadingManager {
   LoadingManager._();
@@ -52,10 +51,7 @@ barrierColor = Colors.white.withValues(alpha: 0.2);
     return SizedBox(
       width: size,
       height: size,
-      child: Lottie.asset(
-        AppImages.capitalLoaderAnimation,
-        fit: BoxFit.contain,
-      ),
+      child: CircularProgressIndicator(),
     );
   }
 }
