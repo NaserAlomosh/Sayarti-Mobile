@@ -6,7 +6,7 @@ class CustomAppButton extends StatefulWidget {
     required this.text,
     super.key,
     this.isActive = true,
-    this.textColor = Colors.white,
+    this.textColor,
     this.backgroundColor,
     this.disabledBackgroundColor,
     this.borderColor,
@@ -117,8 +117,7 @@ class _CustomAppButtonState extends State<CustomAppButton> {
         widget.backgroundColor ?? theme.colorScheme.primary;
 
     final disabledBackgroundColor =
-        widget.disabledBackgroundColor ??
-        backgroundColor.withValues(alpha: 0.5);
+        widget.disabledBackgroundColor ?? theme.disabledColor;
 
     final textColor =
         widget.textColor ?? theme.colorScheme.onPrimary;
@@ -126,7 +125,7 @@ class _CustomAppButtonState extends State<CustomAppButton> {
     final borderColor = _isEnabled
         ? widget.borderColor
         : widget.disabledBorderColor ??
-              Theme.of(context).shadowColor.withValues(alpha: 0.6);
+              theme.disabledColor;
 
     Widget button = MaterialButton(
       minWidth: widget.width,
