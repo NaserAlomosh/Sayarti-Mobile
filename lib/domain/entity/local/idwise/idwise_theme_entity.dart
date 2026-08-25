@@ -1,0 +1,1 @@
+enum IdwiseThemeEntity { light, dark }
