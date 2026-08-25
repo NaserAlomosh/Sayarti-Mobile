@@ -1,6 +1,7 @@
 part of 'splash_cubit.dart';
 
-@freezed
-abstract class SplashState with _$SplashState {
-  const factory SplashState() = _SplashState;
+class SplashState {
+  const SplashState({this.showOnboarding});
+
+  final bool? showOnboarding;
 }

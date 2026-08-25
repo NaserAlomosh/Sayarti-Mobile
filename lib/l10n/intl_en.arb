@@ -402,5 +402,16 @@
     "pinCreateHint": "The 6-digit PIN will be used each time you access your account or as backup to your biometric login",
     "createAppPin": "Create App PIN",
     "pleaseCreate6DigitPin": "Please create a 6-digit PIN for the app.",
-    "confirmAppPin": "Confirm App PIN"
+    "confirmAppPin": "Confirm App PIN",
+    "skip": "Skip",
+    "getStarted": "Get Started",
+    "onboardingOneEyebrow": "YOUR CAR, SIMPLIFIED",
+    "onboardingOneTitle": "Everything your car needs, in one place",
+    "onboardingOneDescription": "Track every detail and keep your vehicle information organized wherever you go.",
+    "onboardingTwoEyebrow": "STAY IN CONTROL",
+    "onboardingTwoTitle": "Never miss what matters",
+    "onboardingTwoDescription": "Keep up with fuel, maintenance, expenses, and important reminders.",
+    "onboardingThreeEyebrow": "DRIVE WITH CONFIDENCE",
+    "onboardingThreeTitle": "Smarter insights for every journey",
+    "onboardingThreeDescription": "Understand your car better and make every drive more informed."
 }
