@@ -19,6 +19,29 @@ class _ApiService implements ApiService {
 
   final ParseErrorLogger? errorLogger;
 
+  @override
+  Future<HttpResponse<LoginResponseModel>> login(LoginRequestModel request) async {
+    final extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+    final headers = <String, dynamic>{};
+    final data = <String, dynamic>{};
+    data.addAll(request.toJson());
+    final options = _setStreamType<LoginResponseModel>(
+      Options(method: 'POST', headers: headers, extra: extra)
+          .compose(_dio.options, 'v1/auth/login', queryParameters: queryParameters, data: data)
+          .copyWith(baseUrl: _combineBaseUrls(_dio.options.baseUrl, baseUrl)),
+    );
+    final result = await _dio.fetch<Map<String, dynamic>>(options);
+    late LoginResponseModel value;
+    try {
+      value = LoginResponseModel.fromJson(result.data!);
+    } on Object catch (e, s) {
+      errorLogger?.logError(e, s, options);
+      rethrow;
+    }
+    return HttpResponse(value, result);
+  }
+
   RequestOptions _setStreamType<T>(RequestOptions requestOptions) {
     if (T != dynamic &&
         !(requestOptions.responseType == ResponseType.bytes ||

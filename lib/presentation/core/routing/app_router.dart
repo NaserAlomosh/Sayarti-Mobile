@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:sayarti_mobile/presentation/core/routing/routes.dart';
 import 'package:sayarti_mobile/presentation/features/splash/view/splash_view.dart';
 import 'package:sayarti_mobile/presentation/features/onboarding/view/onboarding_view.dart';
+import 'package:sayarti_mobile/presentation/features/login/view/login_view.dart';
 
 class AppRouter {
   static Route<dynamic>? generateRoute(RouteSettings settings) {
@@ -15,6 +16,11 @@ class AppRouter {
         return CupertinoPageRoute<void>(
           settings: settings,
           builder: (_) => const OnboardingView(),
+        );
+      case Routes.loginView:
+        return CupertinoPageRoute<void>(
+          settings: settings,
+          builder: (_) => const LoginView(),
         );
     }
     return null;

@@ -33,8 +33,8 @@ class DioClient {
     _dio.interceptors.addAll([
       if (kDebugMode)
         PrettyDioLogger(
-          requestBody: true,
-          requestHeader: true,
+          requestBody: false,
+          requestHeader: false,
           responseHeader: true,
           logPrint: (log) => debugPrint(log.toString()),
         ),

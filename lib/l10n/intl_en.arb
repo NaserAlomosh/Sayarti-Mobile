@@ -413,5 +413,18 @@
     "onboardingTwoDescription": "Keep up with fuel, maintenance, expenses, and important reminders.",
     "onboardingThreeEyebrow": "DRIVE WITH CONFIDENCE",
     "onboardingThreeTitle": "Smarter insights for every journey",
-    "onboardingThreeDescription": "Understand your car better and make every drive more informed."
+    "onboardingThreeDescription": "Understand your car better and make every drive more informed.",
+    "loginWelcome": "Welcome back",
+    "loginDescription": "Log in to continue managing your car.",
+    "forgotPassword": "Forgot password?",
+    "continueText": "Continue",
+    "emailRequired": "Email is required",
+    "emailInvalid": "Enter a valid email address",
+    "emailTooLong": "Email must not exceed 320 characters",
+    "passwordRequired": "Password is required",
+    "passwordTooLong": "Password must not exceed 72 characters",
+    "invalidCredentials": "Email or password is incorrect",
+    "emailNotVerified": "Email verification is required",
+    "validationError": "Please check the entered information",
+    "loginUnknownError": "Unable to log in. Please try again."
 }

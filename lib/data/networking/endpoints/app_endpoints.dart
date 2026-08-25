@@ -11,6 +11,8 @@ class AppEndpoints {
   static const String getMobileConfigDetails =
       'GetMobileConfigDetails';
 
+  static const String login = 'login';
+
   // ---------------------------------------------------------------------------
   // Public endpoints
   // ---------------------------------------------------------------------------
@@ -18,6 +20,7 @@ class AppEndpoints {
   /// Endpoints that do not use the user's session token.
   static const Set<String> publicEndpoints = {
     getCurrentAppVersion,
+    login,
   };
 
   // ---------------------------------------------------------------------------
