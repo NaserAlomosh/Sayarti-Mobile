@@ -3154,6 +3154,20 @@ class S {
       args: [],
     );
   }
+
+  String get loginWelcome => Intl.message('Welcome back', name: 'loginWelcome', args: []);
+  String get loginDescription => Intl.message('Log in to continue managing your car.', name: 'loginDescription', args: []);
+  String get forgotPassword => Intl.message('Forgot password?', name: 'forgotPassword', args: []);
+  String get continueText => Intl.message('Continue', name: 'continueText', args: []);
+  String get emailRequired => Intl.message('Email is required', name: 'emailRequired', args: []);
+  String get emailInvalid => Intl.message('Enter a valid email address', name: 'emailInvalid', args: []);
+  String get emailTooLong => Intl.message('Email must not exceed 320 characters', name: 'emailTooLong', args: []);
+  String get passwordRequired => Intl.message('Password is required', name: 'passwordRequired', args: []);
+  String get passwordTooLong => Intl.message('Password must not exceed 72 characters', name: 'passwordTooLong', args: []);
+  String get invalidCredentials => Intl.message('Email or password is incorrect', name: 'invalidCredentials', args: []);
+  String get emailNotVerified => Intl.message('Email verification is required', name: 'emailNotVerified', args: []);
+  String get validationError => Intl.message('Please check the entered information', name: 'validationError', args: []);
+  String get loginUnknownError => Intl.message('Unable to log in. Please try again.', name: 'loginUnknownError', args: []);
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

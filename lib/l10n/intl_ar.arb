@@ -436,5 +436,18 @@
     "onboardingTwoDescription": "تابع الوقود والصيانة والمصاريف والتذكيرات المهمة.",
     "onboardingThreeEyebrow": "قُد بثقة",
     "onboardingThreeTitle": "رؤى أذكى لكل رحلة",
-    "onboardingThreeDescription": "افهم سيارتك بشكل أفضل واجعل كل قيادة أكثر وعياً."
+    "onboardingThreeDescription": "افهم سيارتك بشكل أفضل واجعل كل قيادة أكثر وعياً.",
+    "loginWelcome": "مرحباً بعودتك",
+    "loginDescription": "سجّل الدخول لمتابعة إدارة سيارتك.",
+    "forgotPassword": "نسيت كلمة المرور؟",
+    "continueText": "متابعة",
+    "emailRequired": "البريد الإلكتروني مطلوب",
+    "emailInvalid": "أدخل بريداً إلكترونياً صالحاً",
+    "emailTooLong": "يجب ألا يتجاوز البريد الإلكتروني 320 حرفاً",
+    "passwordRequired": "كلمة المرور مطلوبة",
+    "passwordTooLong": "يجب ألا تتجاوز كلمة المرور 72 حرفاً",
+    "invalidCredentials": "البريد الإلكتروني أو كلمة المرور غير صحيحة",
+    "emailNotVerified": "يجب التحقق من البريد الإلكتروني",
+    "validationError": "يرجى التحقق من المعلومات المدخلة",
+    "loginUnknownError": "تعذر تسجيل الدخول. حاول مرة أخرى."
 }
