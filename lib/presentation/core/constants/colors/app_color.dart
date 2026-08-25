@@ -4,7 +4,7 @@ class AppColor {
   AppColor._();
 
   // Primary text colors
-  static const primaryBlue = Colors.cyanAccent;
+  static const primaryBlue = Colors.cyan;
   static const primaryRed = Color(0xFF820103);
   static const blueDark = Colors.cyan;
 
@@ -193,7 +193,7 @@ class AppColor {
   static const darkBackground = Color(0xFF27231C);
   static const darkBackgroundGrey = Color(0xFF97929A);
   static const golden = Color(0xFFB18D53);
-  static const darkContainerColor = Color(0xFF2D2C28);
+  static const darkContainerColor = Color.fromARGB(255, 20, 19, 18);
   static const greyContainer = Color(0xFFBDBDBD);
   static const currencyColor = Color(0xFFBCBCBC);
   static const c788792 = Color(0xFF788792);

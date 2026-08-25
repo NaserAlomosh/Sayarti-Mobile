@@ -11,7 +11,7 @@ class DefaultAppTheme extends BaseTheme {
     primary: AppColor.primaryBlue,
     onPrimary: AppColor.white,
     background: AppColor.scaffoldBackgroundColor,
-    surface: AppColor.white,
+    surface: const Color.fromARGB(255, 0, 0, 0),
     onSurface: AppColor.primaryBlue,
     border: AppColor.cE0E4E9,
     hintText: AppColor.c82919C,

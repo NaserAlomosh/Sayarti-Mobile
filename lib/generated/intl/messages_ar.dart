@@ -277,6 +277,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "نسيت اسم المستخدم أو كلمة المرور",
     ),
     "gender": MessageLookupByLibrary.simpleMessage("الجنس"),
+    "getStarted": MessageLookupByLibrary.simpleMessage("ابدأ الآن"),
     "iAgreeToThe": MessageLookupByLibrary.simpleMessage("أوافق على"),
     "iConfirmAndAgreeThatAllMyIdDetailsAreCorrect":
         MessageLookupByLibrary.simpleMessage("أؤكد ان كل المعلومات صحيحة"),
@@ -503,6 +504,31 @@ class MessageLookup extends MessageLookupByLibrary {
         ),
     "numberOfChildrenCannotBeEmpty": MessageLookupByLibrary.simpleMessage(
       "لا يمكن ان يكون عدد الاولاد فارغا",
+    ),
+    "onboardingOneDescription": MessageLookupByLibrary.simpleMessage(
+      "تابع كل التفاصيل وحافظ على معلومات سيارتك منظمة أينما كنت.",
+    ),
+    "onboardingOneEyebrow": MessageLookupByLibrary.simpleMessage(
+      "سيارتك ببساطة",
+    ),
+    "onboardingOneTitle": MessageLookupByLibrary.simpleMessage(
+      "كل ما تحتاجه سيارتك في مكان واحد",
+    ),
+    "onboardingThreeDescription": MessageLookupByLibrary.simpleMessage(
+      "افهم سيارتك بشكل أفضل واجعل كل قيادة أكثر وعياً.",
+    ),
+    "onboardingThreeEyebrow": MessageLookupByLibrary.simpleMessage("قُد بثقة"),
+    "onboardingThreeTitle": MessageLookupByLibrary.simpleMessage(
+      "رؤى أذكى لكل رحلة",
+    ),
+    "onboardingTwoDescription": MessageLookupByLibrary.simpleMessage(
+      "تابع الوقود والصيانة والمصاريف والتذكيرات المهمة.",
+    ),
+    "onboardingTwoEyebrow": MessageLookupByLibrary.simpleMessage(
+      "ابقَ مسيطراً",
+    ),
+    "onboardingTwoTitle": MessageLookupByLibrary.simpleMessage(
+      "لا تفوّت ما يهمك",
     ),
     "onceFitItWillScanAutomatically": MessageLookupByLibrary.simpleMessage(
       "بمجرد وضعها,سيتم مسحها تلقائيًا",
@@ -811,6 +837,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "sixDigitsCode": MessageLookupByLibrary.simpleMessage(
       "رمز مكون من 6 أرقام",
     ),
+    "skip": MessageLookupByLibrary.simpleMessage("تخطي"),
     "somethingWentWrong": MessageLookupByLibrary.simpleMessage("حدث خطأ ما"),
     "spouseNameCannotBeEmpty": MessageLookupByLibrary.simpleMessage(
       "لا يمكن ان يكون اسم الزوج/الزوجة فارغاً",
@@ -906,17 +933,6 @@ class MessageLookup extends MessageLookupByLibrary {
     "weNeedYourJordinianIdCardToCheck": MessageLookupByLibrary.simpleMessage(
       "نحتاج بطاقة الاحوال المدنية الاردنية للتحقق من المعلومات المطلوبة",
     ),
-    "skip": MessageLookupByLibrary.simpleMessage('تخطي'),
-    "getStarted": MessageLookupByLibrary.simpleMessage('ابدأ الآن'),
-    "onboardingOneEyebrow": MessageLookupByLibrary.simpleMessage('سيارتك ببساطة'),
-    "onboardingOneTitle": MessageLookupByLibrary.simpleMessage('كل ما تحتاجه سيارتك في مكان واحد'),
-    "onboardingOneDescription": MessageLookupByLibrary.simpleMessage('تابع كل التفاصيل وحافظ على معلومات سيارتك منظمة أينما كنت.'),
-    "onboardingTwoEyebrow": MessageLookupByLibrary.simpleMessage('ابقَ مسيطراً'),
-    "onboardingTwoTitle": MessageLookupByLibrary.simpleMessage('لا تفوّت ما يهمك'),
-    "onboardingTwoDescription": MessageLookupByLibrary.simpleMessage('تابع الوقود والصيانة والمصاريف والتذكيرات المهمة.'),
-    "onboardingThreeEyebrow": MessageLookupByLibrary.simpleMessage('قُد بثقة'),
-    "onboardingThreeTitle": MessageLookupByLibrary.simpleMessage('رؤى أذكى لكل رحلة'),
-    "onboardingThreeDescription": MessageLookupByLibrary.simpleMessage('افهم سيارتك بشكل أفضل واجعل كل قيادة أكثر وعياً.'),
     "zipCodeCannotBeEmpty": MessageLookupByLibrary.simpleMessage(
       "لا يمكن ان يكون الرمز البريدي فارغا",
     ),

@@ -273,6 +273,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "Forgot Password or Username",
     ),
     "gender": MessageLookupByLibrary.simpleMessage("Gender"),
+    "getStarted": MessageLookupByLibrary.simpleMessage("Get Started"),
     "iAgreeToThe": MessageLookupByLibrary.simpleMessage("I agree to the"),
     "iConfirmAndAgreeThatAllMyIdDetailsAreCorrect":
         MessageLookupByLibrary.simpleMessage(
@@ -495,6 +496,33 @@ class MessageLookup extends MessageLookupByLibrary {
         ),
     "numberOfChildrenCannotBeEmpty": MessageLookupByLibrary.simpleMessage(
       "Number of Children cannot be empty",
+    ),
+    "onboardingOneDescription": MessageLookupByLibrary.simpleMessage(
+      "Track every detail and keep your vehicle information organized wherever you go.",
+    ),
+    "onboardingOneEyebrow": MessageLookupByLibrary.simpleMessage(
+      "YOUR CAR, SIMPLIFIED",
+    ),
+    "onboardingOneTitle": MessageLookupByLibrary.simpleMessage(
+      "Everything your car needs, in one place",
+    ),
+    "onboardingThreeDescription": MessageLookupByLibrary.simpleMessage(
+      "Understand your car better and make every drive more informed.",
+    ),
+    "onboardingThreeEyebrow": MessageLookupByLibrary.simpleMessage(
+      "DRIVE WITH CONFIDENCE",
+    ),
+    "onboardingThreeTitle": MessageLookupByLibrary.simpleMessage(
+      "Smarter insights for every journey",
+    ),
+    "onboardingTwoDescription": MessageLookupByLibrary.simpleMessage(
+      "Keep up with fuel, maintenance, expenses, and important reminders.",
+    ),
+    "onboardingTwoEyebrow": MessageLookupByLibrary.simpleMessage(
+      "STAY IN CONTROL",
+    ),
+    "onboardingTwoTitle": MessageLookupByLibrary.simpleMessage(
+      "Never miss what matters",
     ),
     "onceFitItWillScanAutomatically": MessageLookupByLibrary.simpleMessage(
       "Once fit, it will scan automatically",
@@ -803,6 +831,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "selectCountry": MessageLookupByLibrary.simpleMessage("Select Country"),
     "shouldBeOf": MessageLookupByLibrary.simpleMessage("should be of"),
     "sixDigitsCode": MessageLookupByLibrary.simpleMessage("6-Digit Code"),
+    "skip": MessageLookupByLibrary.simpleMessage("Skip"),
     "somethingWentWrong": MessageLookupByLibrary.simpleMessage(
       "Something went wrong",
     ),
@@ -898,17 +927,6 @@ class MessageLookup extends MessageLookupByLibrary {
     "weNeedYourJordinianIdCardToCheck": MessageLookupByLibrary.simpleMessage(
       "We need your Jordanian ID card to check that you are a real person. Get them ready to scan.",
     ),
-    "skip": MessageLookupByLibrary.simpleMessage('Skip'),
-    "getStarted": MessageLookupByLibrary.simpleMessage('Get Started'),
-    "onboardingOneEyebrow": MessageLookupByLibrary.simpleMessage('YOUR CAR, SIMPLIFIED'),
-    "onboardingOneTitle": MessageLookupByLibrary.simpleMessage('Everything your car needs, in one place'),
-    "onboardingOneDescription": MessageLookupByLibrary.simpleMessage('Track every detail and keep your vehicle information organized wherever you go.'),
-    "onboardingTwoEyebrow": MessageLookupByLibrary.simpleMessage('STAY IN CONTROL'),
-    "onboardingTwoTitle": MessageLookupByLibrary.simpleMessage('Never miss what matters'),
-    "onboardingTwoDescription": MessageLookupByLibrary.simpleMessage('Keep up with fuel, maintenance, expenses, and important reminders.'),
-    "onboardingThreeEyebrow": MessageLookupByLibrary.simpleMessage('DRIVE WITH CONFIDENCE'),
-    "onboardingThreeTitle": MessageLookupByLibrary.simpleMessage('Smarter insights for every journey'),
-    "onboardingThreeDescription": MessageLookupByLibrary.simpleMessage('Understand your car better and make every drive more informed.'),
     "zipCodeCannotBeEmpty": MessageLookupByLibrary.simpleMessage(
       "Zip code cannot be empty",
     ),

@@ -286,61 +286,6 @@ class S {
     );
   }
 
-  /// `Skip`
-  String get skip {
-    return Intl.message('Skip', name: 'skip', desc: '', args: []);
-  }
-
-  /// `Get Started`
-  String get getStarted {
-    return Intl.message('Get Started', name: 'getStarted', desc: '', args: []);
-  }
-
-  /// `YOUR CAR, SIMPLIFIED`
-  String get onboardingOneEyebrow {
-    return Intl.message('YOUR CAR, SIMPLIFIED', name: 'onboardingOneEyebrow', desc: '', args: []);
-  }
-
-  /// `Everything your car needs, in one place`
-  String get onboardingOneTitle {
-    return Intl.message('Everything your car needs, in one place', name: 'onboardingOneTitle', desc: '', args: []);
-  }
-
-  /// `Track every detail and keep your vehicle information organized wherever you go.`
-  String get onboardingOneDescription {
-    return Intl.message('Track every detail and keep your vehicle information organized wherever you go.', name: 'onboardingOneDescription', desc: '', args: []);
-  }
-
-  /// `STAY IN CONTROL`
-  String get onboardingTwoEyebrow {
-    return Intl.message('STAY IN CONTROL', name: 'onboardingTwoEyebrow', desc: '', args: []);
-  }
-
-  /// `Never miss what matters`
-  String get onboardingTwoTitle {
-    return Intl.message('Never miss what matters', name: 'onboardingTwoTitle', desc: '', args: []);
-  }
-
-  /// `Keep up with fuel, maintenance, expenses, and important reminders.`
-  String get onboardingTwoDescription {
-    return Intl.message('Keep up with fuel, maintenance, expenses, and important reminders.', name: 'onboardingTwoDescription', desc: '', args: []);
-  }
-
-  /// `DRIVE WITH CONFIDENCE`
-  String get onboardingThreeEyebrow {
-    return Intl.message('DRIVE WITH CONFIDENCE', name: 'onboardingThreeEyebrow', desc: '', args: []);
-  }
-
-  /// `Smarter insights for every journey`
-  String get onboardingThreeTitle {
-    return Intl.message('Smarter insights for every journey', name: 'onboardingThreeTitle', desc: '', args: []);
-  }
-
-  /// `Understand your car better and make every drive more informed.`
-  String get onboardingThreeDescription {
-    return Intl.message('Understand your car better and make every drive more informed.', name: 'onboardingThreeDescription', desc: '', args: []);
-  }
-
   /// `Next`
   String get next {
     return Intl.message('Next', name: 'next', desc: '', args: []);
@@ -3105,6 +3050,106 @@ class S {
     return Intl.message(
       'Confirm App PIN',
       name: 'confirmAppPin',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Skip`
+  String get skip {
+    return Intl.message('Skip', name: 'skip', desc: '', args: []);
+  }
+
+  /// `Get Started`
+  String get getStarted {
+    return Intl.message('Get Started', name: 'getStarted', desc: '', args: []);
+  }
+
+  /// `YOUR CAR, SIMPLIFIED`
+  String get onboardingOneEyebrow {
+    return Intl.message(
+      'YOUR CAR, SIMPLIFIED',
+      name: 'onboardingOneEyebrow',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Everything your car needs, in one place`
+  String get onboardingOneTitle {
+    return Intl.message(
+      'Everything your car needs, in one place',
+      name: 'onboardingOneTitle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Track every detail and keep your vehicle information organized wherever you go.`
+  String get onboardingOneDescription {
+    return Intl.message(
+      'Track every detail and keep your vehicle information organized wherever you go.',
+      name: 'onboardingOneDescription',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `STAY IN CONTROL`
+  String get onboardingTwoEyebrow {
+    return Intl.message(
+      'STAY IN CONTROL',
+      name: 'onboardingTwoEyebrow',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Never miss what matters`
+  String get onboardingTwoTitle {
+    return Intl.message(
+      'Never miss what matters',
+      name: 'onboardingTwoTitle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Keep up with fuel, maintenance, expenses, and important reminders.`
+  String get onboardingTwoDescription {
+    return Intl.message(
+      'Keep up with fuel, maintenance, expenses, and important reminders.',
+      name: 'onboardingTwoDescription',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `DRIVE WITH CONFIDENCE`
+  String get onboardingThreeEyebrow {
+    return Intl.message(
+      'DRIVE WITH CONFIDENCE',
+      name: 'onboardingThreeEyebrow',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Smarter insights for every journey`
+  String get onboardingThreeTitle {
+    return Intl.message(
+      'Smarter insights for every journey',
+      name: 'onboardingThreeTitle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Understand your car better and make every drive more informed.`
+  String get onboardingThreeDescription {
+    return Intl.message(
+      'Understand your car better and make every drive more informed.',
+      name: 'onboardingThreeDescription',
       desc: '',
       args: [],
     );

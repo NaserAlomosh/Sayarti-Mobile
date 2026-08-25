@@ -4,12 +4,12 @@ class _SplashLoadingIndicator extends StatefulWidget {
   const _SplashLoadingIndicator();
 
   @override
-
   State<_SplashLoadingIndicator> createState() =>
       _SplashLoadingIndicatorState();
 }
 
-class _SplashLoadingIndicatorState extends State<_SplashLoadingIndicator>
+class _SplashLoadingIndicatorState
+    extends State<_SplashLoadingIndicator>
     with SingleTickerProviderStateMixin {
   late final AnimationController _controller;
   late final Animation<double> _animation;
@@ -23,20 +23,35 @@ class _SplashLoadingIndicatorState extends State<_SplashLoadingIndicator>
       duration: const Duration(seconds: 2),
     );
 
-    _animation = CurvedAnimation(parent: _controller, curve: Curves.linear);
+    _animation = CurvedAnimation(
+      parent: _controller,
+      curve: Curves.linear,
+    );
+
+    _controller.addStatusListener(_onAnimationStatusChanged);
 
     _controller.forward();
   }
 
+  void _onAnimationStatusChanged(AnimationStatus status) {
+    if (status == AnimationStatus.completed && mounted) {
+      context.read<SplashCubit>().initSplash();
+    }
+  }
+
   @override
   void dispose() {
-    _controller.dispose();
+    _controller
+      ..removeStatusListener(_onAnimationStatusChanged)
+      ..dispose();
+
     super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
-    final colorScheme = Theme.of(context).colorScheme;
+    final secondary =
+        Theme.of(context).colorScheme.secondary;
 
     return SizedBox(
       width: 140,
@@ -52,19 +67,21 @@ class _SplashLoadingIndicatorState extends State<_SplashLoadingIndicator>
                   width: constraints.maxWidth,
                   height: 2,
                   decoration: BoxDecoration(
-                    color: colorScheme.secondary.withValues(alpha: 0.20),
+                    color: secondary.withValues(
+                      alpha: 0.20,
+                    ),
                     borderRadius: BorderRadius.circular(20),
                   ),
                 ),
-
                 AnimatedBuilder(
                   animation: _animation,
                   builder: (context, child) {
                     return Container(
-                      width: constraints.maxWidth * _animation.value,
+                      width:
+                          constraints.maxWidth * _animation.value,
                       height: 2,
                       decoration: BoxDecoration(
-                        color: colorScheme.secondary,
+                        color: secondary,
                         borderRadius: BorderRadius.circular(20),
                       ),
                     );

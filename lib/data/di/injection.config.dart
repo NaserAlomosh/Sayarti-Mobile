@@ -24,6 +24,8 @@ import 'package:sayarti_mobile/data/service/local/biometric/biometric_service.da
     as _i868;
 import 'package:sayarti_mobile/data/service/local/biometric/impl/biometric_service_impl.dart'
     as _i417;
+import 'package:sayarti_mobile/data/service/local/onboarding/onboarding_storage.dart'
+    as _i114;
 import 'package:sayarti_mobile/data/service/remote/api_service/api_service.dart'
     as _i406;
 import 'package:sayarti_mobile/domain/repository/local/biometric/biometric_repository.dart'
@@ -44,10 +46,10 @@ import 'package:sayarti_mobile/presentation/core/theme/cubit/theme_cubit.dart'
     as _i817;
 import 'package:sayarti_mobile/presentation/core/widgets/language/cubit/languge_cubit.dart'
     as _i480;
+import 'package:sayarti_mobile/presentation/features/onboarding/cubit/onboarding_cubit.dart'
+    as _i664;
 import 'package:sayarti_mobile/presentation/features/splash/cubit/splash_cubit.dart'
     as _i50;
-import 'package:sayarti_mobile/data/service/local/onboarding/onboarding_storage.dart'
-    as _i1001;
 import 'package:shared_preferences/shared_preferences.dart' as _i460;
 
 extension GetItInjectableX on _i174.GetIt {
@@ -59,6 +61,7 @@ extension GetItInjectableX on _i174.GetIt {
     final gh = _i526.GetItHelper(this, environment, environmentFilter);
     final localAuthModule = _$LocalAuthModule();
     final remoteMoudel = _$RemoteMoudel();
+    gh.factory<_i664.OnboardingCubit>(() => _i664.OnboardingCubit());
     gh.lazySingleton<_i152.LocalAuthentication>(
       () => localAuthModule.localAuthentication,
     );
@@ -67,9 +70,6 @@ extension GetItInjectableX on _i174.GetIt {
     );
     gh.lazySingleton<_i361.Dio>(() => remoteMoudel.dio());
     gh.lazySingleton<_i817.ThemeCubit>(() => _i817.ThemeCubit());
-    gh.factory<_i50.SplashCubit>(
-      () => _i50.SplashCubit(gh<_i1001.OnboardingStorage>()),
-    );
     gh.lazySingleton<_i313.DioClient>(
       () => _i313.DioClient(dio: gh<_i361.Dio>()),
     );
@@ -78,6 +78,9 @@ extension GetItInjectableX on _i174.GetIt {
     );
     gh.lazySingleton<_i406.ApiService>(
       () => remoteMoudel.apiService(gh<_i361.Dio>()),
+    );
+    gh.factory<_i50.SplashCubit>(
+      () => _i50.SplashCubit(gh<_i114.OnboardingStorage>()),
     );
     gh.lazySingleton<_i868.BiometricService>(
       () => _i417.BiometricServiceImpl(gh<_i152.LocalAuthentication>()),
