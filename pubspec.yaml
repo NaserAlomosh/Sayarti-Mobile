@@ -72,4 +72,5 @@ dev_dependencies:
 flutter:
   uses-material-design: true
   assets:
-    - assets/svg/capital_bank.svg
+    - assets/svg/
+    - assets/png/

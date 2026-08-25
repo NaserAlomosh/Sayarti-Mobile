@@ -278,12 +278,6 @@ class MessageLookup extends MessageLookupByLibrary {
         MessageLookupByLibrary.simpleMessage(
           "I confirm and agree that all my ID details are correct",
         ),
-    "iConsentToCapitalBankCollectingAndComply":
-        MessageLookupByLibrary.simpleMessage("Privacy Notice"),
-    "iConsentToCapitalBankCollectingAndSecurelyProcessingMyIDdataAndSelfieAsDescribedInThe":
-        MessageLookupByLibrary.simpleMessage(
-          "I consent to Capital Bank collecting and securely processing my ID data and selfie as described in the",
-        ),
     "iDIssuingPlace": MessageLookupByLibrary.simpleMessage("ID Issuing Place"),
     "iN": MessageLookupByLibrary.simpleMessage("in"),
     "ibanCanOnlyContainAlphanumerics": MessageLookupByLibrary.simpleMessage(
@@ -337,25 +331,10 @@ class MessageLookup extends MessageLookupByLibrary {
         MessageLookupByLibrary.simpleMessage(
           "IFSC code should be 11 digit alpha-numeric code",
         ),
-    "intro1Subtitle": MessageLookupByLibrary.simpleMessage(
-      "New to Capital Bank? Open your new\ncurrent savings account today.",
-    ),
-    "intro1Title": MessageLookupByLibrary.simpleMessage(
-      "Welcome to the Capital Bank!",
-    ),
     "intro2Subtitle": MessageLookupByLibrary.simpleMessage(
       "Get an instant approval for credit\ncard and personal loan application",
     ),
     "intro2Title": MessageLookupByLibrary.simpleMessage("Banking-on-the-Go"),
-    "intro3Title": MessageLookupByLibrary.simpleMessage(
-      "Welcome to Capital Bank!",
-    ),
-    "intro4Title": MessageLookupByLibrary.simpleMessage(
-      "Welcome to New Capital Bank App!",
-    ),
-    "intro5Title": MessageLookupByLibrary.simpleMessage(
-      "Welcome to the New Capital Bank App!",
-    ),
     "invalidMobileFormat": MessageLookupByLibrary.simpleMessage(
       "Entered mobile number format is incorrect",
     ),
@@ -366,7 +345,6 @@ class MessageLookup extends MessageLookupByLibrary {
         MessageLookupByLibrary.simpleMessage(
           " is required to be scanned front and back sides. We will check your identity and information with the card issuer. The data/ID image will be securely stored in accordance with legal and regulatory requirements.",
         ),
-    "joinCapital": MessageLookupByLibrary.simpleMessage("Join Capital"),
     "jordanianID": MessageLookupByLibrary.simpleMessage(
       "Jordanian national ID",
     ),
@@ -919,9 +897,6 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "weNeedYourJordinianIdCardToCheck": MessageLookupByLibrary.simpleMessage(
       "We need your Jordanian ID card to check that you are a real person. Get them ready to scan.",
-    ),
-    "welcomeTitle": MessageLookupByLibrary.simpleMessage(
-      "Welcome to Capital Bank\nMobile Banking",
     ),
     "zipCodeCannotBeEmpty": MessageLookupByLibrary.simpleMessage(
       "Zip code cannot be empty",

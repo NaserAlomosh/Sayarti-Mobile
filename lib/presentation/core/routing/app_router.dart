@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:sayarti_mobile/presentation/core/routing/routes.dart';
-import 'package:sayarti_mobile/presentation/features/splash/presentation/view/splash_view.dart';
+import 'package:sayarti_mobile/presentation/features/splash/view/splash_view.dart';
 
 class AppRouter {
   static Route<dynamic>? generateRoute(RouteSettings settings) {

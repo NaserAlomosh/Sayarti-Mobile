@@ -75,66 +75,6 @@ class S {
     );
   }
 
-  /// `Welcome to the Capital Bank!`
-  String get intro1Title {
-    return Intl.message(
-      'Welcome to the Capital Bank!',
-      name: 'intro1Title',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `Welcome to Capital Bank!`
-  String get intro3Title {
-    return Intl.message(
-      'Welcome to Capital Bank!',
-      name: 'intro3Title',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `Welcome to New Capital Bank App!`
-  String get intro4Title {
-    return Intl.message(
-      'Welcome to New Capital Bank App!',
-      name: 'intro4Title',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `Welcome to the New Capital Bank App!`
-  String get intro5Title {
-    return Intl.message(
-      'Welcome to the New Capital Bank App!',
-      name: 'intro5Title',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `Welcome to Capital Bank\nMobile Banking`
-  String get welcomeTitle {
-    return Intl.message(
-      'Welcome to Capital Bank\nMobile Banking',
-      name: 'welcomeTitle',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `New to Capital Bank? Open your new\ncurrent savings account today.`
-  String get intro1Subtitle {
-    return Intl.message(
-      'New to Capital Bank? Open your new\ncurrent savings account today.',
-      name: 'intro1Subtitle',
-      desc: '',
-      args: [],
-    );
-  }
-
   /// `Banking-on-the-Go`
   String get intro2Title {
     return Intl.message(
@@ -163,16 +103,6 @@ class S {
   /// `Register`
   String get register {
     return Intl.message('Register', name: 'register', desc: '', args: []);
-  }
-
-  /// `Join Capital`
-  String get joinCapital {
-    return Intl.message(
-      'Join Capital',
-      name: 'joinCapital',
-      desc: '',
-      args: [],
-    );
   }
 
   /// `OR`
@@ -2829,17 +2759,6 @@ class S {
     );
   }
 
-  /// `I consent to Capital Bank collecting and securely processing my ID data and selfie as described in the`
-  String
-  get iConsentToCapitalBankCollectingAndSecurelyProcessingMyIDdataAndSelfieAsDescribedInThe {
-    return Intl.message(
-      'I consent to Capital Bank collecting and securely processing my ID data and selfie as described in the',
-      name: 'iConsentToCapitalBankCollectingAndSecurelyProcessingMyIDdataAndSelfieAsDescribedInThe',
-      desc: '',
-      args: [],
-    );
-  }
-
   /// `Privacy Notice`
   String get privacyNoticeForgetPasswordAndChangeDeviceFlow {
     return Intl.message(
@@ -2865,16 +2784,6 @@ class S {
     return Intl.message(
       'The ID will be encrypted, stored securely, and only used to verify your identity.',
       name: 'theIdWillBeEncryptedStoredSecurelyAndOnlyUsedToVerifyYourIdentity',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `Privacy Notice`
-  String get iConsentToCapitalBankCollectingAndComply {
-    return Intl.message(
-      'Privacy Notice',
-      name: 'iConsentToCapitalBankCollectingAndComply',
       desc: '',
       args: [],
     );

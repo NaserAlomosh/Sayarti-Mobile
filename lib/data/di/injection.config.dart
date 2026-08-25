@@ -44,6 +44,8 @@ import 'package:sayarti_mobile/presentation/core/theme/cubit/theme_cubit.dart'
     as _i817;
 import 'package:sayarti_mobile/presentation/core/widgets/language/cubit/languge_cubit.dart'
     as _i480;
+import 'package:sayarti_mobile/presentation/features/splash/cubit/splash_cubit.dart'
+    as _i50;
 import 'package:shared_preferences/shared_preferences.dart' as _i460;
 
 extension GetItInjectableX on _i174.GetIt {
@@ -63,6 +65,7 @@ extension GetItInjectableX on _i174.GetIt {
     );
     gh.lazySingleton<_i361.Dio>(() => remoteMoudel.dio());
     gh.lazySingleton<_i817.ThemeCubit>(() => _i817.ThemeCubit());
+    gh.lazySingleton<_i50.SplashCubit>(() => _i50.SplashCubit());
     gh.lazySingleton<_i313.DioClient>(
       () => _i313.DioClient(dio: gh<_i361.Dio>()),
     );

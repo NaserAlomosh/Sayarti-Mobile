@@ -280,12 +280,6 @@ class MessageLookup extends MessageLookupByLibrary {
     "iAgreeToThe": MessageLookupByLibrary.simpleMessage("أوافق على"),
     "iConfirmAndAgreeThatAllMyIdDetailsAreCorrect":
         MessageLookupByLibrary.simpleMessage("أؤكد ان كل المعلومات صحيحة"),
-    "iConsentToCapitalBankCollectingAndComply":
-        MessageLookupByLibrary.simpleMessage("إشعار الخصوصية"),
-    "iConsentToCapitalBankCollectingAndSecurelyProcessingMyIDdataAndSelfieAsDescribedInThe":
-        MessageLookupByLibrary.simpleMessage(
-          "أوافق على قيام كابيتال بنك بجمع بيانات هويتي وصورتي الشخصية ومعالجتها بشكل آمن كما هو موضح في",
-        ),
     "iDIssuingPlace": MessageLookupByLibrary.simpleMessage("مكان إصدار الهوية"),
     "iN": MessageLookupByLibrary.simpleMessage("خلال"),
     "ibanCanOnlyContainAlphanumerics": MessageLookupByLibrary.simpleMessage(
@@ -339,20 +333,11 @@ class MessageLookup extends MessageLookupByLibrary {
         MessageLookupByLibrary.simpleMessage(
           "يجب أن يكون رمز IFSC مكون من 11 خانة مكونة من أحرف و أرقام",
         ),
-    "intro1Subtitle": MessageLookupByLibrary.simpleMessage(
-      "جديد مع كابيتال بنك؟ بتقدر تفتح حسابك الجاري أو التوفير اليوم.",
-    ),
-    "intro1Title": MessageLookupByLibrary.simpleMessage(
-      "أهلاً بك في كابيتال بنك!",
-    ),
     "intro2Subtitle": MessageLookupByLibrary.simpleMessage(
       "احصل على موافقة فورية على طلب بطاقتك الائتمانية و قرضك الشخصي",
     ),
     "intro2Title": MessageLookupByLibrary.simpleMessage(
       "بنكك دائما معك اينما كنت",
-    ),
-    "intro3Title": MessageLookupByLibrary.simpleMessage(
-      "أهلاً بك في كابيتال بنك!",
     ),
     "invalidMobileFormat": MessageLookupByLibrary.simpleMessage(
       "صيغة رقم الموبايل المدخلة غير صحيحة",
@@ -364,7 +349,6 @@ class MessageLookup extends MessageLookupByLibrary {
         MessageLookupByLibrary.simpleMessage(
           " سارية المفعول من الجهتين الأمامية و الخلفية .ليتم التحقق من هويتك و معلوماتك مع الجهة مصدرة البطاقة.سيتم تخزين البيانات/صورة الهوية بشكل آمن وفقاً للمتطلبات القانونية و التنظيمية.",
         ),
-    "joinCapital": MessageLookupByLibrary.simpleMessage("فتح حساب جديد"),
     "jordanianID": MessageLookupByLibrary.simpleMessage("هوية الأحوال المدنية"),
     "login": MessageLookupByLibrary.simpleMessage("تسجيل دخول"),
     "makeSureYouReInBrightPlace": MessageLookupByLibrary.simpleMessage(
@@ -921,9 +905,6 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "weNeedYourJordinianIdCardToCheck": MessageLookupByLibrary.simpleMessage(
       "نحتاج بطاقة الاحوال المدنية الاردنية للتحقق من المعلومات المطلوبة",
-    ),
-    "welcomeTitle": MessageLookupByLibrary.simpleMessage(
-      "أهلاً بك في تطبيق كابيتال بنك",
     ),
     "zipCodeCannotBeEmpty": MessageLookupByLibrary.simpleMessage(
       "لا يمكن ان يكون الرمز البريدي فارغا",

@@ -4,9 +4,9 @@ class AppColor {
   AppColor._();
 
   // Primary text colors
-  static const primaryBlue = Color(0xFF283742);
+  static const primaryBlue = Colors.cyanAccent;
   static const primaryRed = Color(0xFF820103);
-  static const blueDark = Color(0xFF2D3748);
+  static const blueDark = Colors.cyan;
 
   // Splash
   static const pungentGrey = Color(0xFF26333F);

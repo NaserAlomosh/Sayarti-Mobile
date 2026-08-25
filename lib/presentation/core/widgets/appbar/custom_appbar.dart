@@ -81,28 +81,28 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
         statusBarBrightness: Brightness.light,
       ),
       automaticallyImplyLeading: false,
-      leading: showBackButton
-          ? IconButton(
-              splashColor: Colors.transparent,
-              highlightColor: Colors.transparent,
-              hoverColor: Colors.transparent,
-              onPressed:
-                  onBackPressed ??
-                  () async {
-                    await Navigator.of(context).maybePop();
-                  },
-              icon:
-                  backIcon ??
-                  SvgPicture.asset(
-                    AppImages.arrowBack,
-                    matchTextDirection: true,
-                    colorFilter: ColorFilter.mode(
-                      effectiveBackIconColor,
-                      BlendMode.srcIn,
-                    ),
-                  ),
-            )
-          : const SizedBox.shrink(),
+      // leading: showBackButton
+      //     ? IconButton(
+      //         splashColor: Colors.transparent,
+      //         highlightColor: Colors.transparent,
+      //         hoverColor: Colors.transparent,
+      //         onPressed:
+      //             onBackPressed ??
+      //             () async {
+      //               await Navigator.of(context).maybePop();
+      //             },
+      //         icon: Icon(Icons..b)
+      //         //     backIcon ??
+      //         //     SvgPicture.asset(
+      //         //       AppImages.arrowBack,
+      //         //       matchTextDirection: true,
+      //         //       colorFilter: ColorFilter.mode(
+      //         //         effectiveBackIconColor,
+      //         //         BlendMode.srcIn,
+      //         //       ),
+      //         //     ),
+      //       )
+      //     : const SizedBox.shrink(),
       title: Padding(
         padding: const EdgeInsets.only(top: 8),
         child: title ?? const SizedBox.shrink(),
