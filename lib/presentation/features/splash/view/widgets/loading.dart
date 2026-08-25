@@ -4,7 +4,6 @@ class _SplashLoadingIndicator extends StatefulWidget {
   const _SplashLoadingIndicator();
 
   @override
-
   State<_SplashLoadingIndicator> createState() =>
       _SplashLoadingIndicatorState();
 }
@@ -49,6 +48,7 @@ class _SplashLoadingIndicatorState extends State<_SplashLoadingIndicator>
               alignment: Alignment.centerLeft,
               children: [
                 Container(
+                  key: SplashView.loadingTrackKey,
                   width: constraints.maxWidth,
                   height: 2,
                   decoration: BoxDecoration(
@@ -61,6 +61,7 @@ class _SplashLoadingIndicatorState extends State<_SplashLoadingIndicator>
                   animation: _animation,
                   builder: (context, child) {
                     return Container(
+                      key: SplashView.loadingProgressKey,
                       width: constraints.maxWidth * _animation.value,
                       height: 2,
                       decoration: BoxDecoration(

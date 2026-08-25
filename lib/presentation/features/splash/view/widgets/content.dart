@@ -11,6 +11,7 @@ class _SplashContent extends StatelessWidget {
         /// Background image
         Image.asset(
           AppImages.splashPng,
+          key: SplashView.backgroundImageKey,
           fit: BoxFit.cover,
           alignment: Alignment.center,
         ),
@@ -54,4 +55,3 @@ class _SplashContent extends StatelessWidget {
     );
   }
 }
-

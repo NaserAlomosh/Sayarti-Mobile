@@ -7,8 +7,13 @@ import 'package:sayarti_mobile/presentation/features/splash/cubit/splash_cubit.d
 import '../../../core/base/view/base_view.dart';
 part '../view/widgets/content.dart';
 part '../view/widgets/loading.dart';
+
 class SplashView extends BaseView<SplashCubit, SplashState> {
   const SplashView({super.key});
+
+  static const backgroundImageKey = Key('splash_background_image');
+  static const loadingTrackKey = Key('splash_loading_track');
+  static const loadingProgressKey = Key('splash_loading_progress');
 
   @override
   Widget buildContent(BuildContext context, SplashCubit cubit) {
@@ -29,4 +34,3 @@ class SplashView extends BaseView<SplashCubit, SplashState> {
     return AppColor.black;
   }
 }
-
