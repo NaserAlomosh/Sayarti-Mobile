@@ -6,7 +6,7 @@ class CustomOutlinedButton extends StatefulWidget {
     required this.onPressed,
     required this.text,
     this.textColor,
-    this.backgroundColor = Colors.transparent,
+    this.backgroundColor,
     this.borderColor,
     this.width,
     this.height = 56,
@@ -33,7 +33,7 @@ class CustomOutlinedButton extends StatefulWidget {
   final VoidCallback? onPressed;
 
   final Color? textColor;
-  final Color backgroundColor;
+  final Color? backgroundColor;
   final Color? borderColor;
 
   final double? width;
@@ -85,18 +85,17 @@ class _CustomOutlinedButtonState
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
 
-    final textColor =
-        widget.textColor ?? theme.shadowColor;
+    final textColor = widget.textColor ?? theme.colorScheme.primary;
 
-    final borderColor =
-        widget.borderColor ?? Colors.grey.shade300;
+    final borderColor = widget.borderColor ?? theme.dividerColor;
+    final backgroundColor = widget.backgroundColor ?? Colors.transparent;
 
     Widget button = MaterialButton(
       minWidth: widget.width,
       height: widget.height,
       elevation: 0,
-      color: widget.backgroundColor,
-      disabledColor: widget.backgroundColor,
+      color: backgroundColor,
+      disabledColor: backgroundColor,
       padding: widget.padding,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(

@@ -824,19 +824,21 @@ Widget? _buildSuffixIcon() {
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
 
-    final effectiveBorderColor = widget.borderColor ?? AppColor.greyForHints;
+    final inputTheme = theme.inputDecorationTheme;
+    final effectiveBorderColor =
+        widget.borderColor ?? theme.dividerColor;
 
     final effectiveFocusedBorderColor =
         widget.focusedBorderColor ??
         widget.borderColor ??
-        AppColor.greyForHints;
+        theme.colorScheme.primary;
 
     final effectiveErrorBorderColor =
         widget.errorBorderColor ?? theme.colorScheme.error;
 
     final effectiveDisabledBorderColor =
         widget.disabledBorderColor ??
-        AppColor.greyForHints.withValues(alpha: 0.5);
+        theme.disabledColor;
 
     final effectiveLabelStyle =
         widget.labelStyle ??
@@ -863,7 +865,10 @@ Widget? _buildSuffixIcon() {
     final effectiveHintStyle =
         widget.hintStyle ??
         TextStyle(
-          color: widget.hintColor ?? const Color(0xFFB5B5B5),
+          color:
+              widget.hintColor ??
+              inputTheme.hintStyle?.color ??
+              theme.hintColor,
           fontSize: widget.fontSize ?? 18,
           fontWeight: FontWeight.w400,
         );
