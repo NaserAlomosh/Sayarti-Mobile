@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:sayarti_mobile/presentation/core/constants/colors/app_color.dart';
 import 'package:sayarti_mobile/presentation/core/constants/images/app_images.dart';
+import 'package:sayarti_mobile/presentation/core/routing/routes.dart';
 import 'package:sayarti_mobile/presentation/features/splash/cubit/splash_cubit.dart';
 
 import '../../../core/base/view/base_view.dart';
@@ -20,7 +22,14 @@ class SplashView extends BaseView<SplashCubit, SplashState> {
         statusBarBrightness: Brightness.dark,
         systemNavigationBarIconBrightness: Brightness.light,
       ),
-      child: _SplashContent(),
+      child: BlocListener<SplashCubit, SplashState>(
+        listenWhen: (previous, current) =>
+            previous.showOnboarding == null && current.showOnboarding == true,
+        listener: (context, state) {
+          Navigator.of(context).pushReplacementNamed(Routes.onboardingView);
+        },
+        child: _SplashContent(),
+      ),
     );
   }
 
@@ -29,4 +38,3 @@ class SplashView extends BaseView<SplashCubit, SplashState> {
     return AppColor.black;
   }
 }
-

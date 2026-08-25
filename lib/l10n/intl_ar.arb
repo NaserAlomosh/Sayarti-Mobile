@@ -425,5 +425,16 @@
     "pinCreateHint": "رمز التطبيق السري المكون من 6 أرقام رح يتم استخدامه لتدخل عحسابك كل مرة، أو كطريقة بديلة عن تسجيل الدخول الحيوي.",
     "createAppPin": "إنشاء رمز التطبيق السري ",
     "pleaseCreate6DigitPin": "يرجى إنشاء رمز التطبيق السري مكون من 6 أرقام.",
-    "confirmAppPin": "تأكيد رمز التطبيق السري"
+    "confirmAppPin": "تأكيد رمز التطبيق السري",
+    "skip": "تخطي",
+    "getStarted": "ابدأ الآن",
+    "onboardingOneEyebrow": "سيارتك ببساطة",
+    "onboardingOneTitle": "كل ما تحتاجه سيارتك في مكان واحد",
+    "onboardingOneDescription": "تابع كل التفاصيل وحافظ على معلومات سيارتك منظمة أينما كنت.",
+    "onboardingTwoEyebrow": "ابقَ مسيطراً",
+    "onboardingTwoTitle": "لا تفوّت ما يهمك",
+    "onboardingTwoDescription": "تابع الوقود والصيانة والمصاريف والتذكيرات المهمة.",
+    "onboardingThreeEyebrow": "قُد بثقة",
+    "onboardingThreeTitle": "رؤى أذكى لكل رحلة",
+    "onboardingThreeDescription": "افهم سيارتك بشكل أفضل واجعل كل قيادة أكثر وعياً."
 }

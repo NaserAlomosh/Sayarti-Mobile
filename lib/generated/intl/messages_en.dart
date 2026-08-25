@@ -898,6 +898,17 @@ class MessageLookup extends MessageLookupByLibrary {
     "weNeedYourJordinianIdCardToCheck": MessageLookupByLibrary.simpleMessage(
       "We need your Jordanian ID card to check that you are a real person. Get them ready to scan.",
     ),
+    "skip": MessageLookupByLibrary.simpleMessage('Skip'),
+    "getStarted": MessageLookupByLibrary.simpleMessage('Get Started'),
+    "onboardingOneEyebrow": MessageLookupByLibrary.simpleMessage('YOUR CAR, SIMPLIFIED'),
+    "onboardingOneTitle": MessageLookupByLibrary.simpleMessage('Everything your car needs, in one place'),
+    "onboardingOneDescription": MessageLookupByLibrary.simpleMessage('Track every detail and keep your vehicle information organized wherever you go.'),
+    "onboardingTwoEyebrow": MessageLookupByLibrary.simpleMessage('STAY IN CONTROL'),
+    "onboardingTwoTitle": MessageLookupByLibrary.simpleMessage('Never miss what matters'),
+    "onboardingTwoDescription": MessageLookupByLibrary.simpleMessage('Keep up with fuel, maintenance, expenses, and important reminders.'),
+    "onboardingThreeEyebrow": MessageLookupByLibrary.simpleMessage('DRIVE WITH CONFIDENCE'),
+    "onboardingThreeTitle": MessageLookupByLibrary.simpleMessage('Smarter insights for every journey'),
+    "onboardingThreeDescription": MessageLookupByLibrary.simpleMessage('Understand your car better and make every drive more informed.'),
     "zipCodeCannotBeEmpty": MessageLookupByLibrary.simpleMessage(
       "Zip code cannot be empty",
     ),

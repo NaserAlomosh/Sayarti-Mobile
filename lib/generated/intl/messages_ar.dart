@@ -906,6 +906,17 @@ class MessageLookup extends MessageLookupByLibrary {
     "weNeedYourJordinianIdCardToCheck": MessageLookupByLibrary.simpleMessage(
       "نحتاج بطاقة الاحوال المدنية الاردنية للتحقق من المعلومات المطلوبة",
     ),
+    "skip": MessageLookupByLibrary.simpleMessage('تخطي'),
+    "getStarted": MessageLookupByLibrary.simpleMessage('ابدأ الآن'),
+    "onboardingOneEyebrow": MessageLookupByLibrary.simpleMessage('سيارتك ببساطة'),
+    "onboardingOneTitle": MessageLookupByLibrary.simpleMessage('كل ما تحتاجه سيارتك في مكان واحد'),
+    "onboardingOneDescription": MessageLookupByLibrary.simpleMessage('تابع كل التفاصيل وحافظ على معلومات سيارتك منظمة أينما كنت.'),
+    "onboardingTwoEyebrow": MessageLookupByLibrary.simpleMessage('ابقَ مسيطراً'),
+    "onboardingTwoTitle": MessageLookupByLibrary.simpleMessage('لا تفوّت ما يهمك'),
+    "onboardingTwoDescription": MessageLookupByLibrary.simpleMessage('تابع الوقود والصيانة والمصاريف والتذكيرات المهمة.'),
+    "onboardingThreeEyebrow": MessageLookupByLibrary.simpleMessage('قُد بثقة'),
+    "onboardingThreeTitle": MessageLookupByLibrary.simpleMessage('رؤى أذكى لكل رحلة'),
+    "onboardingThreeDescription": MessageLookupByLibrary.simpleMessage('افهم سيارتك بشكل أفضل واجعل كل قيادة أكثر وعياً.'),
     "zipCodeCannotBeEmpty": MessageLookupByLibrary.simpleMessage(
       "لا يمكن ان يكون الرمز البريدي فارغا",
     ),
