@@ -16,7 +16,6 @@ import 'package:injectable/injectable.dart' as _i526;
 import 'package:local_auth/local_auth.dart' as _i152;
 import 'package:sayarti_mobile/data/di/local_moudel.dart' as _i685;
 import 'package:sayarti_mobile/data/di/remote_moudel.dart' as _i84;
-import 'package:sayarti_mobile/data/networking/dio/dio_client.dart' as _i313;
 import 'package:sayarti_mobile/data/repository/local/language/language_repository_impl.dart'
     as _i466;
 import 'package:sayarti_mobile/data/storage/auth/auth_session_storage_impl.dart'
@@ -173,11 +172,10 @@ extension GetItInjectableX on _i174.GetIt {
     gh.lazySingletonAsync<_i460.SharedPreferences>(
       () => localAuthModule.sharedPreferences,
     );
-    gh.lazySingleton<_i361.Dio>(() => remoteMoudel.dio());
-    gh.lazySingleton<_i817.ThemeCubit>(() => _i817.ThemeCubit());
-    gh.lazySingleton<_i313.DioClient>(
-      () => _i313.DioClient(dio: gh<_i361.Dio>()),
+    gh.lazySingleton<_i361.Dio>(
+      () => remoteMoudel.dio(gh<_i1001.AuthSessionStorage>()),
     );
+    gh.lazySingleton<_i817.ThemeCubit>(() => _i817.ThemeCubit());
     gh.lazySingleton<_i635.LanguageRepository>(
       () => _i466.LanguageRepositoryImpl(),
     );

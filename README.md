@@ -161,10 +161,10 @@ Codex MUST:
 * Standard API error support
 * SafeRequest
 * ApiResult
-* Authentication interceptor
-* Access-token attachment
-* Refresh-token handling
-* Automatic token refresh
+* [x] Authentication interceptor
+* [x] Access-token attachment
+* [x] Refresh-token handling
+* [x] Automatic token refresh
 * Unauthorized session handling
 * Request logging for development
 * Network connectivity handling
@@ -434,10 +434,10 @@ Data
 
 Integration
 
-* Automatic refresh flow
-* Replace old access token
-* Replace rotated refresh token
-* Failed refresh logout handling
+* [x] Automatic refresh flow
+* [x] Replace old access token
+* [x] Replace rotated refresh token
+* [x] Failed refresh token clearing
 * Runtime verification
 
 ⸻
