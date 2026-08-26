@@ -43,6 +43,14 @@ import 'package:sayarti_mobile/domain/usecase/local/language/get_user_language_u
     as _i757;
 import 'package:sayarti_mobile/domain/usecase/local/language/save_user_language_usecase.dart'
     as _i724;
+import 'package:sayarti_mobile/domain/usecase/remote/auth/google_login_usecase.dart'
+    as _i905;
+import 'package:sayarti_mobile/domain/usecase/remote/auth/logout_usecase.dart'
+    as _i906;
+import 'package:sayarti_mobile/domain/usecase/remote/auth/refresh_session_usecase.dart'
+    as _i907;
+import 'package:sayarti_mobile/domain/usecase/remote/auth/resend_verification_usecase.dart'
+    as _i908;
 import 'package:sayarti_mobile/domain/usecase/remote/auth/login_usecase.dart'
     as _i764;
 import 'package:sayarti_mobile/domain/usecase/remote/auth/register_usecase.dart'
@@ -51,6 +59,8 @@ import 'package:sayarti_mobile/domain/usecase/remote/auth/verify_email_usecase.d
     as _i903;
 import 'package:sayarti_mobile/domain/usecase/remote/reference/get_countries_usecase.dart'
     as _i904;
+import 'package:sayarti_mobile/domain/usecase/remote/reference/get_currencies_usecase.dart'
+    as _i909;
 import 'package:sayarti_mobile/presentation/core/theme/cubit/theme_cubit.dart'
     as _i817;
 import 'package:sayarti_mobile/presentation/core/widgets/language/cubit/languge_cubit.dart'
@@ -115,6 +125,18 @@ extension GetItInjectableX on _i174.GetIt {
     gh.lazySingleton<_i764.LoginUseCase>(
       () => _i764.LoginUseCase(gh<_i777.AuthRepository>()),
     );
+    gh.lazySingleton<_i905.GoogleLoginUseCase>(
+      () => _i905.GoogleLoginUseCase(gh<_i777.AuthRepository>()),
+    );
+    gh.lazySingleton<_i906.LogoutUseCase>(
+      () => _i906.LogoutUseCase(gh<_i777.AuthRepository>()),
+    );
+    gh.lazySingleton<_i907.RefreshSessionUseCase>(
+      () => _i907.RefreshSessionUseCase(gh<_i777.AuthRepository>()),
+    );
+    gh.lazySingleton<_i908.ResendVerificationUseCase>(
+      () => _i908.ResendVerificationUseCase(gh<_i777.AuthRepository>()),
+    );
     gh.lazySingleton<_i901.ReferenceRepository>(
       () => _i900.ReferenceRepositoryImpl(gh<_i406.ApiService>()),
     );
@@ -126,6 +148,9 @@ extension GetItInjectableX on _i174.GetIt {
     );
     gh.lazySingleton<_i904.GetCountriesUseCase>(
       () => _i904.GetCountriesUseCase(gh<_i901.ReferenceRepository>()),
+    );
+    gh.lazySingleton<_i909.GetCurrenciesUseCase>(
+      () => _i909.GetCurrenciesUseCase(gh<_i901.ReferenceRepository>()),
     );
     gh.lazySingleton<_i480.LanguageCubit>(
       () => _i480.LanguageCubit(
