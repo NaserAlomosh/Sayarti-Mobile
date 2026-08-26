@@ -820,14 +820,15 @@ Notification Handling
 
 15. Statistics
 
-* Statistics Entity
-* Statistics Models
-* Statistics Repository
-* Statistics Use Cases
-* Vehicle statistics API
-* Fuel statistics
-* Maintenance statistics
-* Expense statistics
+* [x] Statistics Entity
+* [x] Statistics Models
+* [x] Statistics Repository
+* [x] Statistics Use Cases
+* [x] Vehicle statistics API
+* [x] Fuel statistics
+* [x] Maintenance statistics
+* [x] Expense statistics
+* [x] True Vehicle Cost
 * Statistics page
 * Charts
 * Filters
@@ -1063,7 +1064,7 @@ Expenses	✅	✅	⬜	⬜
 Reminders	✅	✅	⬜	⬜
 Devices	✅	✅	N/A	⬜
 Notifications	⬜	⬜	⬜	⬜
-Statistics	⬜	⬜	⬜	⬜
+Statistics	✅	✅	⬜	⬜
 Dashboard	⬜	⬜	⬜	⬜
 Energy Tracking	⬜	⬜	⬜	⬜
 

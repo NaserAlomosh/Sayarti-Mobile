@@ -51,6 +51,11 @@ import 'package:sayarti_mobile/data/model/remote/request/device/register_device_
 import 'package:sayarti_mobile/data/model/remote/request/device/update_fcm_token_request_model.dart';
 import 'package:sayarti_mobile/data/model/remote/response/device/delete_device_response_model.dart';
 import 'package:sayarti_mobile/data/model/remote/response/device/device_response_model.dart';
+import 'package:sayarti_mobile/data/model/remote/response/statistics/expense_statistics_response_model.dart';
+import 'package:sayarti_mobile/data/model/remote/response/statistics/fuel_statistics_response_model.dart';
+import 'package:sayarti_mobile/data/model/remote/response/statistics/general_statistics_response_model.dart';
+import 'package:sayarti_mobile/data/model/remote/response/statistics/maintenance_statistics_response_model.dart';
+import 'package:sayarti_mobile/data/model/remote/response/statistics/true_vehicle_cost_response_model.dart';
 
 part 'api_service.g.dart';
 
@@ -288,6 +293,21 @@ abstract class ApiService {
     @Path('vehicleId') String vehicleId,
     @Path('reminderId') String reminderId,
   );
+
+  @GET('v1/vehicles/{vehicleId}/statistics')
+  Future<HttpResponse<GeneralStatisticsResponseModel>> getGeneralStatistics(@Path('vehicleId') String vehicleId);
+
+  @GET('v1/vehicles/{vehicleId}/statistics/fuel')
+  Future<HttpResponse<FuelStatisticsResponseModel>> getFuelStatistics(@Path('vehicleId') String vehicleId);
+
+  @GET('v1/vehicles/{vehicleId}/statistics/maintenance')
+  Future<HttpResponse<MaintenanceStatisticsResponseModel>> getMaintenanceStatistics(@Path('vehicleId') String vehicleId);
+
+  @GET('v1/vehicles/{vehicleId}/statistics/expenses')
+  Future<HttpResponse<ExpenseStatisticsResponseModel>> getExpenseStatistics(@Path('vehicleId') String vehicleId);
+
+  @GET('v1/vehicles/{vehicleId}/statistics/total-cost')
+  Future<HttpResponse<TrueVehicleCostResponseModel>> getTrueVehicleCost(@Path('vehicleId') String vehicleId);
 
   @POST('v1/devices')
   Future<HttpResponse<DeviceResponseModel>> registerDevice(
