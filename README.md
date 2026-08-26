@@ -1044,13 +1044,13 @@ Use this as the high-level project status.
 
 Feature	Domain	Data	Presentation	Integrated
 Login	✅	✅	⬜	⬜
-Registration	⬜	⬜	⬜	⬜
-Email Verification	⬜	⬜	⬜	⬜
+Registration	✅	✅	⬜	⬜
+Email Verification	✅	✅	⬜	⬜
 Resend Verification	⬜	⬜	⬜	⬜
 Google Authentication	⬜	⬜	⬜	⬜
 Refresh Session	⬜	⬜	N/A	⬜
 Logout	⬜	⬜	⬜	⬜
-Countries	⬜	⬜	⬜	⬜
+Countries	✅	✅	⬜	⬜
 Currencies	⬜	⬜	⬜	⬜
 User Profile	⬜	⬜	⬜	⬜
 Vehicle Management	⬜	⬜	⬜	⬜
@@ -1084,12 +1084,12 @@ Complete Authentication Flow
 
 Current Domain/Data task:
 
-* Registration Domain
-* Registration Data
-* Countries Domain
-* Countries Data
-* Verify Email Domain
-* Verify Email Data
+* [x] Registration Domain
+* [x] Registration Data
+* [x] Countries Domain
+* [x] Countries Data
+* [x] Verify Email Domain
+* [x] Verify Email Data
 
 Do not start Presentation implementation as part of the current Domain/Data task unless explicitly requested.
 
