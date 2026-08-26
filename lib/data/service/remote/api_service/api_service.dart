@@ -3,7 +3,12 @@ import 'package:retrofit/dio.dart';
 import 'package:retrofit/error_logger.dart';
 import 'package:retrofit/http.dart';
 import 'package:sayarti_mobile/data/model/remote/request/auth/login/login_request_model.dart';
+import 'package:sayarti_mobile/data/model/remote/request/auth/register/register_request_model.dart';
+import 'package:sayarti_mobile/data/model/remote/request/auth/verify_email/verify_email_request_model.dart';
 import 'package:sayarti_mobile/data/model/remote/response/auth/login/login_response_model.dart';
+import 'package:sayarti_mobile/data/model/remote/response/auth/register/register_response_model.dart';
+import 'package:sayarti_mobile/data/model/remote/response/auth/verify_email/verify_email_response_model.dart';
+import 'package:sayarti_mobile/data/model/remote/response/reference/countries/countries_response_model.dart';
 
 part 'api_service.g.dart';
 
@@ -15,4 +20,17 @@ abstract class ApiService {
   Future<HttpResponse<LoginResponseModel>> login(
     @Body() LoginRequestModel request,
   );
+
+  @POST('v1/auth/register')
+  Future<HttpResponse<RegisterResponseModel>> register(
+    @Body() RegisterRequestModel request,
+  );
+
+  @POST('v1/auth/verify-email')
+  Future<HttpResponse<VerifyEmailResponseModel>> verifyEmail(
+    @Body() VerifyEmailRequestModel request,
+  );
+
+  @GET('v1/reference/countries')
+  Future<HttpResponse<CountriesResponseModel>> getCountries();
 }

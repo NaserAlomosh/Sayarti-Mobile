@@ -21,6 +21,8 @@ import 'package:sayarti_mobile/data/repository/local/language/language_repositor
     as _i466;
 import 'package:sayarti_mobile/data/repository/remote/auth/auth_repository_impl.dart'
     as _i307;
+import 'package:sayarti_mobile/data/repository/remote/reference/reference_repository_impl.dart'
+    as _i900;
 import 'package:sayarti_mobile/data/service/remote/api_service/api_service.dart'
     as _i406;
 import 'package:sayarti_mobile/domain/repository/local/biometric/biometric_repository.dart'
@@ -29,6 +31,8 @@ import 'package:sayarti_mobile/domain/repository/local/language/language_reposit
     as _i635;
 import 'package:sayarti_mobile/domain/repository/remote/auth/auth_repository.dart'
     as _i777;
+import 'package:sayarti_mobile/domain/repository/remote/reference/reference_repository.dart'
+    as _i901;
 import 'package:sayarti_mobile/domain/usecase/local/biometric/authenticate_biometric_usecase.dart'
     as _i615;
 import 'package:sayarti_mobile/domain/usecase/local/biometric/get_biometric_info_usecase.dart'
@@ -41,6 +45,12 @@ import 'package:sayarti_mobile/domain/usecase/local/language/save_user_language_
     as _i724;
 import 'package:sayarti_mobile/domain/usecase/remote/auth/login_usecase.dart'
     as _i764;
+import 'package:sayarti_mobile/domain/usecase/remote/auth/register_usecase.dart'
+    as _i902;
+import 'package:sayarti_mobile/domain/usecase/remote/auth/verify_email_usecase.dart'
+    as _i903;
+import 'package:sayarti_mobile/domain/usecase/remote/reference/get_countries_usecase.dart'
+    as _i904;
 import 'package:sayarti_mobile/presentation/core/theme/cubit/theme_cubit.dart'
     as _i817;
 import 'package:sayarti_mobile/presentation/core/widgets/language/cubit/languge_cubit.dart'
@@ -104,6 +114,18 @@ extension GetItInjectableX on _i174.GetIt {
     );
     gh.lazySingleton<_i764.LoginUseCase>(
       () => _i764.LoginUseCase(gh<_i777.AuthRepository>()),
+    );
+    gh.lazySingleton<_i901.ReferenceRepository>(
+      () => _i900.ReferenceRepositoryImpl(gh<_i406.ApiService>()),
+    );
+    gh.lazySingleton<_i902.RegisterUseCase>(
+      () => _i902.RegisterUseCase(gh<_i777.AuthRepository>()),
+    );
+    gh.lazySingleton<_i903.VerifyEmailUseCase>(
+      () => _i903.VerifyEmailUseCase(gh<_i777.AuthRepository>()),
+    );
+    gh.lazySingleton<_i904.GetCountriesUseCase>(
+      () => _i904.GetCountriesUseCase(gh<_i901.ReferenceRepository>()),
     );
     gh.lazySingleton<_i480.LanguageCubit>(
       () => _i480.LanguageCubit(
