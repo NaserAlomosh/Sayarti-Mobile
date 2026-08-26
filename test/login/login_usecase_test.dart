@@ -1,9 +1,15 @@
 import 'package:flutter_test/flutter_test.dart';
 import 'package:sayarti_mobile/data/networking/api_result/api_result.dart';
+import 'package:sayarti_mobile/domain/base/entity/base_response_entity.dart';
 import 'package:sayarti_mobile/data/networking/error/app_error.dart';
 import 'package:sayarti_mobile/domain/entity/remote/auth/login_content_entity.dart';
+import 'package:sayarti_mobile/domain/entity/remote/auth/registration_content_entity.dart';
+import 'package:sayarti_mobile/domain/entity/remote/auth/resend_verification_content_entity.dart';
 import 'package:sayarti_mobile/domain/repository/remote/auth/auth_repository.dart';
 import 'package:sayarti_mobile/domain/usecase/remote/auth/login_usecase.dart';
+import 'package:sayarti_mobile/domain/usecase/remote/auth/register_usecase.dart';
+import 'package:sayarti_mobile/domain/usecase/remote/auth/resend_verification_usecase.dart';
+import 'package:sayarti_mobile/domain/usecase/remote/auth/verify_email_usecase.dart';
 
 class _RecordingRepository implements AuthRepository {
   LoginUseCaseParams? received;
@@ -12,6 +18,15 @@ class _RecordingRepository implements AuthRepository {
     received = params;
     return const ApiResult.failure(ApiErrorModel(message: 'unused'));
   }
+
+  @override
+  Future<ApiResult<BaseResponseEntity<RegistrationContentEntity>>> register(RegisterUseCaseParams params) => throw UnimplementedError();
+
+  @override
+  Future<ApiResult<BaseResponseEntity<ResendVerificationContentEntity>>> resendVerification(ResendVerificationUseCaseParams params) => throw UnimplementedError();
+
+  @override
+  Future<ApiResult<BaseResponseEntity<LoginContentEntity>>> verifyEmail(VerifyEmailUseCaseParams params) => throw UnimplementedError();
 }
 
 void main() {

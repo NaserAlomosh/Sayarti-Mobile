@@ -42,6 +42,27 @@ class _ApiService implements ApiService {
     return HttpResponse(value, result);
   }
 
+  @override
+  Future<HttpResponse<RegisterResponseModel>> register(RegisterRequestModel request) async {
+    final options = _setStreamType<RegisterResponseModel>(Options(method: 'POST').compose(_dio.options, 'v1/auth/register', data: request.toJson()).copyWith(baseUrl: _combineBaseUrls(_dio.options.baseUrl, baseUrl)));
+    final result = await _dio.fetch<Map<String, dynamic>>(options);
+    return HttpResponse(RegisterResponseModel.fromJson(result.data!), result);
+  }
+
+  @override
+  Future<HttpResponse<LoginResponseModel>> verifyEmail(VerifyEmailRequestModel request) async {
+    final options = _setStreamType<LoginResponseModel>(Options(method: 'POST').compose(_dio.options, 'v1/auth/verify-email', data: request.toJson()).copyWith(baseUrl: _combineBaseUrls(_dio.options.baseUrl, baseUrl)));
+    final result = await _dio.fetch<Map<String, dynamic>>(options);
+    return HttpResponse(LoginResponseModel.fromJson(result.data!), result);
+  }
+
+  @override
+  Future<HttpResponse<ResendVerificationResponseModel>> resendVerification(ResendVerificationRequestModel request) async {
+    final options = _setStreamType<ResendVerificationResponseModel>(Options(method: 'POST').compose(_dio.options, 'v1/auth/resend-verification', data: request.toJson()).copyWith(baseUrl: _combineBaseUrls(_dio.options.baseUrl, baseUrl)));
+    final result = await _dio.fetch<Map<String, dynamic>>(options);
+    return HttpResponse(ResendVerificationResponseModel.fromJson(result.data!), result);
+  }
+
   RequestOptions _setStreamType<T>(RequestOptions requestOptions) {
     if (T != dynamic &&
         !(requestOptions.responseType == ResponseType.bytes ||
