@@ -875,6 +875,53 @@ class _ApiService implements ApiService {
     return HttpResponse(_value, _result);
   }
 
+  @override
+  Future<HttpResponse<DeviceResponseModel>> registerDevice(RegisterDeviceRequestModel request) async {
+    final _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+    final _headers = <String, dynamic>{};
+    final _data = <String, dynamic>{};
+    _data.addAll(request.toJson());
+    final _options = _setStreamType<HttpResponse<DeviceResponseModel>>(
+      Options(method: 'POST', headers: _headers, extra: _extra).compose(_dio.options, 'v1/devices', queryParameters: queryParameters, data: _data).copyWith(baseUrl: _combineBaseUrls(_dio.options.baseUrl, baseUrl)),
+    );
+    final _result = await _dio.fetch<Map<String, dynamic>>(_options);
+    late DeviceResponseModel _value;
+    try { _value = DeviceResponseModel.fromJson(_result.data!); } on Object catch (e, st) { errorLogger?.logError(e, st, _options, response: _result); rethrow; }
+    return HttpResponse(_value, _result);
+  }
+
+  @override
+  Future<HttpResponse<DeviceResponseModel>> updateFcmToken(String deviceId, UpdateFcmTokenRequestModel request) async {
+    final _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+    final _headers = <String, dynamic>{};
+    final _data = <String, dynamic>{};
+    _data.addAll(request.toJson());
+    final _options = _setStreamType<HttpResponse<DeviceResponseModel>>(
+      Options(method: 'PATCH', headers: _headers, extra: _extra).compose(_dio.options, 'v1/devices/${deviceId}/fcm-token', queryParameters: queryParameters, data: _data).copyWith(baseUrl: _combineBaseUrls(_dio.options.baseUrl, baseUrl)),
+    );
+    final _result = await _dio.fetch<Map<String, dynamic>>(_options);
+    late DeviceResponseModel _value;
+    try { _value = DeviceResponseModel.fromJson(_result.data!); } on Object catch (e, st) { errorLogger?.logError(e, st, _options, response: _result); rethrow; }
+    return HttpResponse(_value, _result);
+  }
+
+  @override
+  Future<HttpResponse<DeleteDeviceResponseModel>> deleteDevice(String deviceId) async {
+    final _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+    final _headers = <String, dynamic>{};
+    final _data = <String, dynamic>{};
+    final _options = _setStreamType<HttpResponse<DeleteDeviceResponseModel>>(
+      Options(method: 'DELETE', headers: _headers, extra: _extra).compose(_dio.options, 'v1/devices/${deviceId}', queryParameters: queryParameters, data: _data).copyWith(baseUrl: _combineBaseUrls(_dio.options.baseUrl, baseUrl)),
+    );
+    final _result = await _dio.fetch<Map<String, dynamic>>(_options);
+    late DeleteDeviceResponseModel _value;
+    try { _value = DeleteDeviceResponseModel.fromJson(_result.data!); } on Object catch (e, st) { errorLogger?.logError(e, st, _options, response: _result); rethrow; }
+    return HttpResponse(_value, _result);
+  }
+
   String _combineBaseUrls(String dioBaseUrl, String? baseUrl) {
     if (baseUrl == null || baseUrl.trim().isEmpty) {
       return dioBaseUrl;
