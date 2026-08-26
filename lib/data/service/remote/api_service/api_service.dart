@@ -15,6 +15,11 @@ import 'package:sayarti_mobile/data/model/remote/response/auth/register/register
 import 'package:sayarti_mobile/data/model/remote/response/auth/verify_email/verify_email_response_model.dart';
 import 'package:sayarti_mobile/data/model/remote/response/reference/countries/countries_response_model.dart';
 import 'package:sayarti_mobile/data/model/remote/response/reference/currencies/currencies_response_model.dart';
+import 'package:sayarti_mobile/data/model/remote/request/user/change_default_currency/change_default_currency_request_model.dart';
+import 'package:sayarti_mobile/data/model/remote/request/user/select_country/select_country_request_model.dart';
+import 'package:sayarti_mobile/data/model/remote/request/user/update_user/update_user_request_model.dart';
+import 'package:sayarti_mobile/data/model/remote/response/user/delete_user/delete_user_response_model.dart';
+import 'package:sayarti_mobile/data/model/remote/response/user/user_response_model.dart';
 
 part 'api_service.g.dart';
 
@@ -62,4 +67,25 @@ abstract class ApiService {
 
   @GET('v1/reference/currencies')
   Future<HttpResponse<CurrenciesResponseModel>> getCurrencies();
+
+  @GET('v1/users/me')
+  Future<HttpResponse<UserResponseModel>> getCurrentUser();
+
+  @PATCH('v1/users/me')
+  Future<HttpResponse<UserResponseModel>> updateUser(
+    @Body() UpdateUserRequestModel request,
+  );
+
+  @PATCH('v1/users/me/country')
+  Future<HttpResponse<UserResponseModel>> selectCountry(
+    @Body() SelectCountryRequestModel request,
+  );
+
+  @PATCH('v1/users/me/default-currency')
+  Future<HttpResponse<UserResponseModel>> changeDefaultCurrency(
+    @Body() ChangeDefaultCurrencyRequestModel request,
+  );
+
+  @DELETE('v1/users/me')
+  Future<HttpResponse<DeleteUserResponseModel>> deleteAccount();
 }

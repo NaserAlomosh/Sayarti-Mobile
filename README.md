@@ -557,8 +557,8 @@ Backend:
 
 GET /api/v1/users/me
 
-* Domain
-* Data
+* [x] Domain
+* [x] Data
 * Presentation
 * Runtime verification
 
@@ -570,8 +570,8 @@ Backend:
 
 PATCH /api/v1/users/me
 
-* Domain
-* Data
+* [x] Domain
+* [x] Data
 * Presentation
 * Validation
 * Runtime verification
@@ -580,8 +580,8 @@ PATCH /api/v1/users/me
 
 7.3 Select Country
 
-* Domain
-* Data
+* [x] Domain
+* [x] Data
 * Presentation
 * Refresh user state after update
 * Runtime verification
@@ -590,8 +590,8 @@ PATCH /api/v1/users/me
 
 7.4 Change Default Currency
 
-* Domain
-* Data
+* [x] Domain
+* [x] Data
 * Presentation
 * Refresh user state after update
 * Runtime verification
@@ -604,8 +604,8 @@ Backend:
 
 DELETE /api/v1/users/me
 
-* Domain
-* Data
+* [x] Domain
+* [x] Data
 * Confirmation UI
 * API integration
 * Clear local authentication state
@@ -1052,7 +1052,7 @@ Refresh Session	✅	✅	N/A	⬜
 Logout	✅	✅	⬜	⬜
 Countries	✅	✅	⬜	⬜
 Currencies	✅	✅	⬜	⬜
-User Profile	⬜	⬜	⬜	⬜
+User Profile	✅	✅	⬜	⬜
 Vehicle Management	⬜	⬜	⬜	⬜
 Fuel Tracking	⬜	⬜	⬜	⬜
 Maintenance	⬜	⬜	⬜	⬜
