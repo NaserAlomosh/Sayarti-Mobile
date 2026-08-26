@@ -27,6 +27,14 @@ import 'package:sayarti_mobile/data/repository/remote/user/user_repository_impl.
     as _i910;
 import 'package:sayarti_mobile/data/repository/remote/vehicle/vehicle_repository_impl.dart'
     as _i920;
+import 'package:sayarti_mobile/data/repository/remote/fuel/fuel_repository_impl.dart' as _i928;
+import 'package:sayarti_mobile/domain/repository/remote/fuel/fuel_repository.dart' as _i929;
+import 'package:sayarti_mobile/domain/usecase/remote/fuel/create_fuel_record_usecase.dart' as _i930;
+import 'package:sayarti_mobile/domain/usecase/remote/fuel/delete_fuel_record_usecase.dart' as _i931;
+import 'package:sayarti_mobile/domain/usecase/remote/fuel/get_fuel_record_usecase.dart' as _i932;
+import 'package:sayarti_mobile/domain/usecase/remote/fuel/get_fuel_records_usecase.dart' as _i933;
+import 'package:sayarti_mobile/domain/usecase/remote/fuel/get_fuel_summary_usecase.dart' as _i934;
+import 'package:sayarti_mobile/domain/usecase/remote/fuel/update_fuel_record_usecase.dart' as _i935;
 import 'package:sayarti_mobile/data/service/remote/api_service/api_service.dart'
     as _i406;
 import 'package:sayarti_mobile/domain/repository/local/biometric/biometric_repository.dart'
@@ -170,6 +178,9 @@ extension GetItInjectableX on _i174.GetIt {
     gh.lazySingleton<_i921.VehicleRepository>(
       () => _i920.VehicleRepositoryImpl(gh<_i406.ApiService>()),
     );
+    gh.lazySingleton<_i929.FuelRepository>(
+      () => _i928.FuelRepositoryImpl(gh<_i406.ApiService>()),
+    );
     gh.lazySingleton<_i902.RegisterUseCase>(
       () => _i902.RegisterUseCase(gh<_i777.AuthRepository>()),
     );
@@ -197,6 +208,12 @@ extension GetItInjectableX on _i174.GetIt {
     gh.lazySingleton<_i916.UpdateUserUseCase>(
       () => _i916.UpdateUserUseCase(gh<_i911.UserRepository>()),
     );
+    gh.lazySingleton<_i930.CreateFuelRecordUseCase>(() => _i930.CreateFuelRecordUseCase(gh<_i929.FuelRepository>()));
+    gh.lazySingleton<_i931.DeleteFuelRecordUseCase>(() => _i931.DeleteFuelRecordUseCase(gh<_i929.FuelRepository>()));
+    gh.lazySingleton<_i932.GetFuelRecordUseCase>(() => _i932.GetFuelRecordUseCase(gh<_i929.FuelRepository>()));
+    gh.lazySingleton<_i933.GetFuelRecordsUseCase>(() => _i933.GetFuelRecordsUseCase(gh<_i929.FuelRepository>()));
+    gh.lazySingleton<_i934.GetFuelSummaryUseCase>(() => _i934.GetFuelSummaryUseCase(gh<_i929.FuelRepository>()));
+    gh.lazySingleton<_i935.UpdateFuelRecordUseCase>(() => _i935.UpdateFuelRecordUseCase(gh<_i929.FuelRepository>()));
     gh.lazySingleton<_i922.CreateVehicleUseCase>(() => _i922.CreateVehicleUseCase(gh<_i921.VehicleRepository>()));
     gh.lazySingleton<_i923.DeleteVehicleUseCase>(() => _i923.DeleteVehicleUseCase(gh<_i921.VehicleRepository>()));
     gh.lazySingleton<_i924.GetVehicleDetailsUseCase>(() => _i924.GetVehicleDetailsUseCase(gh<_i921.VehicleRepository>()));

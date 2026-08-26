@@ -687,15 +687,15 @@ The backend roadmap includes fuel records and fuel calculations such as distance
 
 Fuel Records
 
-* Fuel Entity
-* Fuel Models
-* Fuel Repository
-* Fuel Use Cases
-* Get Fuel Records
-* Get Fuel Record
-* Create Fuel Record
-* Update Fuel Record
-* Delete Fuel Record
+* [x] Fuel Entity
+* [x] Fuel Models
+* [x] Fuel Repository
+* [x] Fuel Use Cases
+* [x] Get Fuel Records
+* [x] Get Fuel Record
+* [x] Create Fuel Record
+* [x] Update Fuel Record
+* [x] Delete Fuel Record
 * Fuel history page
 * Add fuel page
 * Edit fuel page
@@ -704,6 +704,7 @@ Fuel Records
 
 Fuel Statistics
 
+* [x] Fuel Summary API Domain/Data
 * Distance between refills
 * Fuel efficiency
 * L/100km
@@ -1054,7 +1055,7 @@ Countries	✅	✅	⬜	⬜
 Currencies	✅	✅	⬜	⬜
 User Profile	✅	✅	⬜	⬜
 Vehicle Management	⬜	⬜	⬜	⬜
-Fuel Tracking	⬜	⬜	⬜	⬜
+Fuel Tracking	✅	✅	⬜	⬜
 Maintenance	⬜	⬜	⬜	⬜
 Expenses	⬜	⬜	⬜	⬜
 Reminders	⬜	⬜	⬜	⬜

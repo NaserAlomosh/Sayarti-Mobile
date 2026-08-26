@@ -518,6 +518,105 @@ class _ApiService implements ApiService {
     return HttpResponse(_value, _result);
   }
 
+  @override
+  Future<HttpResponse<FuelRecordResponseModel>> createFuelRecord(String vehicleId, CreateFuelRecordRequestModel request) async {
+    final _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+    final _headers = <String, dynamic>{};
+    final _data = <String, dynamic>{};
+    _data.addAll(request.toJson());
+    final _options = _setStreamType<HttpResponse<FuelRecordResponseModel>>(
+      Options(method: 'POST', headers: _headers, extra: _extra).compose(_dio.options, 'v1/vehicles/${vehicleId}/fuel-records', queryParameters: queryParameters, data: _data).copyWith(baseUrl: _combineBaseUrls(_dio.options.baseUrl, baseUrl)),
+    );
+    final _result = await _dio.fetch<Map<String, dynamic>>(_options);
+    late FuelRecordResponseModel _value;
+    try { _value = FuelRecordResponseModel.fromJson(_result.data!); } on Object catch (e, st) { errorLogger?.logError(e, st, _options, response: _result); rethrow; }
+    return HttpResponse(_value, _result);
+  }
+
+  @override
+  Future<HttpResponse<GetFuelRecordsResponseModel>> getFuelRecords(String vehicleId, int page, int size, String? sortBy, String? sortDirection, DateTime? from, DateTime? to) async {
+    final _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+    queryParameters[r'page'] = page;
+    queryParameters[r'size'] = size;
+    if (sortBy != null) queryParameters[r'sortBy'] = sortBy;
+    if (sortDirection != null) queryParameters[r'sortDirection'] = sortDirection;
+    if (from != null) queryParameters[r'from'] = from.toIso8601String();
+    if (to != null) queryParameters[r'to'] = to.toIso8601String();
+    final _headers = <String, dynamic>{};
+    final _data = <String, dynamic>{};
+    final _options = _setStreamType<HttpResponse<GetFuelRecordsResponseModel>>(
+      Options(method: 'GET', headers: _headers, extra: _extra).compose(_dio.options, 'v1/vehicles/${vehicleId}/fuel-records', queryParameters: queryParameters, data: _data).copyWith(baseUrl: _combineBaseUrls(_dio.options.baseUrl, baseUrl)),
+    );
+    final _result = await _dio.fetch<Map<String, dynamic>>(_options);
+    late GetFuelRecordsResponseModel _value;
+    try { _value = GetFuelRecordsResponseModel.fromJson(_result.data!); } on Object catch (e, st) { errorLogger?.logError(e, st, _options, response: _result); rethrow; }
+    return HttpResponse(_value, _result);
+  }
+
+  @override
+  Future<HttpResponse<FuelRecordResponseModel>> getFuelRecord(String vehicleId, String fuelRecordId) async {
+    final _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+    final _headers = <String, dynamic>{};
+    final _data = <String, dynamic>{};
+    final _options = _setStreamType<HttpResponse<FuelRecordResponseModel>>(
+      Options(method: 'GET', headers: _headers, extra: _extra).compose(_dio.options, 'v1/vehicles/${vehicleId}/fuel-records/${fuelRecordId}', queryParameters: queryParameters, data: _data).copyWith(baseUrl: _combineBaseUrls(_dio.options.baseUrl, baseUrl)),
+    );
+    final _result = await _dio.fetch<Map<String, dynamic>>(_options);
+    late FuelRecordResponseModel _value;
+    try { _value = FuelRecordResponseModel.fromJson(_result.data!); } on Object catch (e, st) { errorLogger?.logError(e, st, _options, response: _result); rethrow; }
+    return HttpResponse(_value, _result);
+  }
+
+  @override
+  Future<HttpResponse<FuelSummaryResponseModel>> getFuelSummary(String vehicleId, String? month) async {
+    final _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+    if (month != null) queryParameters[r'month'] = month;
+    final _headers = <String, dynamic>{};
+    final _data = <String, dynamic>{};
+    final _options = _setStreamType<HttpResponse<FuelSummaryResponseModel>>(
+      Options(method: 'GET', headers: _headers, extra: _extra).compose(_dio.options, 'v1/vehicles/${vehicleId}/fuel-records/summary', queryParameters: queryParameters, data: _data).copyWith(baseUrl: _combineBaseUrls(_dio.options.baseUrl, baseUrl)),
+    );
+    final _result = await _dio.fetch<Map<String, dynamic>>(_options);
+    late FuelSummaryResponseModel _value;
+    try { _value = FuelSummaryResponseModel.fromJson(_result.data!); } on Object catch (e, st) { errorLogger?.logError(e, st, _options, response: _result); rethrow; }
+    return HttpResponse(_value, _result);
+  }
+
+  @override
+  Future<HttpResponse<FuelRecordResponseModel>> updateFuelRecord(String vehicleId, String fuelRecordId, UpdateFuelRecordRequestModel request) async {
+    final _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+    final _headers = <String, dynamic>{};
+    final _data = <String, dynamic>{};
+    _data.addAll(request.toJson());
+    final _options = _setStreamType<HttpResponse<FuelRecordResponseModel>>(
+      Options(method: 'PATCH', headers: _headers, extra: _extra).compose(_dio.options, 'v1/vehicles/${vehicleId}/fuel-records/${fuelRecordId}', queryParameters: queryParameters, data: _data).copyWith(baseUrl: _combineBaseUrls(_dio.options.baseUrl, baseUrl)),
+    );
+    final _result = await _dio.fetch<Map<String, dynamic>>(_options);
+    late FuelRecordResponseModel _value;
+    try { _value = FuelRecordResponseModel.fromJson(_result.data!); } on Object catch (e, st) { errorLogger?.logError(e, st, _options, response: _result); rethrow; }
+    return HttpResponse(_value, _result);
+  }
+
+  @override
+  Future<HttpResponse<DeleteFuelRecordResponseModel>> deleteFuelRecord(String vehicleId, String fuelRecordId) async {
+    final _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+    final _headers = <String, dynamic>{};
+    final _data = <String, dynamic>{};
+    final _options = _setStreamType<HttpResponse<DeleteFuelRecordResponseModel>>(
+      Options(method: 'DELETE', headers: _headers, extra: _extra).compose(_dio.options, 'v1/vehicles/${vehicleId}/fuel-records/${fuelRecordId}', queryParameters: queryParameters, data: _data).copyWith(baseUrl: _combineBaseUrls(_dio.options.baseUrl, baseUrl)),
+    );
+    final _result = await _dio.fetch<Map<String, dynamic>>(_options);
+    late DeleteFuelRecordResponseModel _value;
+    try { _value = DeleteFuelRecordResponseModel.fromJson(_result.data!); } on Object catch (e, st) { errorLogger?.logError(e, st, _options, response: _result); rethrow; }
+    return HttpResponse(_value, _result);
+  }
+
   String _combineBaseUrls(String dioBaseUrl, String? baseUrl) {
     if (baseUrl == null || baseUrl.trim().isEmpty) {
       return dioBaseUrl;
