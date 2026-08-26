@@ -839,11 +839,11 @@ Notification Handling
 
 16. Dashboard
 
-* Dashboard Entity
-* Dashboard Models
-* Dashboard Repository
-* Dashboard Use Case
-* Dashboard API integration
+* [x] Dashboard Entity
+* [x] Dashboard Models
+* [x] Dashboard Repository
+* [x] Dashboard Use Case
+* [x] Dashboard API integration
 * Dashboard page
 * Vehicle summary
 * Fuel summary
@@ -1065,7 +1065,7 @@ Reminders	✅	✅	⬜	⬜
 Devices	✅	✅	N/A	⬜
 Notifications	⬜	⬜	⬜	⬜
 Statistics	✅	✅	⬜	⬜
-Dashboard	⬜	⬜	⬜	⬜
+Dashboard	✅	✅	⬜	⬜
 Energy Tracking	⬜	⬜	⬜	⬜
 
 ⸻
