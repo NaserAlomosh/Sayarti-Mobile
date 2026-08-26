@@ -399,6 +399,125 @@ class _ApiService implements ApiService {
     return requestOptions;
   }
 
+  @override
+  Future<HttpResponse<VehicleResponseModel>> createVehicle(
+    CreateVehicleRequestModel request,
+  ) async {
+    final _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+
+    final _headers = <String, dynamic>{};
+    final _data = <String, dynamic>{};
+    _data.addAll(request.toJson());
+    final _options = _setStreamType<HttpResponse<VehicleResponseModel>>(
+      Options(method: 'POST', headers: _headers, extra: _extra).compose(_dio.options, 'v1/vehicles', queryParameters: queryParameters, data: _data).copyWith(baseUrl: _combineBaseUrls(_dio.options.baseUrl, baseUrl)),
+    );
+    final _result = await _dio.fetch<Map<String, dynamic>>(_options);
+    late VehicleResponseModel _value;
+    try { _value = VehicleResponseModel.fromJson(_result.data!); } on Object catch (e, st) { errorLogger?.logError(e, st, _options, response: _result); rethrow; }
+    return HttpResponse(_value, _result);
+  }
+
+  @override
+  Future<HttpResponse<GetVehiclesResponseModel>> getVehicles(
+    int page,
+    int size,
+    String? sortBy,
+    String? sortDirection,
+  ) async {
+    final _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+    queryParameters[r'page'] = page;
+    queryParameters[r'size'] = size;
+    if (sortBy != null) queryParameters[r'sortBy'] = sortBy;
+    if (sortDirection != null) queryParameters[r'sortDirection'] = sortDirection;
+    final _headers = <String, dynamic>{};
+    final _data = <String, dynamic>{};
+    final _options = _setStreamType<HttpResponse<GetVehiclesResponseModel>>(
+      Options(method: 'GET', headers: _headers, extra: _extra).compose(_dio.options, 'v1/vehicles', queryParameters: queryParameters, data: _data).copyWith(baseUrl: _combineBaseUrls(_dio.options.baseUrl, baseUrl)),
+    );
+    final _result = await _dio.fetch<Map<String, dynamic>>(_options);
+    late GetVehiclesResponseModel _value;
+    try { _value = GetVehiclesResponseModel.fromJson(_result.data!); } on Object catch (e, st) { errorLogger?.logError(e, st, _options, response: _result); rethrow; }
+    return HttpResponse(_value, _result);
+  }
+
+  @override
+  Future<HttpResponse<VehicleResponseModel>> getVehicleDetails(
+    String vehicleId,
+  ) async {
+    final _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+
+    final _headers = <String, dynamic>{};
+    final _data = <String, dynamic>{};
+    final _options = _setStreamType<HttpResponse<VehicleResponseModel>>(
+      Options(method: 'GET', headers: _headers, extra: _extra).compose(_dio.options, 'v1/vehicles/${vehicleId}', queryParameters: queryParameters, data: _data).copyWith(baseUrl: _combineBaseUrls(_dio.options.baseUrl, baseUrl)),
+    );
+    final _result = await _dio.fetch<Map<String, dynamic>>(_options);
+    late VehicleResponseModel _value;
+    try { _value = VehicleResponseModel.fromJson(_result.data!); } on Object catch (e, st) { errorLogger?.logError(e, st, _options, response: _result); rethrow; }
+    return HttpResponse(_value, _result);
+  }
+
+  @override
+  Future<HttpResponse<VehicleResponseModel>> updateVehicle(
+    String vehicleId,
+    UpdateVehicleRequestModel request,
+  ) async {
+    final _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+
+    final _headers = <String, dynamic>{};
+    final _data = <String, dynamic>{};
+    _data.addAll(request.toJson());
+    final _options = _setStreamType<HttpResponse<VehicleResponseModel>>(
+      Options(method: 'PATCH', headers: _headers, extra: _extra).compose(_dio.options, 'v1/vehicles/${vehicleId}', queryParameters: queryParameters, data: _data).copyWith(baseUrl: _combineBaseUrls(_dio.options.baseUrl, baseUrl)),
+    );
+    final _result = await _dio.fetch<Map<String, dynamic>>(_options);
+    late VehicleResponseModel _value;
+    try { _value = VehicleResponseModel.fromJson(_result.data!); } on Object catch (e, st) { errorLogger?.logError(e, st, _options, response: _result); rethrow; }
+    return HttpResponse(_value, _result);
+  }
+
+  @override
+  Future<HttpResponse<VehicleResponseModel>> updateVehicleMileage(
+    String vehicleId,
+    UpdateMileageRequestModel request,
+  ) async {
+    final _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+
+    final _headers = <String, dynamic>{};
+    final _data = <String, dynamic>{};
+    _data.addAll(request.toJson());
+    final _options = _setStreamType<HttpResponse<VehicleResponseModel>>(
+      Options(method: 'PATCH', headers: _headers, extra: _extra).compose(_dio.options, 'v1/vehicles/${vehicleId}/mileage', queryParameters: queryParameters, data: _data).copyWith(baseUrl: _combineBaseUrls(_dio.options.baseUrl, baseUrl)),
+    );
+    final _result = await _dio.fetch<Map<String, dynamic>>(_options);
+    late VehicleResponseModel _value;
+    try { _value = VehicleResponseModel.fromJson(_result.data!); } on Object catch (e, st) { errorLogger?.logError(e, st, _options, response: _result); rethrow; }
+    return HttpResponse(_value, _result);
+  }
+
+  @override
+  Future<HttpResponse<DeleteVehicleResponseModel>> deleteVehicle(
+    String vehicleId,
+  ) async {
+    final _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+
+    final _headers = <String, dynamic>{};
+    final _data = <String, dynamic>{};
+    final _options = _setStreamType<HttpResponse<DeleteVehicleResponseModel>>(
+      Options(method: 'DELETE', headers: _headers, extra: _extra).compose(_dio.options, 'v1/vehicles/${vehicleId}', queryParameters: queryParameters, data: _data).copyWith(baseUrl: _combineBaseUrls(_dio.options.baseUrl, baseUrl)),
+    );
+    final _result = await _dio.fetch<Map<String, dynamic>>(_options);
+    late DeleteVehicleResponseModel _value;
+    try { _value = DeleteVehicleResponseModel.fromJson(_result.data!); } on Object catch (e, st) { errorLogger?.logError(e, st, _options, response: _result); rethrow; }
+    return HttpResponse(_value, _result);
+  }
+
   String _combineBaseUrls(String dioBaseUrl, String? baseUrl) {
     if (baseUrl == null || baseUrl.trim().isEmpty) {
       return dioBaseUrl;
