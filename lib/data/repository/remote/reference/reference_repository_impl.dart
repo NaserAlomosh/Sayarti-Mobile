@@ -4,6 +4,7 @@ import 'package:sayarti_mobile/data/networking/safe_request/safe_request.dart';
 import 'package:sayarti_mobile/data/service/remote/api_service/api_service.dart';
 import 'package:sayarti_mobile/domain/base/entity/base_response_entity.dart';
 import 'package:sayarti_mobile/domain/entity/remote/reference/country_entity.dart';
+import 'package:sayarti_mobile/domain/entity/remote/reference/currency_entity.dart';
 import 'package:sayarti_mobile/domain/repository/remote/reference/reference_repository.dart';
 
 @LazySingleton(as: ReferenceRepository)
@@ -16,5 +17,11 @@ class ReferenceRepositoryImpl implements ReferenceRepository {
   Future<ApiResult<BaseResponseEntity<List<CountryEntity>>>> getCountries() =>
       SafeRequest.executeList<CountryEntity>(
         request: _apiService.getCountries(),
+      );
+
+  @override
+  Future<ApiResult<BaseResponseEntity<List<CurrencyEntity>>>> getCurrencies() =>
+      SafeRequest.executeList<CurrencyEntity>(
+        request: _apiService.getCurrencies(),
       );
 }

@@ -348,16 +348,16 @@ POST /api/v1/auth/resend-verification
 
 Domain
 
-* ResendVerificationUseCase
-* ResendVerificationUseCaseParams
-* AuthRepository resendVerification contract
+* [x] ResendVerificationUseCase
+* [x] ResendVerificationUseCaseParams
+* [x] AuthRepository resendVerification contract
 
 Data
 
-* ResendVerificationRequestModel
-* ResendVerification response model/entity if required
-* AuthRepositoryImpl resendVerification
-* ApiService resendVerification endpoint
+* [x] ResendVerificationRequestModel
+* [x] ResendVerification response model/entity if required
+* [x] AuthRepositoryImpl resendVerification
+* [x] ApiService resendVerification endpoint
 
 Presentation
 
@@ -378,17 +378,17 @@ POST /api/v1/auth/google
 
 Domain
 
-* GoogleLoginUseCase
-* GoogleLoginUseCaseParams
-* AuthRepository Google login contract
+* [x] GoogleLoginUseCase
+* [x] GoogleLoginUseCaseParams
+* [x] AuthRepository Google login contract
 
 Data
 
-* GoogleLoginRequestModel
-* Google authentication API integration
-* AuthRepositoryImpl Google login
-* ApiService Google endpoint
-* Reuse authentication response models/entities where applicable
+* [x] GoogleLoginRequestModel
+* [x] Google authentication API integration
+* [x] AuthRepositoryImpl Google login
+* [x] ApiService Google endpoint
+* [x] Reuse authentication response models/entities where applicable
 
 Platform
 
@@ -421,16 +421,16 @@ POST /api/v1/auth/refresh
 
 Domain
 
-* RefreshSessionUseCase
-* RefreshSessionUseCaseParams
-* AuthRepository refresh contract
+* [x] RefreshSessionUseCase
+* [x] RefreshSessionUseCaseParams
+* [x] AuthRepository refresh contract
 
 Data
 
-* RefreshRequestModel
-* Refresh API endpoint
-* AuthRepositoryImpl refresh
-* Authentication response transformation
+* [x] RefreshRequestModel
+* [x] Refresh API endpoint
+* [x] AuthRepositoryImpl refresh
+* [x] Authentication response transformation
 
 Integration
 
@@ -450,16 +450,16 @@ POST /api/v1/auth/logout
 
 Domain
 
-* LogoutUseCase
-* LogoutUseCaseParams
-* AuthRepository logout contract
+* [x] LogoutUseCase
+* [x] LogoutUseCaseParams
+* [x] AuthRepository logout contract
 
 Data
 
-* Logout request
-* Logout response model/entity if required
-* AuthRepositoryImpl logout
-* ApiService logout endpoint
+* [x] Logout request
+* [x] Logout response model/entity if required
+* [x] AuthRepositoryImpl logout
+* [x] ApiService logout endpoint
 
 Integration
 
@@ -524,17 +524,17 @@ GET /api/v1/reference/currencies
 
 Domain
 
-* CurrencyEntity
-* ReferenceRepository currencies contract
-* GetCurrenciesUseCase
+* [x] CurrencyEntity
+* [x] ReferenceRepository currencies contract
+* [x] GetCurrenciesUseCase
 
 Data
 
-* CurrencyModel
-* Currencies response model
-* Repository implementation
-* ApiService currencies endpoint
-* Data-to-Domain transformation
+* [x] CurrencyModel
+* [x] Currencies response model
+* [x] Repository implementation
+* [x] ApiService currencies endpoint
+* [x] Data-to-Domain transformation
 
 Presentation
 
@@ -1046,12 +1046,12 @@ Feature	Domain	Data	Presentation	Integrated
 Login	✅	✅	⬜	⬜
 Registration	✅	✅	⬜	⬜
 Email Verification	✅	✅	⬜	⬜
-Resend Verification	⬜	⬜	⬜	⬜
-Google Authentication	⬜	⬜	⬜	⬜
-Refresh Session	⬜	⬜	N/A	⬜
-Logout	⬜	⬜	⬜	⬜
+Resend Verification	✅	✅	⬜	⬜
+Google Authentication	✅	✅	⬜	⬜
+Refresh Session	✅	✅	N/A	⬜
+Logout	✅	✅	⬜	⬜
 Countries	✅	✅	⬜	⬜
-Currencies	⬜	⬜	⬜	⬜
+Currencies	✅	✅	⬜	⬜
 User Profile	⬜	⬜	⬜	⬜
 Vehicle Management	⬜	⬜	⬜	⬜
 Fuel Tracking	⬜	⬜	⬜	⬜
@@ -1090,6 +1090,16 @@ Current Domain/Data task:
 * [x] Countries Data
 * [x] Verify Email Domain
 * [x] Verify Email Data
+* [x] Resend Verification Domain
+* [x] Resend Verification Data
+* [x] Google Authentication Domain
+* [x] Google Authentication Data
+* [x] Refresh Session Domain
+* [x] Refresh Session Data
+* [x] Logout Domain
+* [x] Logout Data
+* [x] Currencies Domain
+* [x] Currencies Data
 
 Do not start Presentation implementation as part of the current Domain/Data task unless explicitly requested.
 
