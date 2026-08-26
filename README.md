@@ -782,13 +782,13 @@ The backend roadmap contains a dedicated Maintenance feature.
 
 13. Devices
 
-* Device Entity
-* Device Models
-* Device Repository
-* Device Use Cases
-* Register Device
-* Update FCM Token
-* Remove Device
+* [x] Device Entity
+* [x] Device Models
+* [x] Device Repository
+* [x] Device Use Cases
+* [x] Register Device
+* [x] Update FCM Token
+* [x] Remove Device
 * Platform information
 * Runtime verification
 
@@ -1061,7 +1061,7 @@ Fuel Tracking	✅	✅	⬜	⬜
 Maintenance	✅	✅	⬜	⬜
 Expenses	✅	✅	⬜	⬜
 Reminders	✅	✅	⬜	⬜
-Devices	⬜	⬜	N/A	⬜
+Devices	✅	✅	N/A	⬜
 Notifications	⬜	⬜	⬜	⬜
 Statistics	⬜	⬜	⬜	⬜
 Dashboard	⬜	⬜	⬜	⬜

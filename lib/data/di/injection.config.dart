@@ -50,6 +50,11 @@ import 'package:sayarti_mobile/domain/usecase/remote/expense/get_expense_usecase
 import 'package:sayarti_mobile/domain/usecase/remote/expense/get_expenses_usecase.dart' as _i948;
 import 'package:sayarti_mobile/domain/usecase/remote/expense/update_expense_usecase.dart' as _i949;
 import 'package:sayarti_mobile/data/repository/remote/reminder/reminder_repository_impl.dart' as _i950;
+import 'package:sayarti_mobile/data/repository/remote/device/device_repository_impl.dart' as _i958;
+import 'package:sayarti_mobile/domain/repository/remote/device/device_repository.dart' as _i959;
+import 'package:sayarti_mobile/domain/usecase/remote/device/delete_device_usecase.dart' as _i960;
+import 'package:sayarti_mobile/domain/usecase/remote/device/register_device_usecase.dart' as _i961;
+import 'package:sayarti_mobile/domain/usecase/remote/device/update_fcm_token_usecase.dart' as _i962;
 import 'package:sayarti_mobile/domain/repository/remote/reminder/reminder_repository.dart' as _i951;
 import 'package:sayarti_mobile/domain/usecase/remote/reminder/complete_reminder_usecase.dart' as _i952;
 import 'package:sayarti_mobile/domain/usecase/remote/reminder/create_reminder_usecase.dart' as _i953;
@@ -212,6 +217,9 @@ extension GetItInjectableX on _i174.GetIt {
     gh.lazySingleton<_i951.ReminderRepository>(
       () => _i950.ReminderRepositoryImpl(gh<_i406.ApiService>()),
     );
+    gh.lazySingleton<_i959.DeviceRepository>(
+      () => _i958.DeviceRepositoryImpl(gh<_i406.ApiService>()),
+    );
     gh.lazySingleton<_i902.RegisterUseCase>(
       () => _i902.RegisterUseCase(gh<_i777.AuthRepository>()),
     );
@@ -261,6 +269,9 @@ extension GetItInjectableX on _i174.GetIt {
     gh.lazySingleton<_i955.GetReminderUseCase>(() => _i955.GetReminderUseCase(gh<_i951.ReminderRepository>()));
     gh.lazySingleton<_i956.GetRemindersUseCase>(() => _i956.GetRemindersUseCase(gh<_i951.ReminderRepository>()));
     gh.lazySingleton<_i957.UpdateReminderUseCase>(() => _i957.UpdateReminderUseCase(gh<_i951.ReminderRepository>()));
+    gh.lazySingleton<_i960.DeleteDeviceUseCase>(() => _i960.DeleteDeviceUseCase(gh<_i959.DeviceRepository>()));
+    gh.lazySingleton<_i961.RegisterDeviceUseCase>(() => _i961.RegisterDeviceUseCase(gh<_i959.DeviceRepository>()));
+    gh.lazySingleton<_i962.UpdateFcmTokenUseCase>(() => _i962.UpdateFcmTokenUseCase(gh<_i959.DeviceRepository>()));
     gh.lazySingleton<_i922.CreateVehicleUseCase>(() => _i922.CreateVehicleUseCase(gh<_i921.VehicleRepository>()));
     gh.lazySingleton<_i923.DeleteVehicleUseCase>(() => _i923.DeleteVehicleUseCase(gh<_i921.VehicleRepository>()));
     gh.lazySingleton<_i924.GetVehicleDetailsUseCase>(() => _i924.GetVehicleDetailsUseCase(gh<_i921.VehicleRepository>()));

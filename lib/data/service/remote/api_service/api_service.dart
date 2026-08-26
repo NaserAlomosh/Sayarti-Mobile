@@ -47,6 +47,10 @@ import 'package:sayarti_mobile/data/model/remote/request/reminder/update_reminde
 import 'package:sayarti_mobile/data/model/remote/response/reminder/delete_reminder_response_model.dart';
 import 'package:sayarti_mobile/data/model/remote/response/reminder/get_reminders_response_model.dart';
 import 'package:sayarti_mobile/data/model/remote/response/reminder/reminder_response_model.dart';
+import 'package:sayarti_mobile/data/model/remote/request/device/register_device_request_model.dart';
+import 'package:sayarti_mobile/data/model/remote/request/device/update_fcm_token_request_model.dart';
+import 'package:sayarti_mobile/data/model/remote/response/device/delete_device_response_model.dart';
+import 'package:sayarti_mobile/data/model/remote/response/device/device_response_model.dart';
 
 part 'api_service.g.dart';
 
@@ -283,5 +287,21 @@ abstract class ApiService {
   Future<HttpResponse<DeleteReminderResponseModel>> deleteReminder(
     @Path('vehicleId') String vehicleId,
     @Path('reminderId') String reminderId,
+  );
+
+  @POST('v1/devices')
+  Future<HttpResponse<DeviceResponseModel>> registerDevice(
+    @Body() RegisterDeviceRequestModel request,
+  );
+
+  @PATCH('v1/devices/{deviceId}/fcm-token')
+  Future<HttpResponse<DeviceResponseModel>> updateFcmToken(
+    @Path('deviceId') String deviceId,
+    @Body() UpdateFcmTokenRequestModel request,
+  );
+
+  @DELETE('v1/devices/{deviceId}')
+  Future<HttpResponse<DeleteDeviceResponseModel>> deleteDevice(
+    @Path('deviceId') String deviceId,
   );
 }
