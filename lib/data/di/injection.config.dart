@@ -52,6 +52,9 @@ import 'package:sayarti_mobile/domain/usecase/remote/expense/update_expense_usec
 import 'package:sayarti_mobile/data/repository/remote/reminder/reminder_repository_impl.dart' as _i950;
 import 'package:sayarti_mobile/data/repository/remote/device/device_repository_impl.dart' as _i958;
 import 'package:sayarti_mobile/data/repository/remote/statistics/statistics_repository_impl.dart' as _i963;
+import 'package:sayarti_mobile/data/repository/remote/dashboard/dashboard_repository_impl.dart' as _i970;
+import 'package:sayarti_mobile/domain/repository/remote/dashboard/dashboard_repository.dart' as _i971;
+import 'package:sayarti_mobile/domain/usecase/remote/dashboard/get_dashboard_usecase.dart' as _i972;
 import 'package:sayarti_mobile/domain/repository/remote/statistics/statistics_repository.dart' as _i964;
 import 'package:sayarti_mobile/domain/usecase/remote/statistics/get_general_statistics_usecase.dart' as _i965;
 import 'package:sayarti_mobile/domain/usecase/remote/statistics/get_fuel_statistics_usecase.dart' as _i966;
@@ -235,6 +238,8 @@ extension GetItInjectableX on _i174.GetIt {
     gh.lazySingleton<_i967.GetMaintenanceStatisticsUseCase>(() => _i967.GetMaintenanceStatisticsUseCase(gh<_i964.StatisticsRepository>()));
     gh.lazySingleton<_i968.GetExpenseStatisticsUseCase>(() => _i968.GetExpenseStatisticsUseCase(gh<_i964.StatisticsRepository>()));
     gh.lazySingleton<_i969.GetTrueVehicleCostUseCase>(() => _i969.GetTrueVehicleCostUseCase(gh<_i964.StatisticsRepository>()));
+    gh.lazySingleton<_i971.DashboardRepository>(() => _i970.DashboardRepositoryImpl(gh<_i406.ApiService>()));
+    gh.lazySingleton<_i972.GetDashboardUseCase>(() => _i972.GetDashboardUseCase(gh<_i971.DashboardRepository>()));
     gh.lazySingleton<_i902.RegisterUseCase>(
       () => _i902.RegisterUseCase(gh<_i777.AuthRepository>()),
     );
