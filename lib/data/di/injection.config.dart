@@ -25,6 +25,8 @@ import 'package:sayarti_mobile/data/repository/remote/reference/reference_reposi
     as _i900;
 import 'package:sayarti_mobile/data/repository/remote/user/user_repository_impl.dart'
     as _i910;
+import 'package:sayarti_mobile/data/repository/remote/vehicle/vehicle_repository_impl.dart'
+    as _i920;
 import 'package:sayarti_mobile/data/service/remote/api_service/api_service.dart'
     as _i406;
 import 'package:sayarti_mobile/domain/repository/local/biometric/biometric_repository.dart'
@@ -37,6 +39,8 @@ import 'package:sayarti_mobile/domain/repository/remote/reference/reference_repo
     as _i901;
 import 'package:sayarti_mobile/domain/repository/remote/user/user_repository.dart'
     as _i911;
+import 'package:sayarti_mobile/domain/repository/remote/vehicle/vehicle_repository.dart'
+    as _i921;
 import 'package:sayarti_mobile/domain/usecase/local/biometric/authenticate_biometric_usecase.dart'
     as _i615;
 import 'package:sayarti_mobile/domain/usecase/local/biometric/get_biometric_info_usecase.dart'
@@ -75,6 +79,12 @@ import 'package:sayarti_mobile/domain/usecase/remote/user/select_country_usecase
     as _i915;
 import 'package:sayarti_mobile/domain/usecase/remote/user/update_user_usecase.dart'
     as _i916;
+import 'package:sayarti_mobile/domain/usecase/remote/vehicle/create_vehicle_usecase.dart' as _i922;
+import 'package:sayarti_mobile/domain/usecase/remote/vehicle/delete_vehicle_usecase.dart' as _i923;
+import 'package:sayarti_mobile/domain/usecase/remote/vehicle/get_vehicle_details_usecase.dart' as _i924;
+import 'package:sayarti_mobile/domain/usecase/remote/vehicle/get_vehicles_usecase.dart' as _i925;
+import 'package:sayarti_mobile/domain/usecase/remote/vehicle/update_vehicle_mileage_usecase.dart' as _i926;
+import 'package:sayarti_mobile/domain/usecase/remote/vehicle/update_vehicle_usecase.dart' as _i927;
 import 'package:sayarti_mobile/presentation/core/theme/cubit/theme_cubit.dart'
     as _i817;
 import 'package:sayarti_mobile/presentation/core/widgets/language/cubit/languge_cubit.dart'
@@ -157,6 +167,9 @@ extension GetItInjectableX on _i174.GetIt {
     gh.lazySingleton<_i911.UserRepository>(
       () => _i910.UserRepositoryImpl(gh<_i406.ApiService>()),
     );
+    gh.lazySingleton<_i921.VehicleRepository>(
+      () => _i920.VehicleRepositoryImpl(gh<_i406.ApiService>()),
+    );
     gh.lazySingleton<_i902.RegisterUseCase>(
       () => _i902.RegisterUseCase(gh<_i777.AuthRepository>()),
     );
@@ -184,6 +197,12 @@ extension GetItInjectableX on _i174.GetIt {
     gh.lazySingleton<_i916.UpdateUserUseCase>(
       () => _i916.UpdateUserUseCase(gh<_i911.UserRepository>()),
     );
+    gh.lazySingleton<_i922.CreateVehicleUseCase>(() => _i922.CreateVehicleUseCase(gh<_i921.VehicleRepository>()));
+    gh.lazySingleton<_i923.DeleteVehicleUseCase>(() => _i923.DeleteVehicleUseCase(gh<_i921.VehicleRepository>()));
+    gh.lazySingleton<_i924.GetVehicleDetailsUseCase>(() => _i924.GetVehicleDetailsUseCase(gh<_i921.VehicleRepository>()));
+    gh.lazySingleton<_i925.GetVehiclesUseCase>(() => _i925.GetVehiclesUseCase(gh<_i921.VehicleRepository>()));
+    gh.lazySingleton<_i926.UpdateVehicleMileageUseCase>(() => _i926.UpdateVehicleMileageUseCase(gh<_i921.VehicleRepository>()));
+    gh.lazySingleton<_i927.UpdateVehicleUseCase>(() => _i927.UpdateVehicleUseCase(gh<_i921.VehicleRepository>()));
     gh.lazySingleton<_i480.LanguageCubit>(
       () => _i480.LanguageCubit(
         gh<_i757.GetUserLanguageUsecase>(),

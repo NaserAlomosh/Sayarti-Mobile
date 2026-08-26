@@ -20,6 +20,12 @@ import 'package:sayarti_mobile/data/model/remote/request/user/select_country/sel
 import 'package:sayarti_mobile/data/model/remote/request/user/update_user/update_user_request_model.dart';
 import 'package:sayarti_mobile/data/model/remote/response/user/delete_user/delete_user_response_model.dart';
 import 'package:sayarti_mobile/data/model/remote/response/user/user_response_model.dart';
+import 'package:sayarti_mobile/data/model/remote/request/vehicle/create_vehicle_request_model.dart';
+import 'package:sayarti_mobile/data/model/remote/request/vehicle/update_mileage_request_model.dart';
+import 'package:sayarti_mobile/data/model/remote/request/vehicle/update_vehicle_request_model.dart';
+import 'package:sayarti_mobile/data/model/remote/response/vehicle/delete_vehicle_response_model.dart';
+import 'package:sayarti_mobile/data/model/remote/response/vehicle/get_vehicles_response_model.dart';
+import 'package:sayarti_mobile/data/model/remote/response/vehicle/vehicle_response_model.dart';
 
 part 'api_service.g.dart';
 
@@ -88,4 +94,39 @@ abstract class ApiService {
 
   @DELETE('v1/users/me')
   Future<HttpResponse<DeleteUserResponseModel>> deleteAccount();
+
+  @POST('v1/vehicles')
+  Future<HttpResponse<VehicleResponseModel>> createVehicle(
+    @Body() CreateVehicleRequestModel request,
+  );
+
+  @GET('v1/vehicles')
+  Future<HttpResponse<GetVehiclesResponseModel>> getVehicles(
+    @Query('page') int page,
+    @Query('size') int size,
+    @Query('sortBy') String? sortBy,
+    @Query('sortDirection') String? sortDirection,
+  );
+
+  @GET('v1/vehicles/{vehicleId}')
+  Future<HttpResponse<VehicleResponseModel>> getVehicleDetails(
+    @Path('vehicleId') String vehicleId,
+  );
+
+  @PATCH('v1/vehicles/{vehicleId}')
+  Future<HttpResponse<VehicleResponseModel>> updateVehicle(
+    @Path('vehicleId') String vehicleId,
+    @Body() UpdateVehicleRequestModel request,
+  );
+
+  @PATCH('v1/vehicles/{vehicleId}/mileage')
+  Future<HttpResponse<VehicleResponseModel>> updateVehicleMileage(
+    @Path('vehicleId') String vehicleId,
+    @Body() UpdateMileageRequestModel request,
+  );
+
+  @DELETE('v1/vehicles/{vehicleId}')
+  Future<HttpResponse<DeleteVehicleResponseModel>> deleteVehicle(
+    @Path('vehicleId') String vehicleId,
+  );
 }
