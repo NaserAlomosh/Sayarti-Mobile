@@ -427,7 +427,7 @@ Registration
 
 * Registration UI
 * Registration validation
-* Registration API integration
+* [x] Registration API integration
 * Loading state
 * Backend error handling
 * Successful registration flow
@@ -438,11 +438,11 @@ Email Verification
 
 * OTP verification UI
 * Six-digit OTP input
-* Verify-email API integration
+* [x] Verify-email API integration
 * OTP expiration handling
 * Invalid OTP handling
 * Maximum-attempt handling
-* Resend verification
+* [x] Resend verification
 * Resend cooldown
 * Successful verification
 * Authentication persistence after verification
