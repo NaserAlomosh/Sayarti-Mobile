@@ -23,6 +23,8 @@ import 'package:sayarti_mobile/data/repository/remote/auth/auth_repository_impl.
     as _i307;
 import 'package:sayarti_mobile/data/repository/remote/reference/reference_repository_impl.dart'
     as _i900;
+import 'package:sayarti_mobile/data/repository/remote/user/user_repository_impl.dart'
+    as _i910;
 import 'package:sayarti_mobile/data/service/remote/api_service/api_service.dart'
     as _i406;
 import 'package:sayarti_mobile/domain/repository/local/biometric/biometric_repository.dart'
@@ -33,6 +35,8 @@ import 'package:sayarti_mobile/domain/repository/remote/auth/auth_repository.dar
     as _i777;
 import 'package:sayarti_mobile/domain/repository/remote/reference/reference_repository.dart'
     as _i901;
+import 'package:sayarti_mobile/domain/repository/remote/user/user_repository.dart'
+    as _i911;
 import 'package:sayarti_mobile/domain/usecase/local/biometric/authenticate_biometric_usecase.dart'
     as _i615;
 import 'package:sayarti_mobile/domain/usecase/local/biometric/get_biometric_info_usecase.dart'
@@ -61,6 +65,16 @@ import 'package:sayarti_mobile/domain/usecase/remote/reference/get_countries_use
     as _i904;
 import 'package:sayarti_mobile/domain/usecase/remote/reference/get_currencies_usecase.dart'
     as _i909;
+import 'package:sayarti_mobile/domain/usecase/remote/user/change_default_currency_usecase.dart'
+    as _i912;
+import 'package:sayarti_mobile/domain/usecase/remote/user/delete_account_usecase.dart'
+    as _i913;
+import 'package:sayarti_mobile/domain/usecase/remote/user/get_current_user_usecase.dart'
+    as _i914;
+import 'package:sayarti_mobile/domain/usecase/remote/user/select_country_usecase.dart'
+    as _i915;
+import 'package:sayarti_mobile/domain/usecase/remote/user/update_user_usecase.dart'
+    as _i916;
 import 'package:sayarti_mobile/presentation/core/theme/cubit/theme_cubit.dart'
     as _i817;
 import 'package:sayarti_mobile/presentation/core/widgets/language/cubit/languge_cubit.dart'
@@ -140,6 +154,9 @@ extension GetItInjectableX on _i174.GetIt {
     gh.lazySingleton<_i901.ReferenceRepository>(
       () => _i900.ReferenceRepositoryImpl(gh<_i406.ApiService>()),
     );
+    gh.lazySingleton<_i911.UserRepository>(
+      () => _i910.UserRepositoryImpl(gh<_i406.ApiService>()),
+    );
     gh.lazySingleton<_i902.RegisterUseCase>(
       () => _i902.RegisterUseCase(gh<_i777.AuthRepository>()),
     );
@@ -151,6 +168,21 @@ extension GetItInjectableX on _i174.GetIt {
     );
     gh.lazySingleton<_i909.GetCurrenciesUseCase>(
       () => _i909.GetCurrenciesUseCase(gh<_i901.ReferenceRepository>()),
+    );
+    gh.lazySingleton<_i912.ChangeDefaultCurrencyUseCase>(
+      () => _i912.ChangeDefaultCurrencyUseCase(gh<_i911.UserRepository>()),
+    );
+    gh.lazySingleton<_i913.DeleteAccountUseCase>(
+      () => _i913.DeleteAccountUseCase(gh<_i911.UserRepository>()),
+    );
+    gh.lazySingleton<_i914.GetCurrentUserUseCase>(
+      () => _i914.GetCurrentUserUseCase(gh<_i911.UserRepository>()),
+    );
+    gh.lazySingleton<_i915.SelectCountryUseCase>(
+      () => _i915.SelectCountryUseCase(gh<_i911.UserRepository>()),
+    );
+    gh.lazySingleton<_i916.UpdateUserUseCase>(
+      () => _i916.UpdateUserUseCase(gh<_i911.UserRepository>()),
     );
     gh.lazySingleton<_i480.LanguageCubit>(
       () => _i480.LanguageCubit(
