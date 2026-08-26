@@ -25,7 +25,7 @@ class VehicleEntity {
   final String brand;
   final String model;
   final int year;
-  final PowertrainType powertrainType;
+  final PowertrainType? powertrainType;
   final int currentMileage;
   final String? licensePlate;
   final String? nickname;

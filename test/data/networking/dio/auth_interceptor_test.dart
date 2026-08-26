@@ -15,7 +15,7 @@ void main() {
       final dio = _buildDio(
         storage,
         appHandler: (options) {
-          seenHeaders.add(options.headers[Headers.authorizationHeader]);
+          seenHeaders.add(options.headers['Authorization']);
           return _jsonResponse(200, {'success': true});
         },
       );
@@ -38,7 +38,7 @@ void main() {
       final dio = _buildDio(
         storage,
         appHandler: (options) {
-          final token = options.headers[Headers.authorizationHeader];
+          final token = options.headers['Authorization'];
           requestTokens.add(token);
           return token == 'Bearer new-access'
               ? _jsonResponse(200, {'success': true})
@@ -151,7 +151,7 @@ void main() {
       final dio = _buildDio(
         storage,
         appHandler: (options) {
-          if (options.headers[Headers.authorizationHeader] ==
+          if (options.headers['Authorization'] ==
               'Bearer new-access') {
             retriedPaths.add(options.path);
             return _jsonResponse(200, {'success': true});

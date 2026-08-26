@@ -17,8 +17,7 @@ UpdateUserRequestModel _$UpdateUserRequestModelFromJson(
 Map<String, dynamic> _$UpdateUserRequestModelToJson(
   UpdateUserRequestModel instance,
 ) => <String, dynamic>{
-  if (instance.firstName case final value?) 'firstName': value,
-  if (instance.lastName case final value?) 'lastName': value,
-  if (instance.preferredLanguage case final value?)
-    'preferredLanguage': value,
+  'firstName': ?instance.firstName,
+  'lastName': ?instance.lastName,
+  'preferredLanguage': ?instance.preferredLanguage,
 };

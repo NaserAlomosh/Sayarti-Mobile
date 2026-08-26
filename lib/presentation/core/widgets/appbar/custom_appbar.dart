@@ -1,7 +1,5 @@
-import 'package:sayarti_mobile/presentation/core/constants/images/app_images.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_svg/svg.dart';
 
 class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   const CustomAppBar({
@@ -63,7 +61,6 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
     final effectiveForegroundColor =
         appBarTheme.foregroundColor ?? colorScheme.primary;
 
-    final effectiveBackIconColor = backIconColor ?? effectiveForegroundColor;
 
     final effectiveCloseIconColor = closeIconColor ?? effectiveForegroundColor;
 

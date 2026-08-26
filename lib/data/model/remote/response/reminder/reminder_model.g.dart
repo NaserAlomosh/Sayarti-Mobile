@@ -2,5 +2,47 @@
 
 part of 'reminder_model.dart';
 
-ReminderModel _$ReminderModelFromJson(Map<String, dynamic> json) => ReminderModel(id: json['id'] as String, vehicleId: json['vehicleId'] as String, category: reminderCategoryFromJson(json['category'] as String), title: json['title'] as String, description: json['description'] as String?, triggerType: reminderTriggerTypeFromJson(json['triggerType'] as String), targetDate: json['targetDate'] == null ? null : DateTime.parse(json['targetDate'] as String), targetMileage: (json['targetMileage'] as num?)?.toInt(), completed: json['completed'] as bool, completedAt: json['completedAt'] == null ? null : DateTime.parse(json['completedAt'] as String), notificationDeliveredAt: json['notificationDeliveredAt'] == null ? null : DateTime.parse(json['notificationDeliveredAt'] as String), createdAt: DateTime.parse(json['createdAt'] as String), updatedAt: DateTime.parse(json['updatedAt'] as String));
-Map<String, dynamic> _$ReminderModelToJson(ReminderModel instance) => <String, dynamic>{'id': instance.id, 'vehicleId': instance.vehicleId, 'category': reminderCategoryToJson(instance.category), 'title': instance.title, 'description': instance.description, 'triggerType': reminderTriggerTypeToJson(instance.triggerType), 'targetDate': instance.targetDate?.toIso8601String(), 'targetMileage': instance.targetMileage, 'completed': instance.completed, 'completedAt': instance.completedAt?.toIso8601String(), 'notificationDeliveredAt': instance.notificationDeliveredAt?.toIso8601String(), 'createdAt': instance.createdAt.toIso8601String(), 'updatedAt': instance.updatedAt.toIso8601String()};
+// **************************************************************************
+// JsonSerializableGenerator
+// **************************************************************************
+
+ReminderModel _$ReminderModelFromJson(Map<String, dynamic> json) =>
+    ReminderModel(
+      id: json['id'] as String,
+      vehicleId: json['vehicleId'] as String,
+      category: reminderCategoryFromJson(json['category'] as String),
+      title: json['title'] as String,
+      description: json['description'] as String?,
+      triggerType: reminderTriggerTypeFromJson(json['triggerType'] as String),
+      targetDate: json['targetDate'] == null
+          ? null
+          : DateTime.parse(json['targetDate'] as String),
+      targetMileage: (json['targetMileage'] as num?)?.toInt(),
+      completed: json['completed'] as bool,
+      completedAt: json['completedAt'] == null
+          ? null
+          : DateTime.parse(json['completedAt'] as String),
+      notificationDeliveredAt: json['notificationDeliveredAt'] == null
+          ? null
+          : DateTime.parse(json['notificationDeliveredAt'] as String),
+      createdAt: DateTime.parse(json['createdAt'] as String),
+      updatedAt: DateTime.parse(json['updatedAt'] as String),
+    );
+
+Map<String, dynamic> _$ReminderModelToJson(ReminderModel instance) =>
+    <String, dynamic>{
+      'id': instance.id,
+      'vehicleId': instance.vehicleId,
+      'category': reminderCategoryToJson(instance.category),
+      'title': instance.title,
+      'description': instance.description,
+      'triggerType': reminderTriggerTypeToJson(instance.triggerType),
+      'targetDate': instance.targetDate?.toIso8601String(),
+      'targetMileage': instance.targetMileage,
+      'completed': instance.completed,
+      'completedAt': instance.completedAt?.toIso8601String(),
+      'notificationDeliveredAt': instance.notificationDeliveredAt
+          ?.toIso8601String(),
+      'createdAt': instance.createdAt.toIso8601String(),
+      'updatedAt': instance.updatedAt.toIso8601String(),
+    };

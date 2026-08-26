@@ -2,5 +2,12 @@
 
 part of 'delete_device_model.dart';
 
-DeleteDeviceModel _$DeleteDeviceModelFromJson(Map<String, dynamic> json) => DeleteDeviceModel(deleted: json['deleted'] as bool);
-Map<String, dynamic> _$DeleteDeviceModelToJson(DeleteDeviceModel instance) => <String, dynamic>{'deleted': instance.deleted};
+// **************************************************************************
+// JsonSerializableGenerator
+// **************************************************************************
+
+DeleteDeviceModel _$DeleteDeviceModelFromJson(Map<String, dynamic> json) =>
+    DeleteDeviceModel(deleted: json['deleted'] as bool);
+
+Map<String, dynamic> _$DeleteDeviceModelToJson(DeleteDeviceModel instance) =>
+    <String, dynamic>{'deleted': instance.deleted};

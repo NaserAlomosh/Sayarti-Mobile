@@ -1,6 +1,7 @@
 import 'package:sayarti_mobile/domain/entity/remote/vehicle/vehicle_entity.dart';
 
-PowertrainType powertrainTypeFromJson(String value) => switch (value) {
+PowertrainType? powertrainTypeFromJson(String? value) => switch (value) {
+  null => null,
   'GASOLINE' => PowertrainType.gasoline,
   'DIESEL' => PowertrainType.diesel,
   'HYBRID' => PowertrainType.hybrid,
@@ -9,7 +10,8 @@ PowertrainType powertrainTypeFromJson(String value) => switch (value) {
   _ => throw FormatException('Unknown powertrain type: $value'),
 };
 
-String powertrainTypeToJson(PowertrainType value) => switch (value) {
+String? powertrainTypeToJson(PowertrainType? value) => switch (value) {
+  null => null,
   PowertrainType.gasoline => 'GASOLINE',
   PowertrainType.diesel => 'DIESEL',
   PowertrainType.hybrid => 'HYBRID',

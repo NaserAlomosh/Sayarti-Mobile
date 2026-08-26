@@ -1,4 +1,41 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
+
 part of 'fuel_record_model.dart';
-FuelRecordModel _$FuelRecordModelFromJson(Map<String, dynamic> json) => FuelRecordModel(id: json['id'] as String, vehicleId: json['vehicleId'] as String, odometerKm: (json['odometerKm'] as num).toDouble(), quantityLiters: (json['quantityLiters'] as num).toDouble(), pricePerLiter: (json['pricePerLiter'] as num).toDouble(), totalCost: (json['totalCost'] as num).toDouble(), currencyCode: json['currencyCode'] as String, filledAt: DateTime.parse(json['filledAt'] as String), fullTank: json['fullTank'] as bool, stationName: json['stationName'] as String?, notes: json['notes'] as String?, createdAt: DateTime.parse(json['createdAt'] as String), updatedAt: DateTime.parse(json['updatedAt'] as String));
-Map<String, dynamic> _$FuelRecordModelToJson(FuelRecordModel instance) => <String, dynamic>{'id': instance.id, 'vehicleId': instance.vehicleId, 'odometerKm': instance.odometerKm, 'quantityLiters': instance.quantityLiters, 'pricePerLiter': instance.pricePerLiter, 'totalCost': instance.totalCost, 'currencyCode': instance.currencyCode, 'filledAt': instance.filledAt.toIso8601String(), 'fullTank': instance.fullTank, 'stationName': instance.stationName, 'notes': instance.notes, 'createdAt': instance.createdAt.toIso8601String(), 'updatedAt': instance.updatedAt.toIso8601String()};
+
+// **************************************************************************
+// JsonSerializableGenerator
+// **************************************************************************
+
+FuelRecordModel _$FuelRecordModelFromJson(Map<String, dynamic> json) =>
+    FuelRecordModel(
+      id: json['id'] as String,
+      vehicleId: json['vehicleId'] as String,
+      odometerKm: (json['odometerKm'] as num).toDouble(),
+      quantityLiters: (json['quantityLiters'] as num).toDouble(),
+      pricePerLiter: (json['pricePerLiter'] as num).toDouble(),
+      totalCost: (json['totalCost'] as num).toDouble(),
+      currencyCode: json['currencyCode'] as String,
+      filledAt: DateTime.parse(json['filledAt'] as String),
+      fullTank: json['fullTank'] as bool,
+      stationName: json['stationName'] as String?,
+      notes: json['notes'] as String?,
+      createdAt: DateTime.parse(json['createdAt'] as String),
+      updatedAt: DateTime.parse(json['updatedAt'] as String),
+    );
+
+Map<String, dynamic> _$FuelRecordModelToJson(FuelRecordModel instance) =>
+    <String, dynamic>{
+      'id': instance.id,
+      'vehicleId': instance.vehicleId,
+      'odometerKm': instance.odometerKm,
+      'quantityLiters': instance.quantityLiters,
+      'pricePerLiter': instance.pricePerLiter,
+      'totalCost': instance.totalCost,
+      'currencyCode': instance.currencyCode,
+      'filledAt': instance.filledAt.toIso8601String(),
+      'fullTank': instance.fullTank,
+      'stationName': instance.stationName,
+      'notes': instance.notes,
+      'createdAt': instance.createdAt.toIso8601String(),
+      'updatedAt': instance.updatedAt.toIso8601String(),
+    };

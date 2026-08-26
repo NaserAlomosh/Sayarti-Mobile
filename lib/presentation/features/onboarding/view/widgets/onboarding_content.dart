@@ -15,7 +15,6 @@ class _OnboardingContent extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final cubit = context.read<OnboardingCubit>();
 
     return Container(
       color: Theme.of(context).colorScheme.surface,

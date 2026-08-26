@@ -2,10 +2,12 @@
 
 part of 'logout_model.dart';
 
-LogoutModel _$LogoutModelFromJson(Map<String, dynamic> json) => LogoutModel(
-  revoked: json['revoked'] as bool,
-);
+// **************************************************************************
+// JsonSerializableGenerator
+// **************************************************************************
 
-Map<String, dynamic> _$LogoutModelToJson(LogoutModel instance) => <String, dynamic>{
-  'revoked': instance.revoked,
-};
+LogoutModel _$LogoutModelFromJson(Map<String, dynamic> json) =>
+    LogoutModel(revoked: json['revoked'] as bool);
+
+Map<String, dynamic> _$LogoutModelToJson(LogoutModel instance) =>
+    <String, dynamic>{'revoked': instance.revoked};

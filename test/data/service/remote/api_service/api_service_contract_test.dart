@@ -6,16 +6,10 @@ import 'package:sayarti_mobile/data/service/remote/api_service/api_service.dart'
 
 // These typed tear-offs make changes to either repository-facing method
 // signature a compile-time failure without issuing a network request.
-final Future<HttpResponse<DashboardResponseModel>> Function(ApiService, String)
-dashboardApiContract = (service, vehicleId) =>
+Future<HttpResponse<DashboardResponseModel>> dashboardApiContract(ApiService service, String vehicleId) =>
     service.getDashboard(vehicleId);
 
-final Future<HttpResponse<GetVehicleActivityResponseModel>> Function(
-  ApiService,
-  String,
-  int?,
-)
-vehicleActivityApiContract = (service, vehicleId, limit) =>
+Future<HttpResponse<GetVehicleActivityResponseModel>> vehicleActivityApiContract(ApiService service, String vehicleId, int? limit) =>
     service.getVehicleActivity(vehicleId, limit);
 
 void main() {

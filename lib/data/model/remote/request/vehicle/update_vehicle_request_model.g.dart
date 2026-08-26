@@ -1,4 +1,58 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
+
 part of 'update_vehicle_request_model.dart';
-UpdateVehicleRequestModel _$UpdateVehicleRequestModelFromJson(Map<String, dynamic> json) => UpdateVehicleRequestModel(brand: json['brand'] as String?, model: json['model'] as String?, year: json['year'] as int?, powertrainType: json['powertrainType'] == null ? null : powertrainTypeFromJson(json['powertrainType'] as String), licensePlate: json['licensePlate'] as String?, nickname: json['nickname'] as String?, imageUrl: json['imageUrl'] as String?, fuelType: fuelTypeFromJson(json['fuelType'] as String?), fuelTankCapacityLiters: (json['fuelTankCapacityLiters'] as num?)?.toDouble(), batteryCapacityKwh: (json['batteryCapacityKwh'] as num?)?.toDouble(), estimatedRangeKm: (json['estimatedRangeKm'] as num?)?.toDouble());
-Map<String, dynamic> _$UpdateVehicleRequestModelToJson(UpdateVehicleRequestModel instance) => <String, dynamic>{if (instance.brand case final value?) 'brand': value, if (instance.model case final value?) 'model': value, if (instance.year case final value?) 'year': value, if (instance.powertrainType case final value?) 'powertrainType': powertrainTypeToJson(value), if (instance.licensePlate case final value?) 'licensePlate': value, if (instance.nickname case final value?) 'nickname': value, if (instance.imageUrl case final value?) 'imageUrl': value, if (instance.fuelType case final value?) 'fuelType': fuelTypeToJson(value), if (instance.fuelTankCapacityLiters case final value?) 'fuelTankCapacityLiters': value, if (instance.batteryCapacityKwh case final value?) 'batteryCapacityKwh': value, if (instance.estimatedRangeKm case final value?) 'estimatedRangeKm': value};
+
+// **************************************************************************
+// JsonSerializableGenerator
+// **************************************************************************
+
+UpdateVehicleRequestModel _$UpdateVehicleRequestModelFromJson(
+  Map<String, dynamic> json,
+) => UpdateVehicleRequestModel(
+  brand: json['brand'] as String?,
+  model: json['model'] as String?,
+  year: (json['year'] as num?)?.toInt(),
+  powertrainType: $enumDecodeNullable(
+    _$PowertrainTypeEnumMap,
+    json['powertrainType'],
+  ),
+  licensePlate: json['licensePlate'] as String?,
+  nickname: json['nickname'] as String?,
+  imageUrl: json['imageUrl'] as String?,
+  fuelType: $enumDecodeNullable(_$FuelTypeEnumMap, json['fuelType']),
+  fuelTankCapacityLiters: (json['fuelTankCapacityLiters'] as num?)?.toDouble(),
+  batteryCapacityKwh: (json['batteryCapacityKwh'] as num?)?.toDouble(),
+  estimatedRangeKm: (json['estimatedRangeKm'] as num?)?.toDouble(),
+);
+
+Map<String, dynamic> _$UpdateVehicleRequestModelToJson(
+  UpdateVehicleRequestModel instance,
+) => <String, dynamic>{
+  'brand': ?instance.brand,
+  'model': ?instance.model,
+  'year': ?instance.year,
+  'powertrainType': ?powertrainTypeToJson(instance.powertrainType),
+  'licensePlate': ?instance.licensePlate,
+  'nickname': ?instance.nickname,
+  'imageUrl': ?instance.imageUrl,
+  'fuelType': ?fuelTypeToJson(instance.fuelType),
+  'fuelTankCapacityLiters': ?instance.fuelTankCapacityLiters,
+  'batteryCapacityKwh': ?instance.batteryCapacityKwh,
+  'estimatedRangeKm': ?instance.estimatedRangeKm,
+};
+
+const _$PowertrainTypeEnumMap = {
+  PowertrainType.gasoline: 'gasoline',
+  PowertrainType.diesel: 'diesel',
+  PowertrainType.hybrid: 'hybrid',
+  PowertrainType.plugInHybrid: 'plugInHybrid',
+  PowertrainType.electric: 'electric',
+};
+
+const _$FuelTypeEnumMap = {
+  FuelType.gasoline90: 'gasoline90',
+  FuelType.gasoline95: 'gasoline95',
+  FuelType.gasoline98: 'gasoline98',
+  FuelType.diesel: 'diesel',
+  FuelType.other: 'other',
+};

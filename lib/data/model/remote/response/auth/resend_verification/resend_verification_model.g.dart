@@ -2,10 +2,14 @@
 
 part of 'resend_verification_model.dart';
 
-ResendVerificationModel _$ResendVerificationModelFromJson(Map<String, dynamic> json) => ResendVerificationModel(
-  accepted: json['accepted'] as bool,
-);
+// **************************************************************************
+// JsonSerializableGenerator
+// **************************************************************************
 
-Map<String, dynamic> _$ResendVerificationModelToJson(ResendVerificationModel instance) => <String, dynamic>{
-  'accepted': instance.accepted,
-};
+ResendVerificationModel _$ResendVerificationModelFromJson(
+  Map<String, dynamic> json,
+) => ResendVerificationModel(accepted: json['accepted'] as bool);
+
+Map<String, dynamic> _$ResendVerificationModelToJson(
+  ResendVerificationModel instance,
+) => <String, dynamic>{'accepted': instance.accepted};

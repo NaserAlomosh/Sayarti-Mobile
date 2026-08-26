@@ -2,13 +2,28 @@
 
 part of 'resend_verification_response_model.dart';
 
-ResendVerificationResponseModel _$ResendVerificationResponseModelFromJson(Map<String, dynamic> json) => ResendVerificationResponseModel(
+// **************************************************************************
+// JsonSerializableGenerator
+// **************************************************************************
+
+ResendVerificationResponseModel _$ResendVerificationResponseModelFromJson(
+  Map<String, dynamic> json,
+) => ResendVerificationResponseModel(
   success: json['success'] as bool,
-  data: json['data'] == null ? null : ResendVerificationModel.fromJson(json['data'] as Map<String, dynamic>),
+  data: json['data'] == null
+      ? null
+      : ResendVerificationModel.fromJson(json['data'] as Map<String, dynamic>),
   message: json['message'] as String?,
-  error: json['error'] == null ? null : ApiErrorModel.fromJson(json['error'] as Map<String, dynamic>),
+  error: json['error'] == null
+      ? null
+      : ApiErrorModel.fromJson(json['error'] as Map<String, dynamic>),
 );
 
-Map<String, dynamic> _$ResendVerificationResponseModelToJson(ResendVerificationResponseModel instance) => <String, dynamic>{
-  'success': instance.success, 'data': instance.data, 'message': instance.message, 'error': instance.error,
+Map<String, dynamic> _$ResendVerificationResponseModelToJson(
+  ResendVerificationResponseModel instance,
+) => <String, dynamic>{
+  'success': instance.success,
+  'data': instance.data,
+  'message': instance.message,
+  'error': instance.error,
 };

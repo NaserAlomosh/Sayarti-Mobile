@@ -2,10 +2,14 @@
 
 part of 'resend_verification_request_model.dart';
 
-ResendVerificationRequestModel _$ResendVerificationRequestModelFromJson(Map<String, dynamic> json) =>
-    ResendVerificationRequestModel(
-      email: json['email'] as String,
-    );
+// **************************************************************************
+// JsonSerializableGenerator
+// **************************************************************************
 
-Map<String, dynamic> _$ResendVerificationRequestModelToJson(ResendVerificationRequestModel instance) =>
-    <String, dynamic>{'email': instance.email};
+ResendVerificationRequestModel _$ResendVerificationRequestModelFromJson(
+  Map<String, dynamic> json,
+) => ResendVerificationRequestModel(email: json['email'] as String);
+
+Map<String, dynamic> _$ResendVerificationRequestModelToJson(
+  ResendVerificationRequestModel instance,
+) => <String, dynamic>{'email': instance.email};

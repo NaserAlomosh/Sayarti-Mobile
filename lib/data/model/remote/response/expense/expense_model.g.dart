@@ -2,5 +2,37 @@
 
 part of 'expense_model.dart';
 
-ExpenseModel _$ExpenseModelFromJson(Map<String, dynamic> json) => ExpenseModel(id: json['id'] as String, vehicleId: json['vehicleId'] as String, category: expenseCategoryFromJson(json['category'] as String), title: json['title'] as String, expenseDate: DateTime.parse(json['expenseDate'] as String), amount: (json['amount'] as num).toDouble(), currencyCode: json['currencyCode'] as String, notes: json['notes'] as String?, createdAt: DateTime.parse(json['createdAt'] as String), updatedAt: DateTime.parse(json['updatedAt'] as String), deletedAt: json['deletedAt'] == null ? null : DateTime.parse(json['deletedAt'] as String));
-Map<String, dynamic> _$ExpenseModelToJson(ExpenseModel instance) => <String, dynamic>{'id': instance.id, 'vehicleId': instance.vehicleId, 'category': expenseCategoryToJson(instance.category), 'title': instance.title, 'expenseDate': instance.expenseDate.toIso8601String(), 'amount': instance.amount, 'currencyCode': instance.currencyCode, 'notes': instance.notes, 'createdAt': instance.createdAt.toIso8601String(), 'updatedAt': instance.updatedAt.toIso8601String(), 'deletedAt': instance.deletedAt?.toIso8601String()};
+// **************************************************************************
+// JsonSerializableGenerator
+// **************************************************************************
+
+ExpenseModel _$ExpenseModelFromJson(Map<String, dynamic> json) => ExpenseModel(
+  id: json['id'] as String,
+  vehicleId: json['vehicleId'] as String,
+  category: expenseCategoryFromJson(json['category'] as String),
+  title: json['title'] as String,
+  expenseDate: DateTime.parse(json['expenseDate'] as String),
+  amount: (json['amount'] as num).toDouble(),
+  currencyCode: json['currencyCode'] as String,
+  notes: json['notes'] as String?,
+  createdAt: DateTime.parse(json['createdAt'] as String),
+  updatedAt: DateTime.parse(json['updatedAt'] as String),
+  deletedAt: json['deletedAt'] == null
+      ? null
+      : DateTime.parse(json['deletedAt'] as String),
+);
+
+Map<String, dynamic> _$ExpenseModelToJson(ExpenseModel instance) =>
+    <String, dynamic>{
+      'id': instance.id,
+      'vehicleId': instance.vehicleId,
+      'category': expenseCategoryToJson(instance.category),
+      'title': instance.title,
+      'expenseDate': instance.expenseDate.toIso8601String(),
+      'amount': instance.amount,
+      'currencyCode': instance.currencyCode,
+      'notes': instance.notes,
+      'createdAt': instance.createdAt.toIso8601String(),
+      'updatedAt': instance.updatedAt.toIso8601String(),
+      'deletedAt': instance.deletedAt?.toIso8601String(),
+    };

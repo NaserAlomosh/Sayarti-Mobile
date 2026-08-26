@@ -1,4 +1,44 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
+
 part of 'vehicle_model.dart';
-VehicleModel _$VehicleModelFromJson(Map<String, dynamic> json) => VehicleModel(id: json['id'] as String, brand: json['brand'] as String, model: json['model'] as String, year: json['year'] as int, powertrainType: powertrainTypeFromJson(json['powertrainType'] as String), currentMileage: json['currentMileage'] as int, licensePlate: json['licensePlate'] as String?, nickname: json['nickname'] as String?, imageUrl: json['imageUrl'] as String?, fuelType: fuelTypeFromJson(json['fuelType'] as String?), fuelTankCapacityLiters: (json['fuelTankCapacityLiters'] as num?)?.toDouble(), batteryCapacityKwh: (json['batteryCapacityKwh'] as num?)?.toDouble(), estimatedRangeKm: (json['estimatedRangeKm'] as num?)?.toDouble(), createdAt: DateTime.parse(json['createdAt'] as String), updatedAt: DateTime.parse(json['updatedAt'] as String));
-Map<String, dynamic> _$VehicleModelToJson(VehicleModel instance) => <String, dynamic>{'id': instance.id, 'brand': instance.brand, 'model': instance.model, 'year': instance.year, 'powertrainType': powertrainTypeToJson(instance.powertrainType), 'currentMileage': instance.currentMileage, 'licensePlate': instance.licensePlate, 'nickname': instance.nickname, 'imageUrl': instance.imageUrl, 'fuelType': fuelTypeToJson(instance.fuelType), 'fuelTankCapacityLiters': instance.fuelTankCapacityLiters, 'batteryCapacityKwh': instance.batteryCapacityKwh, 'estimatedRangeKm': instance.estimatedRangeKm, 'createdAt': instance.createdAt.toIso8601String(), 'updatedAt': instance.updatedAt.toIso8601String()};
+
+// **************************************************************************
+// JsonSerializableGenerator
+// **************************************************************************
+
+VehicleModel _$VehicleModelFromJson(Map<String, dynamic> json) => VehicleModel(
+  id: json['id'] as String,
+  brand: json['brand'] as String,
+  model: json['model'] as String,
+  year: (json['year'] as num).toInt(),
+  powertrainType: powertrainTypeFromJson(json['powertrainType'] as String?),
+  currentMileage: (json['currentMileage'] as num).toInt(),
+  licensePlate: json['licensePlate'] as String?,
+  nickname: json['nickname'] as String?,
+  imageUrl: json['imageUrl'] as String?,
+  fuelType: fuelTypeFromJson(json['fuelType'] as String?),
+  fuelTankCapacityLiters: (json['fuelTankCapacityLiters'] as num?)?.toDouble(),
+  batteryCapacityKwh: (json['batteryCapacityKwh'] as num?)?.toDouble(),
+  estimatedRangeKm: (json['estimatedRangeKm'] as num?)?.toDouble(),
+  createdAt: DateTime.parse(json['createdAt'] as String),
+  updatedAt: DateTime.parse(json['updatedAt'] as String),
+);
+
+Map<String, dynamic> _$VehicleModelToJson(VehicleModel instance) =>
+    <String, dynamic>{
+      'id': instance.id,
+      'brand': instance.brand,
+      'model': instance.model,
+      'year': instance.year,
+      'powertrainType': powertrainTypeToJson(instance.powertrainType),
+      'currentMileage': instance.currentMileage,
+      'licensePlate': instance.licensePlate,
+      'nickname': instance.nickname,
+      'imageUrl': instance.imageUrl,
+      'fuelType': fuelTypeToJson(instance.fuelType),
+      'fuelTankCapacityLiters': instance.fuelTankCapacityLiters,
+      'batteryCapacityKwh': instance.batteryCapacityKwh,
+      'estimatedRangeKm': instance.estimatedRangeKm,
+      'createdAt': instance.createdAt.toIso8601String(),
+      'updatedAt': instance.updatedAt.toIso8601String(),
+    };

@@ -1,4 +1,3 @@
-import 'package:sayarti_mobile/presentation/core/constants/images/app_images.dart';
 import 'package:sayarti_mobile/presentation/core/helper/navigator_key/app_key.dart';
 import 'package:flutter/material.dart';
 
