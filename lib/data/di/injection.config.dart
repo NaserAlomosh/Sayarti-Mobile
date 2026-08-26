@@ -27,6 +27,12 @@ import 'package:sayarti_mobile/data/repository/remote/user/user_repository_impl.
     as _i910;
 import 'package:sayarti_mobile/data/repository/remote/vehicle/vehicle_repository_impl.dart'
     as _i920;
+import 'package:sayarti_mobile/data/repository/remote/vehicle_activity/vehicle_activity_repository_impl.dart'
+    as _i973;
+import 'package:sayarti_mobile/domain/repository/remote/vehicle_activity/vehicle_activity_repository.dart'
+    as _i974;
+import 'package:sayarti_mobile/domain/usecase/remote/vehicle_activity/get_vehicle_activity_usecase.dart'
+    as _i975;
 import 'package:sayarti_mobile/data/repository/remote/fuel/fuel_repository_impl.dart' as _i928;
 import 'package:sayarti_mobile/domain/repository/remote/fuel/fuel_repository.dart' as _i929;
 import 'package:sayarti_mobile/domain/usecase/remote/fuel/create_fuel_record_usecase.dart' as _i930;
@@ -214,6 +220,14 @@ extension GetItInjectableX on _i174.GetIt {
     );
     gh.lazySingleton<_i921.VehicleRepository>(
       () => _i920.VehicleRepositoryImpl(gh<_i406.ApiService>()),
+    );
+    gh.lazySingleton<_i974.VehicleActivityRepository>(
+      () => _i973.VehicleActivityRepositoryImpl(gh<_i406.ApiService>()),
+    );
+    gh.lazySingleton<_i975.GetVehicleActivityUseCase>(
+      () => _i975.GetVehicleActivityUseCase(
+        gh<_i974.VehicleActivityRepository>(),
+      ),
     );
     gh.lazySingleton<_i929.FuelRepository>(
       () => _i928.FuelRepositoryImpl(gh<_i406.ApiService>()),

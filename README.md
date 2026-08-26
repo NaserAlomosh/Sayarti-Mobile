@@ -871,6 +871,37 @@ Do not implement until the backend contract is ready.
 
 ⸻
 
+17.1 Recent Vehicle Activity
+
+Backend:
+
+GET /api/v1/vehicles/{vehicleId}/activity
+
+Domain
+
+* [x] VehicleActivityEntity
+* [x] ActivityType
+* [x] VehicleActivityRepository
+* [x] GetVehicleActivityUseCase
+* [x] GetVehicleActivityUseCaseParams
+
+Data
+
+* [x] VehicleActivityModel
+* [x] VehicleActivityRepositoryImpl
+* [x] ApiService activity endpoint
+* [x] List model → entity transformation
+
+Presentation
+
+* [ ] Recent vehicle activity presentation
+
+Integration
+
+* [ ] Runtime verification
+
+⸻
+
 18. Localization
 
 Supported languages:
@@ -1066,6 +1097,7 @@ Devices	✅	✅	N/A	⬜
 Notifications	⬜	⬜	⬜	⬜
 Statistics	✅	✅	⬜	⬜
 Dashboard	✅	✅	⬜	⬜
+Recent Vehicle Activity	✅	✅	⬜	⬜
 Energy Tracking	⬜	⬜	⬜	⬜
 
 ⸻
