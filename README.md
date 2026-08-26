@@ -173,9 +173,9 @@ Codex MUST:
 
 4. Local Storage
 
-* Secure token storage
-* Access-token persistence
-* Refresh-token persistence
+* [x] Secure token storage
+* [x] Access-token persistence
+* [x] Refresh-token persistence
 * Current-user persistence where required
 * User preferences storage
 * Selected language persistence

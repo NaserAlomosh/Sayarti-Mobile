@@ -19,6 +19,8 @@ import 'package:sayarti_mobile/data/di/remote_moudel.dart' as _i84;
 import 'package:sayarti_mobile/data/networking/dio/dio_client.dart' as _i313;
 import 'package:sayarti_mobile/data/repository/local/language/language_repository_impl.dart'
     as _i466;
+import 'package:sayarti_mobile/data/storage/auth/auth_session_storage_impl.dart'
+    as _i1000;
 import 'package:sayarti_mobile/data/repository/remote/auth/auth_repository_impl.dart'
     as _i307;
 import 'package:sayarti_mobile/data/repository/remote/reference/reference_repository_impl.dart'
@@ -92,6 +94,8 @@ import 'package:sayarti_mobile/domain/repository/remote/user/user_repository.dar
     as _i911;
 import 'package:sayarti_mobile/domain/repository/remote/vehicle/vehicle_repository.dart'
     as _i921;
+import 'package:sayarti_mobile/domain/storage/auth/auth_session_storage.dart'
+    as _i1001;
 import 'package:sayarti_mobile/domain/usecase/local/biometric/authenticate_biometric_usecase.dart'
     as _i615;
 import 'package:sayarti_mobile/domain/usecase/local/biometric/get_biometric_info_usecase.dart'
@@ -159,6 +163,9 @@ extension GetItInjectableX on _i174.GetIt {
     gh.factory<_i50.SplashCubit>(() => _i50.SplashCubit());
     gh.lazySingleton<_i558.FlutterSecureStorage>(
       () => localAuthModule.secureStorage,
+    );
+    gh.lazySingleton<_i1001.AuthSessionStorage>(
+      () => _i1000.AuthSessionStorageImpl(gh<_i558.FlutterSecureStorage>()),
     );
     gh.lazySingleton<_i152.LocalAuthentication>(
       () => localAuthModule.localAuthentication,
