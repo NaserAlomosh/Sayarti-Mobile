@@ -42,6 +42,11 @@ import 'package:sayarti_mobile/data/model/remote/request/expense/update_expense_
 import 'package:sayarti_mobile/data/model/remote/response/expense/delete_expense_response_model.dart';
 import 'package:sayarti_mobile/data/model/remote/response/expense/expense_response_model.dart';
 import 'package:sayarti_mobile/data/model/remote/response/expense/get_expenses_response_model.dart';
+import 'package:sayarti_mobile/data/model/remote/request/reminder/create_reminder_request_model.dart';
+import 'package:sayarti_mobile/data/model/remote/request/reminder/update_reminder_request_model.dart';
+import 'package:sayarti_mobile/data/model/remote/response/reminder/delete_reminder_response_model.dart';
+import 'package:sayarti_mobile/data/model/remote/response/reminder/get_reminders_response_model.dart';
+import 'package:sayarti_mobile/data/model/remote/response/reminder/reminder_response_model.dart';
 
 part 'api_service.g.dart';
 
@@ -242,5 +247,41 @@ abstract class ApiService {
   Future<HttpResponse<DeleteExpenseResponseModel>> deleteExpense(
     @Path('vehicleId') String vehicleId,
     @Path('expenseId') String expenseId,
+  );
+
+  @POST('v1/vehicles/{vehicleId}/reminders')
+  Future<HttpResponse<ReminderResponseModel>> createReminder(
+    @Path('vehicleId') String vehicleId,
+    @Body() CreateReminderRequestModel request,
+  );
+
+  @GET('v1/vehicles/{vehicleId}/reminders')
+  Future<HttpResponse<GetRemindersResponseModel>> getReminders(
+    @Path('vehicleId') String vehicleId,
+  );
+
+  @GET('v1/vehicles/{vehicleId}/reminders/{reminderId}')
+  Future<HttpResponse<ReminderResponseModel>> getReminder(
+    @Path('vehicleId') String vehicleId,
+    @Path('reminderId') String reminderId,
+  );
+
+  @PATCH('v1/vehicles/{vehicleId}/reminders/{reminderId}')
+  Future<HttpResponse<ReminderResponseModel>> updateReminder(
+    @Path('vehicleId') String vehicleId,
+    @Path('reminderId') String reminderId,
+    @Body() UpdateReminderRequestModel request,
+  );
+
+  @PATCH('v1/vehicles/{vehicleId}/reminders/{reminderId}/complete')
+  Future<HttpResponse<ReminderResponseModel>> completeReminder(
+    @Path('vehicleId') String vehicleId,
+    @Path('reminderId') String reminderId,
+  );
+
+  @DELETE('v1/vehicles/{vehicleId}/reminders/{reminderId}')
+  Future<HttpResponse<DeleteReminderResponseModel>> deleteReminder(
+    @Path('vehicleId') String vehicleId,
+    @Path('reminderId') String reminderId,
   );
 }
