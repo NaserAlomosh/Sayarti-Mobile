@@ -17,18 +17,10 @@ import 'package:local_auth/local_auth.dart' as _i152;
 import 'package:sayarti_mobile/data/di/local_moudel.dart' as _i685;
 import 'package:sayarti_mobile/data/di/remote_moudel.dart' as _i84;
 import 'package:sayarti_mobile/data/networking/dio/dio_client.dart' as _i313;
-import 'package:sayarti_mobile/data/repository/local/biometric/biometric_repository_impl.dart'
-    as _i630;
 import 'package:sayarti_mobile/data/repository/local/language/language_repository_impl.dart'
     as _i466;
 import 'package:sayarti_mobile/data/repository/remote/auth/auth_repository_impl.dart'
     as _i307;
-import 'package:sayarti_mobile/data/service/local/biometric/biometric_service.dart'
-    as _i868;
-import 'package:sayarti_mobile/data/service/local/biometric/impl/biometric_service_impl.dart'
-    as _i417;
-import 'package:sayarti_mobile/data/service/local/onboarding/onboarding_storage.dart'
-    as _i114;
 import 'package:sayarti_mobile/data/service/remote/api_service/api_service.dart'
     as _i406;
 import 'package:sayarti_mobile/domain/repository/local/biometric/biometric_repository.dart'
@@ -47,6 +39,8 @@ import 'package:sayarti_mobile/domain/usecase/local/language/get_user_language_u
     as _i757;
 import 'package:sayarti_mobile/domain/usecase/local/language/save_user_language_usecase.dart'
     as _i724;
+import 'package:sayarti_mobile/domain/usecase/remote/auth/login_usecase.dart'
+    as _i764;
 import 'package:sayarti_mobile/presentation/core/theme/cubit/theme_cubit.dart'
     as _i817;
 import 'package:sayarti_mobile/presentation/core/widgets/language/cubit/languge_cubit.dart'
@@ -67,6 +61,7 @@ extension GetItInjectableX on _i174.GetIt {
     final localAuthModule = _$LocalAuthModule();
     final remoteMoudel = _$RemoteMoudel();
     gh.factory<_i664.OnboardingCubit>(() => _i664.OnboardingCubit());
+    gh.factory<_i50.SplashCubit>(() => _i50.SplashCubit());
     gh.lazySingleton<_i558.FlutterSecureStorage>(
       () => localAuthModule.secureStorage,
     );
@@ -87,24 +82,6 @@ extension GetItInjectableX on _i174.GetIt {
     gh.lazySingleton<_i406.ApiService>(
       () => remoteMoudel.apiService(gh<_i361.Dio>()),
     );
-    gh.factory<_i50.SplashCubit>(
-      () => _i50.SplashCubit(gh<_i114.OnboardingStorage>()),
-    );
-    gh.lazySingleton<_i868.BiometricService>(
-      () => _i417.BiometricServiceImpl(gh<_i152.LocalAuthentication>()),
-    );
-    gh.lazySingleton<_i757.GetUserLanguageUsecase>(
-      () => _i757.GetUserLanguageUsecase(gh<_i635.LanguageRepository>()),
-    );
-    gh.lazySingleton<_i724.SaveUserLanguageUsecase>(
-      () => _i724.SaveUserLanguageUsecase(gh<_i635.LanguageRepository>()),
-    );
-    gh.lazySingleton<_i777.AuthRepository>(
-      () => _i307.AuthRepositoryImpl(gh<_i406.ApiService>()),
-    );
-    gh.lazySingleton<_i696.BiometricRepository>(
-      () => _i630.BiometricRepositoryImpl(gh<_i868.BiometricService>()),
-    );
     gh.lazySingleton<_i615.AuthenticateBiometricUsecase>(
       () => _i615.AuthenticateBiometricUsecase(gh<_i696.BiometricRepository>()),
     );
@@ -115,6 +92,18 @@ extension GetItInjectableX on _i174.GetIt {
       () => _i33.StopBiometricAuthenticationUsecase(
         gh<_i696.BiometricRepository>(),
       ),
+    );
+    gh.lazySingleton<_i757.GetUserLanguageUsecase>(
+      () => _i757.GetUserLanguageUsecase(gh<_i635.LanguageRepository>()),
+    );
+    gh.lazySingleton<_i724.SaveUserLanguageUsecase>(
+      () => _i724.SaveUserLanguageUsecase(gh<_i635.LanguageRepository>()),
+    );
+    gh.lazySingleton<_i777.AuthRepository>(
+      () => _i307.AuthRepositoryImpl(gh<_i406.ApiService>()),
+    );
+    gh.lazySingleton<_i764.LoginUseCase>(
+      () => _i764.LoginUseCase(gh<_i777.AuthRepository>()),
     );
     gh.lazySingleton<_i480.LanguageCubit>(
       () => _i480.LanguageCubit(
