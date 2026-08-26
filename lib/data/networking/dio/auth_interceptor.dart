@@ -6,12 +6,10 @@ import 'package:sayarti_mobile/domain/storage/auth/auth_session_storage.dart';
 /// Centralizes session authentication for the primary application Dio client.
 class AuthInterceptor extends Interceptor {
   AuthInterceptor({
-    required AuthSessionStorage sessionStorage,
-    required Dio applicationDio,
-    required Dio refreshDio,
-  }) : _sessionStorage = sessionStorage,
-       _applicationDio = applicationDio,
-       _refreshDio = refreshDio;
+    required this._sessionStorage,
+    required this._applicationDio,
+    required this._refreshDio,
+  });
 
   static const _retriedKey = 'authInterceptorRetried';
   static const _refreshPath = 'v1/auth/refresh';
@@ -38,31 +36,31 @@ class AuthInterceptor extends Interceptor {
     if (!_isPublicAuthRequest(options)) {
       final accessToken = (await _sessionStorage.getAccessToken())?.trim();
       if (accessToken != null && accessToken.isNotEmpty) {
-        options.headers[Headers.authorizationHeader] = 'Bearer $accessToken';
+        options.headers['Authorization'] = 'Bearer $accessToken';
       } else {
-        options.headers.remove(Headers.authorizationHeader);
+        options.headers.remove('Authorization');
       }
     } else {
-      options.headers.remove(Headers.authorizationHeader);
+      options.headers.remove('Authorization');
     }
 
     handler.next(options);
   }
 
   @override
-  void onError(DioException error, ErrorInterceptorHandler handler) async {
-    final request = error.requestOptions;
-    if (error.response?.statusCode != 401 ||
+  void onError(DioException err, ErrorInterceptorHandler handler) async {
+    final request = err.requestOptions;
+    if (err.response?.statusCode != 401 ||
         _isPublicAuthRequest(request) ||
         request.extra[_retriedKey] == true) {
-      handler.next(error);
+      handler.next(err);
       return;
     }
 
     final currentAccessToken =
         (await _sessionStorage.getAccessToken())?.trim();
     final failedAccessToken = _bearerToken(
-      request.headers[Headers.authorizationHeader],
+      request.headers['Authorization'],
     );
 
     // A concurrent request may have already rotated the tokens before this
@@ -72,19 +70,19 @@ class AuthInterceptor extends Interceptor {
         currentAccessToken.isNotEmpty &&
         failedAccessToken != null &&
         failedAccessToken != currentAccessToken) {
-      await _retry(error, currentAccessToken, handler);
+      await _retry(err, currentAccessToken, handler);
       return;
     }
 
     try {
       final newAccessToken = await _singleFlightRefresh();
       if (newAccessToken == null) {
-        handler.next(error);
+        handler.next(err);
         return;
       }
-      await _retry(error, newAccessToken, handler);
+      await _retry(err, newAccessToken, handler);
     } catch (_) {
-      handler.next(error);
+      handler.next(err);
     }
   }
 
@@ -141,7 +139,7 @@ class AuthInterceptor extends Interceptor {
   ) async {
     final request = originalError.requestOptions;
     request.extra[_retriedKey] = true;
-    request.headers[Headers.authorizationHeader] = 'Bearer $accessToken';
+    request.headers['Authorization'] = 'Bearer $accessToken';
     try {
       handler.resolve(await _applicationDio.fetch<dynamic>(request));
     } on DioException catch (retryError) {
