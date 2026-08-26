@@ -1,19 +1,16 @@
-Sayarti Mobile Application
+Sayarti Mobile
 
-Flutter mobile application for Sayarti, a vehicle management platform that allows users to manage vehicles, fuel consumption, maintenance, expenses, reminders, notifications, statistics, and vehicle-related activity.
+Flutter mobile application for Sayarti, a vehicle management platform that allows users to manage their vehicles, fuel consumption, maintenance, expenses, reminders, notifications, statistics, and vehicle-related costs.
 
-This repository uses this README as the main:
+This README is the main:
 
-* Product scope.
-* Frontend architecture reference.
-* UI implementation roadmap.
-* Feature checklist.
-* Development progress tracker.
-* Definition of Done.
-* Figma implementation tracker.
-* Backend integration tracker.
+* Product scope
+* Mobile development roadmap
+* Development checklist
+* Implementation progress tracker
+* Feature status reference
 
-Every feature must remain unchecked until it is fully implemented, tested, integrated where applicable, and verified.
+Every feature must remain unchecked until the corresponding work is actually implemented and verified.
 
 ⸻
 
@@ -21,1230 +18,1099 @@ Project Status
 
 Project: Sayarti Mobile
 Platform: Flutter
-Targets: Android / iOS
 Version: V1
 Status: In Development
 
 ⸻
 
-Source of Truth
+Documentation
 
-The frontend has multiple sources of truth with clearly separated responsibilities.
+The project uses the following architecture documentation:
 
-Product and Progress
+README.md
+→ Product roadmap and implementation progress
+API_LAYERS_README.md
+→ Domain + Data API architecture source of truth
 
-This README.md is the source of truth for:
+Codex MUST read the relevant documentation before implementing a feature.
 
-* Feature scope.
-* Implementation progress.
-* Completed features.
-* Pending features.
-* V1 roadmap.
-* Definition of Done.
+For any Domain/Data/API task:
 
-Architecture
-
-architecture.md is the source of truth for:
-
-* Project architecture.
-* Layer responsibilities.
-* Feature structure.
-* Dependency rules.
-* State-management conventions.
-* Navigation conventions.
-* Dependency injection conventions.
-
-Base Layers
-
-BASE_LAYERS_README.md is the source of truth for:
-
-* Networking.
-* API state handling.
-* Error handling.
-* Common infrastructure.
-* Shared base components.
-* Core reusable abstractions.
-
-Login Feature
-
-LOGIN_FEATURE_README.md documents the Login feature and its implementation decisions.
-
-Backend
-
-The Sayarti Spring Boot backend is the source of truth for:
-
-* API contracts.
-* Authentication behavior.
-* Validation rules.
-* Error codes.
-* Vehicle domain rules.
-* Fuel calculations.
-* Maintenance.
-* Expenses.
-* Reminders.
-* Statistics.
-* Notifications.
-* Localization behavior.
-
-The Flutter application must not duplicate backend business logic unnecessarily.
+Read API_LAYERS_README.md first.
 
 ⸻
 
-Figma
+Development Status Rules
 
-The Sayarti Figma design is the visual source of truth for the mobile application.
+Use:
 
-Main design:
+[ ] Not implemented
+[x] Implemented and verified
 
-Sayarti Mobile App
+Do not mark a task complete merely because files were created.
 
-Figma determines:
+A feature should only be marked complete after the corresponding implementation actually works.
 
-* Layout.
-* Colors.
-* Typography.
-* Spacing.
-* Components.
-* Images.
-* Icons.
-* Border radii.
-* Shadows.
-* Screen states.
-* Light/dark appearance where designed.
-* Navigation presentation.
-* Empty states.
-* Loading states.
-* Error states.
+For API-based features, track the layers independently:
 
-Flutter implementations must not claim to match Figma unless the relevant Figma frame was actually inspected.
+Domain
+Data
+Presentation
+Integration
 
-⸻
+Example:
 
-Core Development Rules
+[x] Login Domain
+[x] Login Data
+[ ] Login Presentation
+[ ] Login Integration
 
-Codex must follow these rules during development:
-
-1. Read this entire README.md before implementing a feature.
-2. Read BASE_LAYERS_README.md.
-3. Read LOGIN_FEATURE_README.md.
-4. Read architecture.md.
-5. Inspect the current implementation before changing code.
-6. Inspect the relevant Figma frame when implementing UI.
-7. Work on one logical feature at a time.
-8. Follow the existing architecture.
-9. Reuse existing base layers and reusable widgets.
-10. Do not create parallel architecture.
-11. Do not duplicate existing abstractions.
-12. Do not introduce unnecessary dependencies.
-13. Do not hardcode user-visible strings.
-14. Do not hardcode global design-system colors inside feature widgets.
-15. Use the existing localization system.
-16. Support English and Arabic where applicable.
-17. Respect LTR and RTL layouts.
-18. Use the existing routing architecture.
-19. Use the existing dependency-injection architecture.
-20. Use the existing networking and API-state infrastructure.
-21. Use the existing error-handling infrastructure.
-22. Add meaningful automated tests for every implemented feature.
-23. Run flutter analyze.
-24. Run flutter test.
-25. Fix failures before marking a feature complete.
-26. Update this README only after the Definition of Done is satisfied.
-27. Never mark partially implemented functionality complete.
-28. Do not modify unrelated features.
-29. Do not start the next feature automatically after completing the requested task.
-30. Review the final diff before reporting completion.
+This prevents partially implemented features from being incorrectly marked as complete.
 
 ⸻
 
 Definition of Done
 
-A feature may only change from:
+A complete frontend feature normally requires:
 
-- [ ] Feature
-
-to:
-
-- [x] Feature
-
-after all applicable requirements are satisfied.
-
-Architecture
+Domain
 +
-Figma Implementation
+Data
 +
-Responsive Layout
+Presentation
 +
-Theme Integration
+API Integration
 +
-Localization
-+
-RTL Support
-+
-Navigation
-+
-State Management
-+
-Backend Integration where applicable
+Error Handling
 +
 Loading State
 +
-Success State
-+
 Empty State where applicable
 +
-Error State
+Localization
 +
-Input Validation where applicable
+Navigation
 +
-Automated Tests
+Static Analysis
 +
-flutter analyze
-+
-flutter test
-+
-Manual Verification
+Runtime Verification
 
-If any required part is missing, the feature remains unchecked.
-
-A screen merely rendering successfully does NOT mean the feature is complete.
+If only Domain/Data are implemented, mark only those items complete.
 
 ⸻
 
-Completion Rules
+Core Development Rules
 
-UI-Only Feature
+Codex MUST:
 
-A UI-only feature is complete when:
-
-Figma inspected
-→ UI implemented
-→ Theme reused
-→ Localization implemented
-→ RTL verified
-→ Responsive behavior verified
-→ Widget tests added
-→ flutter analyze passes
-→ flutter test passes
-
-Backend-Connected Feature
-
-A backend-connected feature is complete when:
-
-UI complete
-→ API contract inspected
-→ Repository/data layer implemented
-→ Request/response models implemented
-→ State management implemented
-→ Loading handled
-→ Success handled
-→ Empty state handled where applicable
-→ API errors handled
-→ Backend validation/errors mapped correctly
-→ Tests added
-→ flutter analyze passes
-→ flutter test passes
-→ Integration manually verified
-
-Do not mark a backend-connected feature complete when only its UI exists.
+1. Read this README before implementing a feature.
+2. Read API_LAYERS_README.md before changing Domain/Data/API code.
+3. Inspect an existing similar implementation before creating new architecture.
+4. Follow the existing project structure.
+5. Work on one logical feature at a time.
+6. Do not implement features outside the requested scope.
+7. Do not mark partially implemented features complete.
+8. Do not create unnecessary architectural abstractions.
+9. Reuse existing base classes and components.
+10. Preserve Domain → Data → Presentation boundaries.
+11. Run code generation when required.
+12. Run formatting after implementation.
+13. Run static analysis after implementation.
+14. Fix implementation-related analyzer errors before marking work complete.
+15. Do not modify unrelated files.
 
 ⸻
 
 1. Project Foundation
 
-* Flutter project foundation verified
-* Folder structure finalized
-* Environment configuration finalized
-* Android configuration finalized
-* iOS configuration finalized
-* Build variants/flavors finalized if required
+* Flutter project initialized
+* Domain layer created
+* Data layer created
+* Presentation layer created
+* Dependency injection foundation
+* Retrofit networking foundation
+* Dio networking foundation
+* ApiResult foundation
+* SafeRequest foundation
+* BaseResponseModel
+* BaseResponseEntity
+* BaseTransformResponseModel
+* BaseRemoteUsecase
+* BaseUsecaseParams
+* API architecture documentation — API_LAYERS_README.md
 
 ⸻
 
-2. Architecture
+2. Application Configuration
 
-* Feature-based architecture finalized
-* Presentation layer conventions finalized
-* Domain layer conventions finalized
-* Data layer conventions finalized
-* Repository pattern finalized
-* Dependency injection finalized
-* State-management conventions finalized
-* Navigation architecture finalized
-* Shared logic free from unnecessary duplication
-
-Implementation must follow architecture.md.
+* Environment configuration
+* Development environment
+* Production environment
+* Base URL configuration
+* Build flavor strategy if required
+* Application constants
+* Secure configuration strategy
 
 ⸻
 
-3. Base Layers
+3. Networking
 
-* Networking foundation
-* API client
-* Request configuration
-* Authentication headers
-* API response handling
-* API error handling
-* Loading-state handling
-* Empty-state handling
-* Common API builder
-* Local storage abstraction
-* Secure storage abstraction if required
-* Connectivity handling if required
-
-Implementation details belong in BASE_LAYERS_README.md.
-
-Only mark items complete after verifying the existing implementation and tests.
+* Dio configuration
+* Retrofit ApiService
+* Standard API response support
+* Standard API error support
+* SafeRequest
+* ApiResult
+* Authentication interceptor
+* Access-token attachment
+* Refresh-token handling
+* Automatic token refresh
+* Unauthorized session handling
+* Request logging for development
+* Network connectivity handling
 
 ⸻
 
-4. Theme & Design System
+4. Local Storage
 
-* Figma design system inspected
-* Color system implemented
-* ThemeData implemented
-* ColorScheme implemented
-* Semantic theme colors implemented
-* Button themes implemented
-* Input themes implemented
-* Card themes implemented
-* Dialog themes implemented
-* Bottom-sheet themes implemented
-* Navigation themes implemented
-* Progress/loading themes implemented
-* Light theme implemented if designed
-* Dark theme implemented if designed
-* Theme switching implemented if required
+* Secure token storage
+* Access-token persistence
+* Refresh-token persistence
+* Current-user persistence where required
+* User preferences storage
+* Selected language persistence
+* Theme persistence where required
+* Selected vehicle persistence where required
+
+Do not store sensitive authentication tokens in insecure plain-text storage.
 
 ⸻
 
-5. Typography
+5. Authentication
 
-Reusable typography:
+5.1 Login
 
-* CustomTitleText
-* CustomHintText
-* CustomDescriptionText
+Backend:
 
-Requirements:
+POST /api/v1/auth/login
 
-* Typography roles must match Figma.
-* Default colors come from the active theme.
-* Font sizes for these custom widgets remain controlled by the widgets according to the project design decision.
-* Do not duplicate typography implementations across features.
+Domain
 
-⸻
+* LoginContentEntity
+* UserEntity
+* AuthRepository login contract
+* LoginUseCase
+* LoginUseCaseParams
 
-6. Localization
+Data
 
-* Flutter localization configured
-* English localization
-* Arabic localization
-* Runtime language switching
-* RTL support
-* Locale persistence
-* Backend language integration
-* Accept-Language integration where applicable
+* LoginRequestModel
+* LoginResponseModel
+* LoginContentModel
+* UserModel
+* AuthRepositoryImpl login
+* ApiService login endpoint
+* Data-to-Domain transformation
 
-Supported languages:
+Presentation
 
-English: en
-Arabic: ar
-
-User-visible feature strings must not be hardcoded.
-
-⸻
-
-7. Navigation
-
-* Application router configured
-* Route constants/names finalized
-* Authentication navigation flow
-* Startup navigation flow
-* Protected navigation where required
-* Unknown-route handling
-* Navigation tests
-
-⸻
-
-8. Splash
-
-* Splash View implemented from Figma
-* Splash assets integrated
-* Theme integration
-* Responsive behavior
-* Startup logic integration
-* Splash tests
-* Splash verified on Android
-* Splash verified on iOS
-
-Do not mark Splash complete based only on visual implementation.
-
-⸻
-
-9. Onboarding
-
-* Onboarding 01 implemented from Figma
-* Onboarding 02 implemented from Figma
-* Onboarding 03 implemented from Figma
-* Reusable onboarding page architecture
-* PageView navigation
-* Animated page indicator
-* Skip behavior
-* Next behavior
-* Final CTA behavior
-* Onboarding completion persistence
-* Startup-flow integration
-* English localization
-* Arabic localization
-* RTL verification
-* Responsive layout verification
-* Onboarding widget tests
-* Onboarding navigation tests
-
-Onboarding is complete only when the entire first-run flow works.
-
-⸻
-
-10. Authentication
-
-Login
-
-* Login UI implemented from Figma
+* Login Cubit/Bloc
+* Login state
+* Login page
 * Email input
 * Password input
 * Client-side validation
-* Password visibility behavior
-* Login API integration
+* Password visibility
 * Loading state
-* Invalid-credentials handling
-* Unverified-email handling
-* Successful authentication persistence
-* Navigation after login
-* Login tests
+* API error handling
+* Email-not-verified handling
 
-Registration
+Integration
 
-* Registration UI
+* Persist authentication tokens
+* Persist/update authenticated user
+* Navigate after successful login
+* Redirect unverified account to Email Verification
+* Runtime verification
+
+⸻
+
+5.2 Registration
+
+Backend:
+
+POST /api/v1/auth/register
+
+Request:
+
+firstName
+lastName
+email
+password
+countryCode
+
+Registration creates an unverified LOCAL account and starts email verification.
+
+Domain
+
+* RegistrationEntity
+* AuthRepository register contract
+* RegisterUseCase
+* RegisterUseCaseParams
+
+Data
+
+* RegisterRequestModel
+* RegisterResponseModel
+* RegistrationModel
+* AuthRepositoryImpl register
+* ApiService register endpoint
+* Data-to-Domain transformation
+
+Presentation
+
+* Register Cubit/Bloc
+* Register state
+* Register page
+* First-name input
+* Last-name input
+* Email input
+* Password input
+* Country selector
 * Registration validation
-* [x] Registration API integration
 * Loading state
-* Backend error handling
-* Successful registration flow
-* Navigation to email verification
-* Registration tests
+* API error handling
 
-Email Verification
+Integration
 
-* OTP verification UI
+* Load countries for registration
+* Submit country code
+* Navigate to Email Verification after successful registration
+* Pass registered email to verification flow
+* Runtime verification
+
+⸻
+
+5.3 Email Verification
+
+Backend:
+
+POST /api/v1/auth/verify-email
+
+Request:
+
+email
+otp
+
+OTP is a six-digit numeric string.
+
+Domain
+
+* VerifyEmailUseCase
+* VerifyEmailUseCaseParams
+* AuthRepository verifyEmail contract
+* Reuse authentication session entity where appropriate
+
+Data
+
+* VerifyEmailRequestModel
+* VerifyEmailResponseModel if required
+* Reuse Auth/Login content model where appropriate
+* AuthRepositoryImpl verifyEmail
+* ApiService verifyEmail endpoint
+
+Presentation
+
+* Verify Email Cubit/Bloc
+* Verify Email state
+* OTP page
 * Six-digit OTP input
-* [x] Verify-email API integration
-* OTP expiration handling
+* OTP validation
+* Loading state
 * Invalid OTP handling
-* Maximum-attempt handling
-* [x] Resend verification
-* Resend cooldown
-* Successful verification
-* Authentication persistence after verification
-* Email-verification tests
+* Expired OTP handling
+* Attempts-exceeded handling
 
-Google Authentication
+Integration
 
-* Google Sign-In UI
-* Google authentication integration
-* Google ID token retrieval
-* Backend Google authentication
+* Persist tokens after successful verification
+* Persist/update user
+* Navigate to authenticated application
+* Runtime verification
+
+⸻
+
+5.4 Resend Email Verification
+
+Backend:
+
+POST /api/v1/auth/resend-verification
+
+Domain
+
+* ResendVerificationUseCase
+* ResendVerificationUseCaseParams
+* AuthRepository resendVerification contract
+
+Data
+
+* ResendVerificationRequestModel
+* ResendVerification response model/entity if required
+* AuthRepositoryImpl resendVerification
+* ApiService resendVerification endpoint
+
+Presentation
+
+* Resend OTP action
+* Resend loading state
+* Cooldown timer
+* Resend-too-soon handling
+* Success feedback
+* Runtime verification
+
+⸻
+
+5.5 Google Authentication
+
+Backend:
+
+POST /api/v1/auth/google
+
+Domain
+
+* GoogleLoginUseCase
+* GoogleLoginUseCaseParams
+* AuthRepository Google login contract
+
+Data
+
+* GoogleLoginRequestModel
+* Google authentication API integration
+* AuthRepositoryImpl Google login
+* ApiService Google endpoint
+* Reuse authentication response models/entities where applicable
+
+Platform
+
+* Android Google Sign-In configuration
+* iOS Google Sign-In configuration
+* Retrieve Google ID token
+* Send ID token to Sayarti Backend
+
+Presentation
+
+* Continue with Google button
+* Loading state
+* Google authentication error handling
 * Account-linking-required handling
-* Successful Google authentication persistence
-* Google authentication tests
 
-Session
+Integration
 
-* Access-token storage
-* Refresh-token storage
-* Automatic access-token usage
-* Refresh-token flow
-* Refresh-token rotation support
-* Expired-session handling
-* Logout
-* Local session cleanup
-* Session tests
+* Persist Sayarti tokens
+* Persist/update user
+* Navigate after authentication
+* Runtime verification
 
 ⸻
 
-11. User Profile
+5.6 Refresh Session
 
-* Get current user
-* Profile UI
-* Update first name
-* Update last name
-* Preferred-language update
-* Profile loading state
-* Profile error state
-* Delete-account UI
-* Delete-account confirmation
-* Delete-account API integration
-* Local session cleanup after deletion
-* Profile tests
+Backend:
+
+POST /api/v1/auth/refresh
+
+Domain
+
+* RefreshSessionUseCase
+* RefreshSessionUseCaseParams
+* AuthRepository refresh contract
+
+Data
+
+* RefreshRequestModel
+* Refresh API endpoint
+* AuthRepositoryImpl refresh
+* Authentication response transformation
+
+Integration
+
+* Automatic refresh flow
+* Replace old access token
+* Replace rotated refresh token
+* Failed refresh logout handling
+* Runtime verification
 
 ⸻
 
-12. Country & Currency
+5.7 Logout
 
-* Countries API integration
-* Currencies API integration
+Backend:
+
+POST /api/v1/auth/logout
+
+Domain
+
+* LogoutUseCase
+* LogoutUseCaseParams
+* AuthRepository logout contract
+
+Data
+
+* Logout request
+* Logout response model/entity if required
+* AuthRepositoryImpl logout
+* ApiService logout endpoint
+
+Integration
+
+* Revoke server refresh token
+* Clear local access token
+* Clear local refresh token
+* Clear authenticated user
+* Return to authentication flow
+* Runtime verification
+
+⸻
+
+6. Reference Data
+
+6.1 Countries
+
+Backend:
+
+GET /api/v1/reference/countries
+
+Country:
+
+code
+nameEn
+nameAr
+defaultCurrencyCode
+
+Domain
+
+* CountryEntity
+* ReferenceRepository
+* GetCountriesUseCase
+
+Data
+
+* CountryModel
+* Countries response model
+* ReferenceRepositoryImpl
+* ApiService countries endpoint
+* List → List
+
+Presentation
+
+* Country selector
 * Localized country names
-* Localized currency names
-* Localized currency symbols
-* Country flags
-* Default currency selection
-* Currency persistence through backend profile/settings
-* Country/currency tests
+* Country loading state
+* Country error state
 
-Stable ISO codes must be used internally rather than localized display labels.
+Integration
+
+* Registration country integration
+* User-profile country integration where required
+* Runtime verification
 
 ⸻
 
-13. Vehicle Management
+6.2 Currencies
 
-* Vehicle list UI
-* Vehicle list API integration
-* Vehicle details UI
-* Vehicle details API integration
-* Add vehicle UI
-* Create vehicle API integration
-* Edit vehicle UI
-* Update vehicle API integration
-* Update mileage
-* Vehicle validation
-* Vehicle empty state
-* Vehicle loading state
-* Vehicle error state
-* Delete vehicle
+Backend:
+
+GET /api/v1/reference/currencies
+
+Domain
+
+* CurrencyEntity
+* ReferenceRepository currencies contract
+* GetCurrenciesUseCase
+
+Data
+
+* CurrencyModel
+* Currencies response model
+* Repository implementation
+* ApiService currencies endpoint
+* Data-to-Domain transformation
+
+Presentation
+
+* Currency selector
+* Currency loading state
+* Currency error state
+
+Integration
+
+* User default currency integration
+* Runtime verification
+
+⸻
+
+7. User Profile
+
+7.1 Get Current User
+
+Backend:
+
+GET /api/v1/users/me
+
+* Domain
+* Data
+* Presentation
+* Runtime verification
+
+⸻
+
+7.2 Update Current User
+
+Backend:
+
+PATCH /api/v1/users/me
+
+* Domain
+* Data
+* Presentation
+* Validation
+* Runtime verification
+
+⸻
+
+7.3 Select Country
+
+* Domain
+* Data
+* Presentation
+* Refresh user state after update
+* Runtime verification
+
+⸻
+
+7.4 Change Default Currency
+
+* Domain
+* Data
+* Presentation
+* Refresh user state after update
+* Runtime verification
+
+⸻
+
+7.5 Delete Account
+
+Backend:
+
+DELETE /api/v1/users/me
+
+* Domain
+* Data
+* Confirmation UI
+* API integration
+* Clear local authentication state
+* Navigate to authentication
+* Runtime verification
+
+⸻
+
+8. Vehicle Management
+
+The backend vehicle feature includes vehicle creation, retrieval, update, mileage management, deletion, and ownership protection.
+
+8.1 Get Vehicles
+
+* Domain
+* Data
+* Vehicles page
+* Loading state
+* Empty state
+* Error state
+* Runtime verification
+
+⸻
+
+8.2 Get Vehicle Details
+
+* Domain
+* Data
+* Vehicle details page
+* Runtime verification
+
+⸻
+
+8.3 Create Vehicle
+
+* Domain
+* Data
+* Create vehicle page
+* Validation
+* Refresh vehicles after creation
+* Runtime verification
+
+⸻
+
+8.4 Update Vehicle
+
+* Domain
+* Data
+* Edit vehicle page
+* Validation
+* Refresh vehicle after update
+* Runtime verification
+
+⸻
+
+8.5 Update Vehicle Mileage
+
+* Domain
+* Data
+* Mileage UI
+* Mileage validation
+* Runtime verification
+
+⸻
+
+8.6 Delete Vehicle
+
+* Domain
+* Data
 * Delete confirmation
-* Vehicle tests
+* Refresh vehicles after deletion
+* Runtime verification
 
 ⸻
 
-14. Fuel Tracking
+9. Fuel Tracking
 
-* Fuel history UI
-* Fuel history API integration
-* Add fuel record
-* Fuel-record validation
-* Fuel-record details
-* Update fuel record
-* Delete fuel record
-* Fuel pagination
-* Fuel sorting
-* Fuel date filtering
-* Fuel loading state
-* Fuel empty state
-* Fuel error state
-* Fuel tests
+The backend roadmap includes fuel records and fuel calculations such as distance between refills, fuel efficiency, L/100km, cost per kilometer, total fuel cost, and average efficiency.
 
-⸻
+Fuel Records
 
-15. Fuel Statistics
+* Fuel Entity
+* Fuel Models
+* Fuel Repository
+* Fuel Use Cases
+* Get Fuel Records
+* Get Fuel Record
+* Create Fuel Record
+* Update Fuel Record
+* Delete Fuel Record
+* Fuel history page
+* Add fuel page
+* Edit fuel page
+* Empty state
+* Runtime verification
 
+Fuel Statistics
+
+* Distance between refills
+* Fuel efficiency
+* L/100km
+* Cost per kilometer
+* Total fuel cost
+* Average fuel efficiency
 * Fuel statistics UI
-* Fuel statistics API integration
-* Distance-between-refills display
-* Fuel efficiency display
-* km/L display
-* L/100km display
-* Cost-per-kilometer display
-* Monthly fuel-cost display
-* Total fuel-cost display
-* Average-efficiency display
-* Multi-currency presentation
-* Fuel-statistics tests
-
-The frontend must display backend-calculated statistics rather than independently reproducing business calculations unless explicitly required for presentation.
+* Charts where appropriate
+* Runtime verification
 
 ⸻
 
-16. Maintenance
+10. Maintenance
 
-* Maintenance history UI
-* Maintenance history API integration
-* Add maintenance record
-* Maintenance validation
-* Maintenance details
-* Update maintenance
-* Delete maintenance
-* Maintenance sorting
-* Maintenance date filtering
-* Maintenance loading state
-* Maintenance empty state
-* Maintenance error state
-* Maintenance tests
+The backend roadmap contains a dedicated Maintenance feature.
+
+* Maintenance Entity
+* Maintenance Models
+* Maintenance Repository
+* Maintenance Use Cases
+* Get Maintenance Records
+* Get Maintenance Record
+* Create Maintenance Record
+* Update Maintenance Record
+* Delete Maintenance Record
+* Maintenance history page
+* Maintenance details page
+* Add maintenance page
+* Edit maintenance page
+* Empty state
+* Runtime verification
 
 ⸻
 
-17. Expenses
+11. Expenses
 
-* Expense history UI
-* Expense API integration
-* Add expense
-* Expense validation
+* Expense Entity
+* Expense Models
+* Expense Repository
+* Expense Use Cases
+* Get Expenses
+* Get Expense
+* Create Expense
+* Update Expense
+* Delete Expense
+* Expense categories
+* Expense history page
 * Expense details
-* Update expense
-* Delete expense
-* Expense sorting
-* Expense date filtering
-* Expense loading state
-* Expense empty state
-* Expense error state
-* Expense tests
+* Add expense page
+* Edit expense page
+* Runtime verification
 
 ⸻
 
-18. Reminders
+12. Reminders
 
-* Reminder list UI
-* Reminder API integration
+* Reminder Entity
+* Reminder Models
+* Reminder Repository
+* Reminder Use Cases
+* Get Reminders
+* Create Reminder
+* Update Reminder
+* Delete Reminder
+* Reminder list
+* Reminder details
 * Add reminder
-* Date-based reminder UI
-* Mileage-based reminder UI
-* Custom reminder UI
-* Maintenance reminder UI
-* License-expiration reminder UI
-* Insurance-expiration reminder UI
-* Update reminder
-* Complete reminder
-* Delete reminder
-* Reminder loading state
-* Reminder empty state
-* Reminder error state
-* Reminder tests
-
-Reminder scheduling and notification-delivery decisions belong to the backend.
+* Edit reminder
+* Reminder status handling
+* Runtime verification
 
 ⸻
 
-19. Device Management & Push Notifications
+13. Devices
 
-* Firebase configured for Android
-* Firebase configured for iOS
-* Notification permissions
-* FCM token retrieval
-* Device registration API
-* FCM token update API
-* Device deletion/logout integration
+* Device Entity
+* Device Models
+* Device Repository
+* Device Use Cases
+* Register Device
+* Update FCM Token
+* Remove Device
+* Platform information
+* Runtime verification
+
+⸻
+
+14. Notifications
+
+Firebase
+
+* Firebase project integration
+* Android Firebase configuration
+* iOS Firebase configuration
+* Notification permission flow
+* Retrieve FCM token
+* Send FCM token to backend
+* Token refresh handling
+
+Notification Handling
+
 * Foreground notification handling
 * Background notification handling
 * Terminated-state notification handling
-* Notification tap navigation
-* Android notification verification
-* iOS notification verification
-* Physical-device FCM verification
-* Notification tests where applicable
-
-Do not mark real-device push notification verification complete based only on mocked tests.
+* Notification tap routing
+* Notification payload parsing
+* Runtime verification on Android
+* Runtime verification on iOS
 
 ⸻
 
-20. Dashboard
+15. Statistics
 
-* Vehicle dashboard UI
+* Statistics Entity
+* Statistics Models
+* Statistics Repository
+* Statistics Use Cases
+* Vehicle statistics API
+* Fuel statistics
+* Maintenance statistics
+* Expense statistics
+* Statistics page
+* Charts
+* Filters
+* Date range
+* Runtime verification
+
+⸻
+
+16. Dashboard
+
+* Dashboard Entity
+* Dashboard Models
+* Dashboard Repository
+* Dashboard Use Case
 * Dashboard API integration
-* Summary cards
+* Dashboard page
+* Vehicle summary
 * Fuel summary
 * Maintenance summary
 * Expense summary
 * Reminder summary
-* Dashboard loading state
-* Dashboard empty state
-* Dashboard error state
-* Dashboard tests
+* Loading state
+* Error state
+* Runtime verification
 
 ⸻
 
-21. Statistics
+17. Energy Tracking
 
-* General statistics UI
-* General statistics API integration
-* Maintenance statistics UI
-* Maintenance statistics API integration
-* Expense statistics UI
-* Expense statistics API integration
-* True Vehicle Cost UI
-* True Vehicle Cost API integration
-* Multi-currency presentation
-* Statistics loading states
-* Statistics empty states
-* Statistics error states
-* Statistics tests
+Energy tracking is a separate future feature and must not be confused with ordinary vehicle fuel/powertrain fields.
+
+* Confirm backend V1 contract
+* Domain
+* Data
+* Presentation
+* Statistics
+* Runtime verification
+
+Do not implement until the backend contract is ready.
 
 ⸻
 
-22. Recent Vehicle Activity
+18. Localization
 
-* Recent activity UI
-* Recent activity API integration
-* Fuel activity presentation
-* Maintenance activity presentation
-* Expense activity presentation
-* Completed-reminder presentation
-* Activity empty state
-* Activity loading state
-* Activity error state
-* Activity limit support
-* Recent-activity tests
+Supported languages:
+
+English
+Arabic
+
+* Localization foundation
+* Language switching foundation
+* Persist selected language
+* Localize authentication
+* Localize registration
+* Localize email verification
+* Localize vehicle management
+* Localize fuel
+* Localize maintenance
+* Localize expenses
+* Localize reminders
+* Localize dashboard
+* Localize validation messages
+* Localize API-error presentation
+* Verify RTL
+* Verify LTR
 
 ⸻
 
-23. Common UI States
+19. Theme
 
-* Global loading component
-* API loading builder
-* Error-state component
-* Empty-state component
-* Retry behavior
+* Theme foundation
+* Final design tokens
+* Typography
+* Colors
+* Input styles
+* Button styles
+* Dialog styles
+* Loading styles
+* Empty-state styles
+* Error-state styles
+* Dark mode if included in V1
+* Persist theme preference if required
+
+⸻
+
+20. Navigation
+
+* Final navigation architecture
+* Splash routing
+* Authentication routing
+* Email-verification routing
+* Authenticated routing
+* Session-expired routing
+* Deep-link strategy
+* Notification routing
+
+⸻
+
+21. Shared Presentation Components
+
+* Standard API builder
+* Standard loading state
+* Standard error state
+* Standard empty state
+* Standard buttons
+* Standard text fields
+* Password field
+* OTP input
+* Country selector
+* Currency selector
 * Confirmation dialog
-* Common snackbar/toast behavior
-* Common bottom-sheet behavior
+* Bottom sheets
+* Snackbar/toast strategy
 
-Reuse these components instead of implementing feature-specific copies without reason.
+Do not duplicate shared components between features.
 
 ⸻
 
-24. Error Handling
+22. Validation
 
-The Flutter client must understand stable backend error codes.
+* Shared email validation
+* Shared password validation
+* First-name validation
+* Last-name validation
+* OTP validation
+* Country validation
+* Vehicle validation
+* Mileage validation
+* Fuel-record validation
+* Maintenance validation
+* Expense validation
 
-Examples include:
+Frontend validation improves UX but does not replace backend validation.
 
-VALIDATION_ERROR
-UNAUTHORIZED
-FORBIDDEN
-INTERNAL_SERVER_ERROR
+⸻
+
+23. Error Handling
+
+* ApiErrorModel foundation
+* ApiResult foundation
+* SafeRequest foundation
+* Standard Presentation error mapper
+* Validation-error presentation
+* Unauthorized handling
+* Forbidden handling
+* Session-expired handling
+* Network-error handling
+* Server-error handling
+* Backend error-code-specific handling
+
+Important authentication error flows include:
+
 AUTH_INVALID_CREDENTIALS
 AUTH_EMAIL_ALREADY_EXISTS
-AUTH_TOKEN_EXPIRED
-AUTH_INVALID_TOKEN
-AUTH_INVALID_REFRESH_TOKEN
-AUTH_GOOGLE_LOGIN_FAILED
-AUTH_ACCOUNT_LINKING_REQUIRED
 AUTH_EMAIL_NOT_VERIFIED
 AUTH_EMAIL_ALREADY_VERIFIED
 AUTH_OTP_INVALID
 AUTH_OTP_EXPIRED
 AUTH_OTP_ATTEMPTS_EXCEEDED
 AUTH_OTP_RESEND_TOO_SOON
-USER_NOT_FOUND
-VEHICLE_NOT_FOUND
-VEHICLE_ACCESS_DENIED
-INVALID_VEHICLE_MILEAGE
-FUEL_RECORD_NOT_FOUND
-INVALID_FUEL_RECORD
-MAINTENANCE_NOT_FOUND
-EXPENSE_NOT_FOUND
-REMINDER_NOT_FOUND
-
-Checklist:
-
-* Backend error model
-* Stable error-code mapping
-* Localized user-facing error presentation
-* Validation-error presentation
-* Authentication-error handling
-* Unauthorized-session handling
-* Retryable-error handling
-* Unknown-error fallback
-* Error-handling tests
-
-Do not build application logic around localized backend message strings.
-
-Use stable machine-readable error codes.
+AUTH_ACCOUNT_LINKING_REQUIRED
 
 ⸻
 
-25. Pagination, Sorting & Filtering
+24. Testing
 
-* Shared pagination support
-* Pagination loading state
-* Pagination error handling
-* Sorting support
-* Date-range filtering
-* Vehicle sorting integration
-* Fuel sorting integration
-* Maintenance sorting integration
-* Expense sorting integration
+Domain
 
-Frontend parameters must conform to the backend allowlisted fields rather than sending arbitrary property names.
+* Use Case tests
+* Repository contract behavior where applicable
 
-⸻
+Data
 
-26. Security
+* Model serialization tests
+* Model-to-Entity transformation tests
+* Repository tests
+* SafeRequest tests where required
 
-* Secure authentication-token persistence
-* Sensitive-data logging protection
-* Session expiration handling
-* Logout cleanup
-* Delete-account cleanup
-* Sensitive information excluded from debug logs
-* Production logging reviewed
-* Android production configuration reviewed
-* iOS production configuration reviewed
+Presentation
 
-Never log:
+* Cubit/Bloc tests
+* Widget tests for critical flows
 
-Passwords
-OTP values
-JWT access tokens
-Refresh tokens
-Google ID tokens
-Firebase credentials
-FCM tokens
-Authorization headers
-Sensitive user data
+Integration
+
+* Authentication integration flow
+* Registration integration flow
+* Email verification integration flow
+* Vehicle integration flow
+* Fuel integration flow
+* Maintenance integration flow
+* Expense integration flow
+* Notification integration flow
 
 ⸻
 
-27. Testing
+25. Code Quality
 
-Every feature must receive appropriate automated coverage.
+Before a task is marked complete:
 
-Required Test Types
-
-Use where appropriate:
-
-Unit Tests
-Widget Tests
-Bloc/Cubit Tests
-Repository Tests
-Mapper Tests
-Validation Tests
-Navigation Tests
-Integration Tests
-
-Checklist:
-
-* Base-layer tests
-* Theme tests
-* Localization tests
-* Splash tests
-* Onboarding tests
-* Authentication tests
-* User-profile tests
-* Vehicle tests
-* Fuel tests
-* Maintenance tests
-* Expense tests
-* Reminder tests
-* Notification tests
-* Dashboard tests
-* Statistics tests
-* Recent-activity tests
-* Navigation tests
-* Error-handling tests
-
-Tests must validate meaningful behavior rather than merely increasing test count.
+* Code generation succeeds
+* Dart formatting succeeds
+* Static analysis succeeds
+* No generated-file conflicts
+* No broken imports
+* No incorrect response generics
+* No Data models exposed to Presentation
+* No Data imports inside Domain
+* No duplicated architecture
+* No unrelated changes
 
 ⸻
 
-28. Code Quality
+26. V1 Feature Progress
 
-Codex must write clean, consistently formatted, production-readable Dart.
+Use this as the high-level project status.
 
-Rules:
-
-Use standard Dart formatting.
-Use const constructors where possible.
-Prefer immutable widgets.
-Keep widgets focused.
-Keep business logic outside presentation widgets.
-Avoid giant build methods.
-Avoid duplicated code.
-Avoid unnecessary abstractions.
-Avoid unnecessary state management.
-Avoid unnecessary packages.
-Avoid magic colors.
-Avoid hardcoded user-facing strings.
-Avoid debugPrint/print in production code.
-Remove unused imports.
-Remove dead code.
-Do not leave commented-out implementations.
-Do not perform unrelated formatting-only changes.
-
-⸻
-
-29. Verification
-
-Every completed task must run:
-
-flutter analyze
-
-Expected:
-
-No issues introduced by the task.
-
-Then:
-
-flutter test
-
-Expected:
-
-All tests pass.
-
-If the repository has pre-existing analyzer warnings or failing tests unrelated to the task, Codex must:
-
-1. Identify them.
-2. Verify they existed before the task where possible.
-3. Report them explicitly.
-4. Never falsely claim a clean build.
-5. Never mark the requested feature complete if its own verification requirements are not satisfied.
+Feature	Domain	Data	Presentation	Integrated
+Login	✅	✅	⬜	⬜
+Registration	⬜	⬜	⬜	⬜
+Email Verification	⬜	⬜	⬜	⬜
+Resend Verification	⬜	⬜	⬜	⬜
+Google Authentication	⬜	⬜	⬜	⬜
+Refresh Session	⬜	⬜	N/A	⬜
+Logout	⬜	⬜	⬜	⬜
+Countries	⬜	⬜	⬜	⬜
+Currencies	⬜	⬜	⬜	⬜
+User Profile	⬜	⬜	⬜	⬜
+Vehicle Management	⬜	⬜	⬜	⬜
+Fuel Tracking	⬜	⬜	⬜	⬜
+Maintenance	⬜	⬜	⬜	⬜
+Expenses	⬜	⬜	⬜	⬜
+Reminders	⬜	⬜	⬜	⬜
+Devices	⬜	⬜	N/A	⬜
+Notifications	⬜	⬜	⬜	⬜
+Statistics	⬜	⬜	⬜	⬜
+Dashboard	⬜	⬜	⬜	⬜
+Energy Tracking	⬜	⬜	⬜	⬜
 
 ⸻
 
-30. Android Verification
+27. Current Work
 
-* Debug Android build
-* Physical Android-device verification
-* Firebase Android configuration
-* Notification permission behavior
-* Production Android configuration
-* Release Android build
-* Android production verification
+Current implementation priority:
 
-⸻
+Authentication Foundation
+        ↓
+Registration
+        ↓
+Countries
+        ↓
+Email Verification
+        ↓
+Resend Verification
+        ↓
+Complete Authentication Flow
 
-31. iOS Verification
+Current Domain/Data task:
 
-* Debug iOS build
-* Physical iPhone verification
-* Firebase iOS configuration
-* APNs configuration
-* Notification permission behavior
-* Production signing configuration
-* Release iOS build
-* iOS production verification
+* Registration Domain
+* Registration Data
+* Countries Domain
+* Countries Data
+* Verify Email Domain
+* Verify Email Data
 
-⸻
-
-32. Final V1 Verification
-
-* All V1 screens implemented
-* All required Figma screens matched
-* English application verified
-* Arabic application verified
-* RTL verified
-* Authentication flow verified
-* Onboarding flow verified
-* Vehicle flow verified
-* Fuel flow verified
-* Maintenance flow verified
-* Expense flow verified
-* Reminder flow verified
-* Push notifications verified
-* Dashboard verified
-* Statistics verified
-* Recent activity verified
-* Android physical-device verification
-* iOS physical-device verification
-* flutter analyze passes
-* flutter test passes
-* Android release build succeeds
-* iOS release build succeeds
-* Full V1 regression verification
+Do not start Presentation implementation as part of the current Domain/Data task unless explicitly requested.
 
 ⸻
 
-V1 Main Feature Progress
+28. Golden Rule
 
-* Project Foundation
-* Architecture
-* Base Layers
-* Theme & Design System
-* Localization
-* Navigation
-* Splash
-* Onboarding
-* Login
-* Registration
-* Email Verification
-* Google Authentication
-* Session Management
-* User Profile
-* Country & Currency
-* Vehicle Management
-* Fuel Tracking
-* Fuel Statistics
-* Maintenance
-* Expenses
-* Reminders
-* Device Management
-* Firebase Push Notifications
-* Dashboard
-* Statistics
-* True Vehicle Cost
-* Recent Vehicle Activity
-* Full V1 Testing
-* Android Production Verification
-* iOS Production Verification
+The README represents the actual state of the application.
 
-⸻
+Never change:
 
-Not Included in V1
+[ ]
 
-Do not implement the following unless the project owner explicitly changes scope:
+to:
 
-AI Assistant
-AI Insights
-Receipt OCR
-Receipt Scanner
-PDF Reports
-OBD-II Integration
-Workshop Marketplace
-Government Integration
-Vehicle Sharing
-Multiple Drivers
-Payments
-Subscriptions
-Social Features
-Explicit LOCAL ↔ Google Account Linking UI
+[x]
 
-⸻
+because implementation was started.
 
-README Progress Update Rule
+Change it only when the corresponding task is actually completed and verified.
 
-This README is the progress tracker.
+Every Codex task that completes tracked functionality should update this README before finishing.
 
-After EVERY task, Codex must inspect whether the task satisfies the Definition of Done.
-
-If yes:
-
-- [ ] Feature
-
-becomes:
-
-- [x] Feature
-
-If no:
-
-- [ ] Feature
-
-MUST remain unchanged.
-
-Codex may mark individual sub-items complete while leaving the parent feature incomplete.
-
-Example:
-
-# Onboarding
-- [x] Onboarding 01 implemented from Figma
-- [x] Onboarding 02 implemented from Figma
-- [x] Onboarding 03 implemented from Figma
-- [x] PageView navigation
-- [x] Animated page indicator
-- [ ] Onboarding completion persistence
-- [ ] Arabic verification
-- [x] Onboarding widget tests
-
-Therefore:
-
-# V1 Main Feature Progress
-- [ ] Onboarding
-
-must remain unchecked.
-
-The parent may only become:
-
-- [x] Onboarding
-
-when every required onboarding requirement has actually been completed and verified.
-
-Never mark a parent feature complete merely because its main screen exists.
-
-⸻
-
-Existing Implementation Rule
-
-This README may initially contain unchecked items that are already implemented in the repository.
-
-Codex must NOT blindly mark them complete.
-
-When working in an area:
-
-1. Inspect the existing implementation.
-2. Inspect tests.
-3. Verify behavior.
-4. Run required verification.
-5. Only then update the corresponding checklist items.
-
-This allows the README to gradually become an accurate representation of the actual repository.
-
-⸻
-
-Backend Synchronization Rule
-
-Before implementing a backend-connected feature:
-
-1. Inspect the current backend API contract or supplied backend documentation.
-2. Verify:
-    * Endpoint.
-    * HTTP method.
-    * Request body.
-    * Response body.
-    * Authentication requirements.
-    * Pagination.
-    * Sorting.
-    * Filtering.
-    * Error codes.
-3. Do not invent fields.
-4. Do not reproduce backend calculations unnecessarily.
-5. Do not depend on translated backend messages for application logic.
-
-When the backend API changes, update the Flutter integration deliberately rather than silently guessing the new contract.
-
-⸻
-
-Figma Completion Rule
-
-A Figma-backed UI task may only be marked complete when:
-
-Correct Figma frame inspected
-+
-Correct assets used
-+
-Layout implemented
-+
-Typography implemented
-+
-Theme values used
-+
-Responsive behavior verified
-+
-English verified
-+
-Arabic / RTL verified where applicable
-+
-Interactions implemented
-+
-Tests pass
-
-A screenshot that merely looks similar is not sufficient when functionality is part of the design.
-
-⸻
-
-Instructions for Codex
-
-Before each task:
-
-1. Read README.md completely.
-2. Read BASE_LAYERS_README.md completely.
-3. Read LOGIN_FEATURE_README.md completely.
-4. Read architecture.md completely.
-5. Inspect the current repository.
-6. Inspect the relevant existing implementation.
-7. Inspect the relevant Figma frame for UI work.
-8. Identify the exact unfinished checklist item(s).
-
-During implementation:
-
-Follow existing architecture.
-Reuse existing components.
-Reuse ThemeData.
-Use localization.
-Respect RTL.
-Use existing routing.
-Use existing dependency injection.
-Use existing networking.
-Use existing API/error infrastructure.
-Validate input.
-Handle loading.
-Handle success.
-Handle empty state where applicable.
-Handle errors.
-Add meaningful tests.
-Avoid unrelated changes.
-
-After implementation:
-
-Run relevant tests.
-Run flutter analyze.
-Run flutter test.
-Fix task-related failures.
-Verify behavior.
-Review the final diff.
-Update README.md.
-Mark ONLY genuinely completed checklist items.
-Do not start the next feature.
-
-⸻
-
-Permanent Development Workflow
-
-READ PROJECT DOCUMENTATION
-            ↓
-INSPECT CURRENT CODE
-            ↓
-INSPECT FIGMA / API CONTRACT
-            ↓
-IDENTIFY UNFINISHED CHECKLIST ITEM
-            ↓
-IMPLEMENT
-            ↓
-ADD / UPDATE TESTS
-            ↓
-flutter analyze
-            ↓
-flutter test
-            ↓
-FIX FAILURES
-            ↓
-VERIFY FEATURE
-            ↓
-REVIEW DIFF
-            ↓
-UPDATE README.md
-            ↓
-MARK VERIFIED ITEMS COMPLETE
-            ↓
-STOP
-
-⸻
-
-Final Report Requirement
-
-At the end of every task, Codex must report:
-
-1. Requested feature/task.
-2. Documentation files read.
-3. Figma frame inspected, if applicable.
-4. Backend APIs inspected, if applicable.
-5. Files created.
-6. Files modified.
-7. Architecture/components reused.
-8. Implementation completed.
-9. Localization changes.
-10. Tests added or updated.
-11. flutter analyze result.
-12. flutter test result.
-13. Manual verification performed.
-14. README checklist items changed to complete.
-15. README checklist items intentionally left incomplete.
-16. Remaining work for this feature.
-17. Any known mismatch with Figma or backend behavior.
-
-Never report a feature as complete if the README Definition of Done has not been satisfied.
-
-⸻
-
-Goal
-
-The Sayarti Flutter V1 application should be:
-
-Maintainable
-Testable
-Responsive
-Localized
-RTL-compatible
-Consistent with Figma
-Secure
-Backend-driven
-Production-oriented
-Easy to extend
-
-The priority is a stable, polished vehicle-management application, not maximizing the number of screens marked complete.
+The final Codex report should explicitly state which README checkboxes were changed.
