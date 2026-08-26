@@ -700,6 +700,89 @@ class _ApiService implements ApiService {
     return HttpResponse(_value, _result);
   }
 
+  @override
+  Future<HttpResponse<ExpenseResponseModel>> createExpense(String vehicleId, CreateExpenseRequestModel request) async {
+    final _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+    final _headers = <String, dynamic>{};
+    final _data = <String, dynamic>{};
+    _data.addAll(request.toJson());
+    final _options = _setStreamType<HttpResponse<ExpenseResponseModel>>(
+      Options(method: 'POST', headers: _headers, extra: _extra).compose(_dio.options, 'v1/vehicles/${vehicleId}/expenses', queryParameters: queryParameters, data: _data).copyWith(baseUrl: _combineBaseUrls(_dio.options.baseUrl, baseUrl)),
+    );
+    final _result = await _dio.fetch<Map<String, dynamic>>(_options);
+    late ExpenseResponseModel _value;
+    try { _value = ExpenseResponseModel.fromJson(_result.data!); } on Object catch (e, st) { errorLogger?.logError(e, st, _options, response: _result); rethrow; }
+    return HttpResponse(_value, _result);
+  }
+
+  @override
+  Future<HttpResponse<GetExpensesResponseModel>> getExpenses(String vehicleId, int page, int size, String? sortBy, String? sortDirection, DateTime? from, DateTime? to) async {
+    final _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+    queryParameters[r'page'] = page;
+    queryParameters[r'size'] = size;
+    if (sortBy != null) queryParameters[r'sortBy'] = sortBy;
+    if (sortDirection != null) queryParameters[r'sortDirection'] = sortDirection;
+    if (from != null) queryParameters[r'from'] = from.toIso8601String();
+    if (to != null) queryParameters[r'to'] = to.toIso8601String();
+    final _headers = <String, dynamic>{};
+    final _data = <String, dynamic>{};
+    final _options = _setStreamType<HttpResponse<GetExpensesResponseModel>>(
+      Options(method: 'GET', headers: _headers, extra: _extra).compose(_dio.options, 'v1/vehicles/${vehicleId}/expenses', queryParameters: queryParameters, data: _data).copyWith(baseUrl: _combineBaseUrls(_dio.options.baseUrl, baseUrl)),
+    );
+    final _result = await _dio.fetch<Map<String, dynamic>>(_options);
+    late GetExpensesResponseModel _value;
+    try { _value = GetExpensesResponseModel.fromJson(_result.data!); } on Object catch (e, st) { errorLogger?.logError(e, st, _options, response: _result); rethrow; }
+    return HttpResponse(_value, _result);
+  }
+
+  @override
+  Future<HttpResponse<ExpenseResponseModel>> getExpense(String vehicleId, String expenseId) async {
+    final _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+    final _headers = <String, dynamic>{};
+    final _data = <String, dynamic>{};
+    final _options = _setStreamType<HttpResponse<ExpenseResponseModel>>(
+      Options(method: 'GET', headers: _headers, extra: _extra).compose(_dio.options, 'v1/vehicles/${vehicleId}/expenses/${expenseId}', queryParameters: queryParameters, data: _data).copyWith(baseUrl: _combineBaseUrls(_dio.options.baseUrl, baseUrl)),
+    );
+    final _result = await _dio.fetch<Map<String, dynamic>>(_options);
+    late ExpenseResponseModel _value;
+    try { _value = ExpenseResponseModel.fromJson(_result.data!); } on Object catch (e, st) { errorLogger?.logError(e, st, _options, response: _result); rethrow; }
+    return HttpResponse(_value, _result);
+  }
+
+  @override
+  Future<HttpResponse<ExpenseResponseModel>> updateExpense(String vehicleId, String expenseId, UpdateExpenseRequestModel request) async {
+    final _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+    final _headers = <String, dynamic>{};
+    final _data = <String, dynamic>{};
+    _data.addAll(request.toJson());
+    final _options = _setStreamType<HttpResponse<ExpenseResponseModel>>(
+      Options(method: 'PATCH', headers: _headers, extra: _extra).compose(_dio.options, 'v1/vehicles/${vehicleId}/expenses/${expenseId}', queryParameters: queryParameters, data: _data).copyWith(baseUrl: _combineBaseUrls(_dio.options.baseUrl, baseUrl)),
+    );
+    final _result = await _dio.fetch<Map<String, dynamic>>(_options);
+    late ExpenseResponseModel _value;
+    try { _value = ExpenseResponseModel.fromJson(_result.data!); } on Object catch (e, st) { errorLogger?.logError(e, st, _options, response: _result); rethrow; }
+    return HttpResponse(_value, _result);
+  }
+
+  @override
+  Future<HttpResponse<DeleteExpenseResponseModel>> deleteExpense(String vehicleId, String expenseId) async {
+    final _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+    final _headers = <String, dynamic>{};
+    final _data = <String, dynamic>{};
+    final _options = _setStreamType<HttpResponse<DeleteExpenseResponseModel>>(
+      Options(method: 'DELETE', headers: _headers, extra: _extra).compose(_dio.options, 'v1/vehicles/${vehicleId}/expenses/${expenseId}', queryParameters: queryParameters, data: _data).copyWith(baseUrl: _combineBaseUrls(_dio.options.baseUrl, baseUrl)),
+    );
+    final _result = await _dio.fetch<Map<String, dynamic>>(_options);
+    late DeleteExpenseResponseModel _value;
+    try { _value = DeleteExpenseResponseModel.fromJson(_result.data!); } on Object catch (e, st) { errorLogger?.logError(e, st, _options, response: _result); rethrow; }
+    return HttpResponse(_value, _result);
+  }
+
   String _combineBaseUrls(String dioBaseUrl, String? baseUrl) {
     if (baseUrl == null || baseUrl.trim().isEmpty) {
       return dioBaseUrl;

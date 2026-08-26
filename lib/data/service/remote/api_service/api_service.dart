@@ -37,6 +37,11 @@ import 'package:sayarti_mobile/data/model/remote/request/maintenance/update_main
 import 'package:sayarti_mobile/data/model/remote/response/maintenance/delete_maintenance_record_response_model.dart';
 import 'package:sayarti_mobile/data/model/remote/response/maintenance/get_maintenance_records_response_model.dart';
 import 'package:sayarti_mobile/data/model/remote/response/maintenance/maintenance_record_response_model.dart';
+import 'package:sayarti_mobile/data/model/remote/request/expense/create_expense_request_model.dart';
+import 'package:sayarti_mobile/data/model/remote/request/expense/update_expense_request_model.dart';
+import 'package:sayarti_mobile/data/model/remote/response/expense/delete_expense_response_model.dart';
+import 'package:sayarti_mobile/data/model/remote/response/expense/expense_response_model.dart';
+import 'package:sayarti_mobile/data/model/remote/response/expense/get_expenses_response_model.dart';
 
 part 'api_service.g.dart';
 
@@ -201,5 +206,41 @@ abstract class ApiService {
   deleteMaintenanceRecord(
     @Path('vehicleId') String vehicleId,
     @Path('maintenanceRecordId') String maintenanceRecordId,
+  );
+
+  @POST('v1/vehicles/{vehicleId}/expenses')
+  Future<HttpResponse<ExpenseResponseModel>> createExpense(
+    @Path('vehicleId') String vehicleId,
+    @Body() CreateExpenseRequestModel request,
+  );
+
+  @GET('v1/vehicles/{vehicleId}/expenses')
+  Future<HttpResponse<GetExpensesResponseModel>> getExpenses(
+    @Path('vehicleId') String vehicleId,
+    @Query('page') int page,
+    @Query('size') int size,
+    @Query('sortBy') String? sortBy,
+    @Query('sortDirection') String? sortDirection,
+    @Query('from') DateTime? from,
+    @Query('to') DateTime? to,
+  );
+
+  @GET('v1/vehicles/{vehicleId}/expenses/{expenseId}')
+  Future<HttpResponse<ExpenseResponseModel>> getExpense(
+    @Path('vehicleId') String vehicleId,
+    @Path('expenseId') String expenseId,
+  );
+
+  @PATCH('v1/vehicles/{vehicleId}/expenses/{expenseId}')
+  Future<HttpResponse<ExpenseResponseModel>> updateExpense(
+    @Path('vehicleId') String vehicleId,
+    @Path('expenseId') String expenseId,
+    @Body() UpdateExpenseRequestModel request,
+  );
+
+  @DELETE('v1/vehicles/{vehicleId}/expenses/{expenseId}')
+  Future<HttpResponse<DeleteExpenseResponseModel>> deleteExpense(
+    @Path('vehicleId') String vehicleId,
+    @Path('expenseId') String expenseId,
   );
 }

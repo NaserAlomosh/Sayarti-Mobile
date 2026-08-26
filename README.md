@@ -741,16 +741,16 @@ The backend roadmap contains a dedicated Maintenance feature.
 
 11. Expenses
 
-* Expense Entity
-* Expense Models
-* Expense Repository
-* Expense Use Cases
-* Get Expenses
-* Get Expense
-* Create Expense
-* Update Expense
-* Delete Expense
-* Expense categories
+* [x] Expense Entity
+* [x] Expense Models
+* [x] Expense Repository
+* [x] Expense Use Cases
+* [x] Get Expenses
+* [x] Get Expense
+* [x] Create Expense
+* [x] Update Expense
+* [x] Delete Expense
+* [x] Expense categories
 * Expense history page
 * Expense details
 * Add expense page
@@ -1057,7 +1057,7 @@ User Profile	✅	✅	⬜	⬜
 Vehicle Management	⬜	⬜	⬜	⬜
 Fuel Tracking	✅	✅	⬜	⬜
 Maintenance	✅	✅	⬜	⬜
-Expenses	⬜	⬜	⬜	⬜
+Expenses	✅	✅	⬜	⬜
 Reminders	⬜	⬜	⬜	⬜
 Devices	⬜	⬜	N/A	⬜
 Notifications	⬜	⬜	⬜	⬜
