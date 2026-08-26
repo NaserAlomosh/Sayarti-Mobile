@@ -57,6 +57,7 @@ import 'package:sayarti_mobile/data/model/remote/response/statistics/general_sta
 import 'package:sayarti_mobile/data/model/remote/response/statistics/maintenance_statistics_response_model.dart';
 import 'package:sayarti_mobile/data/model/remote/response/statistics/true_vehicle_cost_response_model.dart';
 import 'package:sayarti_mobile/data/model/remote/response/dashboard/dashboard_response_model.dart';
+import 'package:sayarti_mobile/data/model/remote/response/vehicle_activity/get_vehicle_activity_response_model.dart';
 
 part 'api_service.g.dart';
 
@@ -313,6 +314,12 @@ abstract class ApiService {
   @GET('v1/vehicles/{vehicleId}/dashboard')
   Future<HttpResponse<DashboardResponseModel>> getDashboard(
     @Path('vehicleId') String vehicleId,
+  );
+
+  @GET('v1/vehicles/{vehicleId}/activity')
+  Future<HttpResponse<GetVehicleActivityResponseModel>> getVehicleActivity(
+    @Path('vehicleId') String vehicleId,
+    @Query('limit') int? limit,
   );
 
   @POST('v1/devices')
