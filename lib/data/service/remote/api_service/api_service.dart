@@ -311,11 +311,16 @@ abstract class ApiService {
   @GET('v1/vehicles/{vehicleId}/statistics/total-cost')
   Future<HttpResponse<TrueVehicleCostResponseModel>> getTrueVehicleCost(@Path('vehicleId') String vehicleId);
 
+  /// Fetches the aggregate dashboard for [vehicleId].
   @GET('v1/vehicles/{vehicleId}/dashboard')
   Future<HttpResponse<DashboardResponseModel>> getDashboard(
     @Path('vehicleId') String vehicleId,
   );
 
+  /// Fetches recent activity for [vehicleId].
+  ///
+  /// A null [limit] is omitted by Retrofit so the backend can apply its own
+  /// default. The response data is a direct list of activity models.
   @GET('v1/vehicles/{vehicleId}/activity')
   Future<HttpResponse<GetVehicleActivityResponseModel>> getVehicleActivity(
     @Path('vehicleId') String vehicleId,
