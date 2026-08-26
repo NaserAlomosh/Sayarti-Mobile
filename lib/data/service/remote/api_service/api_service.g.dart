@@ -876,6 +876,81 @@ class _ApiService implements ApiService {
   }
 
   @override
+  Future<HttpResponse<GeneralStatisticsResponseModel>> getGeneralStatistics(String vehicleId) async {
+    final _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+    final _headers = <String, dynamic>{};
+    final _data = <String, dynamic>{};
+    final _options = _setStreamType<HttpResponse<GeneralStatisticsResponseModel>>(
+      Options(method: 'GET', headers: _headers, extra: _extra).compose(_dio.options, 'v1/vehicles/${vehicleId}/statistics', queryParameters: queryParameters, data: _data).copyWith(baseUrl: _combineBaseUrls(_dio.options.baseUrl, baseUrl)),
+    );
+    final _result = await _dio.fetch<Map<String, dynamic>>(_options);
+    late GeneralStatisticsResponseModel _value;
+    try { _value = GeneralStatisticsResponseModel.fromJson(_result.data!); } on Object catch (e, st) { errorLogger?.logError(e, st, _options, response: _result); rethrow; }
+    return HttpResponse(_value, _result);
+  }
+
+  @override
+  Future<HttpResponse<FuelStatisticsResponseModel>> getFuelStatistics(String vehicleId) async {
+    final _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+    final _headers = <String, dynamic>{};
+    final _data = <String, dynamic>{};
+    final _options = _setStreamType<HttpResponse<FuelStatisticsResponseModel>>(
+      Options(method: 'GET', headers: _headers, extra: _extra).compose(_dio.options, 'v1/vehicles/${vehicleId}/statistics/fuel', queryParameters: queryParameters, data: _data).copyWith(baseUrl: _combineBaseUrls(_dio.options.baseUrl, baseUrl)),
+    );
+    final _result = await _dio.fetch<Map<String, dynamic>>(_options);
+    late FuelStatisticsResponseModel _value;
+    try { _value = FuelStatisticsResponseModel.fromJson(_result.data!); } on Object catch (e, st) { errorLogger?.logError(e, st, _options, response: _result); rethrow; }
+    return HttpResponse(_value, _result);
+  }
+
+  @override
+  Future<HttpResponse<MaintenanceStatisticsResponseModel>> getMaintenanceStatistics(String vehicleId) async {
+    final _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+    final _headers = <String, dynamic>{};
+    final _data = <String, dynamic>{};
+    final _options = _setStreamType<HttpResponse<MaintenanceStatisticsResponseModel>>(
+      Options(method: 'GET', headers: _headers, extra: _extra).compose(_dio.options, 'v1/vehicles/${vehicleId}/statistics/maintenance', queryParameters: queryParameters, data: _data).copyWith(baseUrl: _combineBaseUrls(_dio.options.baseUrl, baseUrl)),
+    );
+    final _result = await _dio.fetch<Map<String, dynamic>>(_options);
+    late MaintenanceStatisticsResponseModel _value;
+    try { _value = MaintenanceStatisticsResponseModel.fromJson(_result.data!); } on Object catch (e, st) { errorLogger?.logError(e, st, _options, response: _result); rethrow; }
+    return HttpResponse(_value, _result);
+  }
+
+  @override
+  Future<HttpResponse<ExpenseStatisticsResponseModel>> getExpenseStatistics(String vehicleId) async {
+    final _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+    final _headers = <String, dynamic>{};
+    final _data = <String, dynamic>{};
+    final _options = _setStreamType<HttpResponse<ExpenseStatisticsResponseModel>>(
+      Options(method: 'GET', headers: _headers, extra: _extra).compose(_dio.options, 'v1/vehicles/${vehicleId}/statistics/expenses', queryParameters: queryParameters, data: _data).copyWith(baseUrl: _combineBaseUrls(_dio.options.baseUrl, baseUrl)),
+    );
+    final _result = await _dio.fetch<Map<String, dynamic>>(_options);
+    late ExpenseStatisticsResponseModel _value;
+    try { _value = ExpenseStatisticsResponseModel.fromJson(_result.data!); } on Object catch (e, st) { errorLogger?.logError(e, st, _options, response: _result); rethrow; }
+    return HttpResponse(_value, _result);
+  }
+
+  @override
+  Future<HttpResponse<TrueVehicleCostResponseModel>> getTrueVehicleCost(String vehicleId) async {
+    final _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+    final _headers = <String, dynamic>{};
+    final _data = <String, dynamic>{};
+    final _options = _setStreamType<HttpResponse<TrueVehicleCostResponseModel>>(
+      Options(method: 'GET', headers: _headers, extra: _extra).compose(_dio.options, 'v1/vehicles/${vehicleId}/statistics/total-cost', queryParameters: queryParameters, data: _data).copyWith(baseUrl: _combineBaseUrls(_dio.options.baseUrl, baseUrl)),
+    );
+    final _result = await _dio.fetch<Map<String, dynamic>>(_options);
+    late TrueVehicleCostResponseModel _value;
+    try { _value = TrueVehicleCostResponseModel.fromJson(_result.data!); } on Object catch (e, st) { errorLogger?.logError(e, st, _options, response: _result); rethrow; }
+    return HttpResponse(_value, _result);
+  }
+
+  @override
   Future<HttpResponse<DeviceResponseModel>> registerDevice(RegisterDeviceRequestModel request) async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};

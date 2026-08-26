@@ -51,6 +51,13 @@ import 'package:sayarti_mobile/domain/usecase/remote/expense/get_expenses_usecas
 import 'package:sayarti_mobile/domain/usecase/remote/expense/update_expense_usecase.dart' as _i949;
 import 'package:sayarti_mobile/data/repository/remote/reminder/reminder_repository_impl.dart' as _i950;
 import 'package:sayarti_mobile/data/repository/remote/device/device_repository_impl.dart' as _i958;
+import 'package:sayarti_mobile/data/repository/remote/statistics/statistics_repository_impl.dart' as _i963;
+import 'package:sayarti_mobile/domain/repository/remote/statistics/statistics_repository.dart' as _i964;
+import 'package:sayarti_mobile/domain/usecase/remote/statistics/get_general_statistics_usecase.dart' as _i965;
+import 'package:sayarti_mobile/domain/usecase/remote/statistics/get_fuel_statistics_usecase.dart' as _i966;
+import 'package:sayarti_mobile/domain/usecase/remote/statistics/get_maintenance_statistics_usecase.dart' as _i967;
+import 'package:sayarti_mobile/domain/usecase/remote/statistics/get_expense_statistics_usecase.dart' as _i968;
+import 'package:sayarti_mobile/domain/usecase/remote/statistics/get_true_vehicle_cost_usecase.dart' as _i969;
 import 'package:sayarti_mobile/domain/repository/remote/device/device_repository.dart' as _i959;
 import 'package:sayarti_mobile/domain/usecase/remote/device/delete_device_usecase.dart' as _i960;
 import 'package:sayarti_mobile/domain/usecase/remote/device/register_device_usecase.dart' as _i961;
@@ -220,6 +227,14 @@ extension GetItInjectableX on _i174.GetIt {
     gh.lazySingleton<_i959.DeviceRepository>(
       () => _i958.DeviceRepositoryImpl(gh<_i406.ApiService>()),
     );
+    gh.lazySingleton<_i964.StatisticsRepository>(
+      () => _i963.StatisticsRepositoryImpl(gh<_i406.ApiService>()),
+    );
+    gh.lazySingleton<_i965.GetGeneralStatisticsUseCase>(() => _i965.GetGeneralStatisticsUseCase(gh<_i964.StatisticsRepository>()));
+    gh.lazySingleton<_i966.GetFuelStatisticsUseCase>(() => _i966.GetFuelStatisticsUseCase(gh<_i964.StatisticsRepository>()));
+    gh.lazySingleton<_i967.GetMaintenanceStatisticsUseCase>(() => _i967.GetMaintenanceStatisticsUseCase(gh<_i964.StatisticsRepository>()));
+    gh.lazySingleton<_i968.GetExpenseStatisticsUseCase>(() => _i968.GetExpenseStatisticsUseCase(gh<_i964.StatisticsRepository>()));
+    gh.lazySingleton<_i969.GetTrueVehicleCostUseCase>(() => _i969.GetTrueVehicleCostUseCase(gh<_i964.StatisticsRepository>()));
     gh.lazySingleton<_i902.RegisterUseCase>(
       () => _i902.RegisterUseCase(gh<_i777.AuthRepository>()),
     );
