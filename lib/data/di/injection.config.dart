@@ -49,6 +49,14 @@ import 'package:sayarti_mobile/domain/usecase/remote/expense/delete_expense_usec
 import 'package:sayarti_mobile/domain/usecase/remote/expense/get_expense_usecase.dart' as _i947;
 import 'package:sayarti_mobile/domain/usecase/remote/expense/get_expenses_usecase.dart' as _i948;
 import 'package:sayarti_mobile/domain/usecase/remote/expense/update_expense_usecase.dart' as _i949;
+import 'package:sayarti_mobile/data/repository/remote/reminder/reminder_repository_impl.dart' as _i950;
+import 'package:sayarti_mobile/domain/repository/remote/reminder/reminder_repository.dart' as _i951;
+import 'package:sayarti_mobile/domain/usecase/remote/reminder/complete_reminder_usecase.dart' as _i952;
+import 'package:sayarti_mobile/domain/usecase/remote/reminder/create_reminder_usecase.dart' as _i953;
+import 'package:sayarti_mobile/domain/usecase/remote/reminder/delete_reminder_usecase.dart' as _i954;
+import 'package:sayarti_mobile/domain/usecase/remote/reminder/get_reminder_usecase.dart' as _i955;
+import 'package:sayarti_mobile/domain/usecase/remote/reminder/get_reminders_usecase.dart' as _i956;
+import 'package:sayarti_mobile/domain/usecase/remote/reminder/update_reminder_usecase.dart' as _i957;
 import 'package:sayarti_mobile/data/service/remote/api_service/api_service.dart'
     as _i406;
 import 'package:sayarti_mobile/domain/repository/local/biometric/biometric_repository.dart'
@@ -201,6 +209,9 @@ extension GetItInjectableX on _i174.GetIt {
     gh.lazySingleton<_i944.ExpenseRepository>(
       () => _i943.ExpenseRepositoryImpl(gh<_i406.ApiService>()),
     );
+    gh.lazySingleton<_i951.ReminderRepository>(
+      () => _i950.ReminderRepositoryImpl(gh<_i406.ApiService>()),
+    );
     gh.lazySingleton<_i902.RegisterUseCase>(
       () => _i902.RegisterUseCase(gh<_i777.AuthRepository>()),
     );
@@ -244,6 +255,12 @@ extension GetItInjectableX on _i174.GetIt {
     gh.lazySingleton<_i947.GetExpenseUseCase>(() => _i947.GetExpenseUseCase(gh<_i944.ExpenseRepository>()));
     gh.lazySingleton<_i948.GetExpensesUseCase>(() => _i948.GetExpensesUseCase(gh<_i944.ExpenseRepository>()));
     gh.lazySingleton<_i949.UpdateExpenseUseCase>(() => _i949.UpdateExpenseUseCase(gh<_i944.ExpenseRepository>()));
+    gh.lazySingleton<_i952.CompleteReminderUseCase>(() => _i952.CompleteReminderUseCase(gh<_i951.ReminderRepository>()));
+    gh.lazySingleton<_i953.CreateReminderUseCase>(() => _i953.CreateReminderUseCase(gh<_i951.ReminderRepository>()));
+    gh.lazySingleton<_i954.DeleteReminderUseCase>(() => _i954.DeleteReminderUseCase(gh<_i951.ReminderRepository>()));
+    gh.lazySingleton<_i955.GetReminderUseCase>(() => _i955.GetReminderUseCase(gh<_i951.ReminderRepository>()));
+    gh.lazySingleton<_i956.GetRemindersUseCase>(() => _i956.GetRemindersUseCase(gh<_i951.ReminderRepository>()));
+    gh.lazySingleton<_i957.UpdateReminderUseCase>(() => _i957.UpdateReminderUseCase(gh<_i951.ReminderRepository>()));
     gh.lazySingleton<_i922.CreateVehicleUseCase>(() => _i922.CreateVehicleUseCase(gh<_i921.VehicleRepository>()));
     gh.lazySingleton<_i923.DeleteVehicleUseCase>(() => _i923.DeleteVehicleUseCase(gh<_i921.VehicleRepository>()));
     gh.lazySingleton<_i924.GetVehicleDetailsUseCase>(() => _i924.GetVehicleDetailsUseCase(gh<_i921.VehicleRepository>()));

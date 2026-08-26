@@ -761,19 +761,21 @@ The backend roadmap contains a dedicated Maintenance feature.
 
 12. Reminders
 
-* Reminder Entity
-* Reminder Models
-* Reminder Repository
-* Reminder Use Cases
-* Get Reminders
-* Create Reminder
-* Update Reminder
-* Delete Reminder
+* [x] Reminder Entity
+* [x] Reminder Models
+* [x] Reminder Repository
+* [x] Reminder Use Cases
+* [x] Get Reminders
+* [x] Get Reminder Details
+* [x] Create Reminder
+* [x] Update Reminder
+* [x] Complete Reminder
+* [x] Delete Reminder
 * Reminder list
 * Reminder details
 * Add reminder
 * Edit reminder
-* Reminder status handling
+* [x] Reminder status handling (Domain/Data)
 * Runtime verification
 
 ⸻
@@ -1058,7 +1060,7 @@ Vehicle Management	⬜	⬜	⬜	⬜
 Fuel Tracking	✅	✅	⬜	⬜
 Maintenance	✅	✅	⬜	⬜
 Expenses	✅	✅	⬜	⬜
-Reminders	⬜	⬜	⬜	⬜
+Reminders	✅	✅	⬜	⬜
 Devices	⬜	⬜	N/A	⬜
 Notifications	⬜	⬜	⬜	⬜
 Statistics	⬜	⬜	⬜	⬜
