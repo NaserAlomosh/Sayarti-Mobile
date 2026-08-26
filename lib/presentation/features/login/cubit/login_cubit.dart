@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:sayarti_mobile/data/networking/api_result/api_result.dart';
 import 'package:sayarti_mobile/domain/usecase/remote/auth/login_usecase.dart';
 import 'package:sayarti_mobile/presentation/core/base/cubit/base_cubit.dart';
 
@@ -60,7 +61,6 @@ class LoginCubit extends BaseCubit<LoginState> {
         emit(
           state.copyWith(
             loginSuccess: true,
-            requiredAction: login.requiredAction,
           ),
         );
       },

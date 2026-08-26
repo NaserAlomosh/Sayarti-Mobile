@@ -6,7 +6,6 @@ import 'package:local_auth/local_auth.dart';
 
 import 'package:sayarti_mobile/data/base/base_response_model.dart';
 import 'package:sayarti_mobile/data/networking/error/api_messages.dart';
-import 'package:sayarti_mobile/data/networking/error/app_error.dart';
 import 'package:sayarti_mobile/data/networking/exceptions/biometric_exception.dart';
 import 'package:sayarti_mobile/presentation/core/widgets/language/cubit/languge_cubit.dart';
 

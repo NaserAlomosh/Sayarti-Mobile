@@ -3155,19 +3155,130 @@ class S {
     );
   }
 
-  String get loginWelcome => Intl.message('Welcome back', name: 'loginWelcome', args: []);
-  String get loginDescription => Intl.message('Log in to continue managing your car.', name: 'loginDescription', args: []);
-  String get forgotPassword => Intl.message('Forgot password?', name: 'forgotPassword', args: []);
-  String get continueText => Intl.message('Continue', name: 'continueText', args: []);
-  String get emailRequired => Intl.message('Email is required', name: 'emailRequired', args: []);
-  String get emailInvalid => Intl.message('Enter a valid email address', name: 'emailInvalid', args: []);
-  String get emailTooLong => Intl.message('Email must not exceed 320 characters', name: 'emailTooLong', args: []);
-  String get passwordRequired => Intl.message('Password is required', name: 'passwordRequired', args: []);
-  String get passwordTooLong => Intl.message('Password must not exceed 72 characters', name: 'passwordTooLong', args: []);
-  String get invalidCredentials => Intl.message('Email or password is incorrect', name: 'invalidCredentials', args: []);
-  String get emailNotVerified => Intl.message('Email verification is required', name: 'emailNotVerified', args: []);
-  String get validationError => Intl.message('Please check the entered information', name: 'validationError', args: []);
-  String get loginUnknownError => Intl.message('Unable to log in. Please try again.', name: 'loginUnknownError', args: []);
+  /// `Welcome back`
+  String get loginWelcome {
+    return Intl.message(
+      'Welcome back',
+      name: 'loginWelcome',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Log in to continue managing your car.`
+  String get loginDescription {
+    return Intl.message(
+      'Log in to continue managing your car.',
+      name: 'loginDescription',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Forgot password?`
+  String get forgotPassword {
+    return Intl.message(
+      'Forgot password?',
+      name: 'forgotPassword',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Continue`
+  String get continueText {
+    return Intl.message('Continue', name: 'continueText', desc: '', args: []);
+  }
+
+  /// `Email is required`
+  String get emailRequired {
+    return Intl.message(
+      'Email is required',
+      name: 'emailRequired',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Enter a valid email address`
+  String get emailInvalid {
+    return Intl.message(
+      'Enter a valid email address',
+      name: 'emailInvalid',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Email must not exceed 320 characters`
+  String get emailTooLong {
+    return Intl.message(
+      'Email must not exceed 320 characters',
+      name: 'emailTooLong',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Password is required`
+  String get passwordRequired {
+    return Intl.message(
+      'Password is required',
+      name: 'passwordRequired',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Password must not exceed 72 characters`
+  String get passwordTooLong {
+    return Intl.message(
+      'Password must not exceed 72 characters',
+      name: 'passwordTooLong',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Email or password is incorrect`
+  String get invalidCredentials {
+    return Intl.message(
+      'Email or password is incorrect',
+      name: 'invalidCredentials',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Email verification is required`
+  String get emailNotVerified {
+    return Intl.message(
+      'Email verification is required',
+      name: 'emailNotVerified',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Please check the entered information`
+  String get validationError {
+    return Intl.message(
+      'Please check the entered information',
+      name: 'validationError',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Unable to log in. Please try again.`
+  String get loginUnknownError {
+    return Intl.message(
+      'Unable to log in. Please try again.',
+      name: 'loginUnknownError',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

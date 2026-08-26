@@ -13,15 +13,15 @@ class UserEntity {
     required this.updatedAt,
   });
 
-  final String id;
-  final String firstName;
-  final String lastName;
-  final String email;
-  final bool emailVerified;
-  final String authProvider;
+  final String? id;
+  final String? firstName;
+  final String? lastName;
+  final String? email;
+  final bool? emailVerified;
+  final String? authProvider;
   final String? countryCode;
   final String? defaultCurrencyCode;
-  final String preferredLanguage;
-  final DateTime createdAt;
-  final DateTime updatedAt;
+  final String? preferredLanguage;
+  final DateTime? createdAt;
+  final DateTime? updatedAt;
 }

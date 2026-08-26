@@ -10,6 +10,7 @@
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
 import 'package:dio/dio.dart' as _i361;
+import 'package:flutter_secure_storage/flutter_secure_storage.dart' as _i558;
 import 'package:get_it/get_it.dart' as _i174;
 import 'package:injectable/injectable.dart' as _i526;
 import 'package:local_auth/local_auth.dart' as _i152;
@@ -20,6 +21,8 @@ import 'package:sayarti_mobile/data/repository/local/biometric/biometric_reposit
     as _i630;
 import 'package:sayarti_mobile/data/repository/local/language/language_repository_impl.dart'
     as _i466;
+import 'package:sayarti_mobile/data/repository/remote/auth/auth_repository_impl.dart'
+    as _i307;
 import 'package:sayarti_mobile/data/service/local/biometric/biometric_service.dart'
     as _i868;
 import 'package:sayarti_mobile/data/service/local/biometric/impl/biometric_service_impl.dart'
@@ -32,6 +35,8 @@ import 'package:sayarti_mobile/domain/repository/local/biometric/biometric_repos
     as _i696;
 import 'package:sayarti_mobile/domain/repository/local/language/language_repository.dart'
     as _i635;
+import 'package:sayarti_mobile/domain/repository/remote/auth/auth_repository.dart'
+    as _i777;
 import 'package:sayarti_mobile/domain/usecase/local/biometric/authenticate_biometric_usecase.dart'
     as _i615;
 import 'package:sayarti_mobile/domain/usecase/local/biometric/get_biometric_info_usecase.dart'
@@ -62,6 +67,9 @@ extension GetItInjectableX on _i174.GetIt {
     final localAuthModule = _$LocalAuthModule();
     final remoteMoudel = _$RemoteMoudel();
     gh.factory<_i664.OnboardingCubit>(() => _i664.OnboardingCubit());
+    gh.lazySingleton<_i558.FlutterSecureStorage>(
+      () => localAuthModule.secureStorage,
+    );
     gh.lazySingleton<_i152.LocalAuthentication>(
       () => localAuthModule.localAuthentication,
     );
@@ -90,6 +98,9 @@ extension GetItInjectableX on _i174.GetIt {
     );
     gh.lazySingleton<_i724.SaveUserLanguageUsecase>(
       () => _i724.SaveUserLanguageUsecase(gh<_i635.LanguageRepository>()),
+    );
+    gh.lazySingleton<_i777.AuthRepository>(
+      () => _i307.AuthRepositoryImpl(gh<_i406.ApiService>()),
     );
     gh.lazySingleton<_i696.BiometricRepository>(
       () => _i630.BiometricRepositoryImpl(gh<_i868.BiometricService>()),

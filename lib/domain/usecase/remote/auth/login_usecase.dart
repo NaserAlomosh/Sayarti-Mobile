@@ -1,4 +1,5 @@
 import 'package:sayarti_mobile/data/networking/api_result/api_result.dart';
+import 'package:sayarti_mobile/domain/base/entity/base_response_entity.dart';
 import 'package:sayarti_mobile/domain/base/usecase/base_usecase.dart';
 import 'package:sayarti_mobile/domain/base/usecase/base_usecase_params.dart';
 import 'package:sayarti_mobile/domain/entity/remote/auth/login_content_entity.dart';
@@ -16,6 +17,6 @@ class LoginUseCase
   final AuthRepository _repository;
 
   @override
-  Future<ApiResult<LoginContentEntity>> call(LoginUseCaseParams params) =>
+    Future<ApiResult<BaseResponseEntity<LoginContentEntity>>> call(LoginUseCaseParams params) =>
       _repository.login(params);
 }

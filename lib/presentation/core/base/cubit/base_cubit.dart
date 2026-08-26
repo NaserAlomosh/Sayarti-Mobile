@@ -1,6 +1,6 @@
 import 'dart:async';
 
-import 'package:sayarti_mobile/data/networking/error/app_error.dart';
+import 'package:sayarti_mobile/data/base/base_response_model.dart';
 import 'package:sayarti_mobile/presentation/core/helper/focus_manager/focus_manager_helper.dart';
 import 'package:sayarti_mobile/presentation/core/widgets/loading/app_loading.dart';
 import 'package:sayarti_mobile/presentation/core/widgets/toast/app_toast.dart';

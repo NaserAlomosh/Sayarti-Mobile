@@ -1,5 +1,5 @@
-import 'package:sayarti_mobile/data/networking/error/app_error.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:sayarti_mobile/data/base/base_response_model.dart';
 part 'api_result.freezed.dart';
 
 @Freezed()

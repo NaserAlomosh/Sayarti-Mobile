@@ -166,6 +166,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "confirmAppPin": MessageLookupByLibrary.simpleMessage(
       "تأكيد رمز التطبيق السري",
     ),
+    "continueText": MessageLookupByLibrary.simpleMessage("متابعة"),
     "createAppPin": MessageLookupByLibrary.simpleMessage(
       "إنشاء رمز التطبيق السري ",
     ),
@@ -220,9 +221,21 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "email": MessageLookupByLibrary.simpleMessage("البريد الإلكتروني"),
     "emailHint": MessageLookupByLibrary.simpleMessage("أدخل البريد الإلكتروني"),
+    "emailInvalid": MessageLookupByLibrary.simpleMessage(
+      "أدخل بريداً إلكترونياً صالحاً",
+    ),
     "emailNotValid": MessageLookupByLibrary.simpleMessage("الايميل غير صحيح"),
+    "emailNotVerified": MessageLookupByLibrary.simpleMessage(
+      "يجب التحقق من البريد الإلكتروني",
+    ),
     "emailOptional": MessageLookupByLibrary.simpleMessage(
       "البريد الإلكتروني (اختياري)",
+    ),
+    "emailRequired": MessageLookupByLibrary.simpleMessage(
+      "البريد الإلكتروني مطلوب",
+    ),
+    "emailTooLong": MessageLookupByLibrary.simpleMessage(
+      "يجب ألا يتجاوز البريد الإلكتروني 320 حرفاً",
     ),
     "employerAreaCannotBeEmpty": MessageLookupByLibrary.simpleMessage(
       "لا يمكن ان تكون منطقة صاحب العمل فارغة",
@@ -273,6 +286,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "fieldMaxLengthAlphanumeric34": MessageLookupByLibrary.simpleMessage(
       "يجب ألا يتجاوز طول الحقل 34 حرفًا أبجديًا رقميًا",
     ),
+    "forgotPassword": MessageLookupByLibrary.simpleMessage("نسيت كلمة المرور؟"),
     "forgotPasswordOrUsername": MessageLookupByLibrary.simpleMessage(
       "نسيت اسم المستخدم أو كلمة المرور",
     ),
@@ -340,6 +354,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "intro2Title": MessageLookupByLibrary.simpleMessage(
       "بنكك دائما معك اينما كنت",
     ),
+    "invalidCredentials": MessageLookupByLibrary.simpleMessage(
+      "البريد الإلكتروني أو كلمة المرور غير صحيحة",
+    ),
     "invalidMobileFormat": MessageLookupByLibrary.simpleMessage(
       "صيغة رقم الموبايل المدخلة غير صحيحة",
     ),
@@ -352,6 +369,13 @@ class MessageLookup extends MessageLookupByLibrary {
         ),
     "jordanianID": MessageLookupByLibrary.simpleMessage("هوية الأحوال المدنية"),
     "login": MessageLookupByLibrary.simpleMessage("تسجيل دخول"),
+    "loginDescription": MessageLookupByLibrary.simpleMessage(
+      "سجّل الدخول لمتابعة إدارة سيارتك.",
+    ),
+    "loginUnknownError": MessageLookupByLibrary.simpleMessage(
+      "تعذر تسجيل الدخول. حاول مرة أخرى.",
+    ),
+    "loginWelcome": MessageLookupByLibrary.simpleMessage("مرحباً بعودتك"),
     "makeSureYouReInBrightPlace": MessageLookupByLibrary.simpleMessage(
       "تأكد من أنك بمكان مضيء",
     ),
@@ -580,12 +604,18 @@ class MessageLookup extends MessageLookupByLibrary {
     "passwordMustHaveAtleast1Uppercase": MessageLookupByLibrary.simpleMessage(
       "يجب ان تحتوي كلمة المرور على حرف كبير واحد على الاقل",
     ),
+    "passwordRequired": MessageLookupByLibrary.simpleMessage(
+      "كلمة المرور مطلوبة",
+    ),
     "passwordShouldBeGreaterThan8Characters":
         MessageLookupByLibrary.simpleMessage(
           "يجب أن تكون كلمة المرور أكثر من 8 خانات",
         ),
     "passwordSpace": MessageLookupByLibrary.simpleMessage(
       "يجب ألا تحتوي كلمة المرور على مساحة",
+    ),
+    "passwordTooLong": MessageLookupByLibrary.simpleMessage(
+      "يجب ألا تتجاوز كلمة المرور 72 حرفاً",
     ),
     "passwordValidationText": MessageLookupByLibrary.simpleMessage(
       "يجب أن تتكون كلمة المرور من حروف انجليزية, علامة مميزة و أرقام",
@@ -921,6 +951,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "usernameMustBeOfMinimum7Characters": MessageLookupByLibrary.simpleMessage(
       "اسم المستخدم يجب ان يكون على الاقل 7 حروف",
     ),
+    "validationError": MessageLookupByLibrary.simpleMessage(
+      "يرجى التحقق من المعلومات المدخلة",
+    ),
     "valueCanNotBeEmpty": MessageLookupByLibrary.simpleMessage(
       "يجب تعبئة القيمة",
     ),
@@ -933,19 +966,6 @@ class MessageLookup extends MessageLookupByLibrary {
     "weNeedYourJordinianIdCardToCheck": MessageLookupByLibrary.simpleMessage(
       "نحتاج بطاقة الاحوال المدنية الاردنية للتحقق من المعلومات المطلوبة",
     ),
-    "loginWelcome": MessageLookupByLibrary.simpleMessage('مرحباً بعودتك'),
-    "loginDescription": MessageLookupByLibrary.simpleMessage('سجّل الدخول لمتابعة إدارة سيارتك.'),
-    "forgotPassword": MessageLookupByLibrary.simpleMessage('نسيت كلمة المرور؟'),
-    "continueText": MessageLookupByLibrary.simpleMessage('متابعة'),
-    "emailRequired": MessageLookupByLibrary.simpleMessage('البريد الإلكتروني مطلوب'),
-    "emailInvalid": MessageLookupByLibrary.simpleMessage('أدخل بريداً إلكترونياً صالحاً'),
-    "emailTooLong": MessageLookupByLibrary.simpleMessage('يجب ألا يتجاوز البريد الإلكتروني 320 حرفاً'),
-    "passwordRequired": MessageLookupByLibrary.simpleMessage('كلمة المرور مطلوبة'),
-    "passwordTooLong": MessageLookupByLibrary.simpleMessage('يجب ألا تتجاوز كلمة المرور 72 حرفاً'),
-    "invalidCredentials": MessageLookupByLibrary.simpleMessage('البريد الإلكتروني أو كلمة المرور غير صحيحة'),
-    "emailNotVerified": MessageLookupByLibrary.simpleMessage('يجب التحقق من البريد الإلكتروني'),
-    "validationError": MessageLookupByLibrary.simpleMessage('يرجى التحقق من المعلومات المدخلة'),
-    "loginUnknownError": MessageLookupByLibrary.simpleMessage('تعذر تسجيل الدخول. حاول مرة أخرى.'),
     "zipCodeCannotBeEmpty": MessageLookupByLibrary.simpleMessage(
       "لا يمكن ان يكون الرمز البريدي فارغا",
     ),

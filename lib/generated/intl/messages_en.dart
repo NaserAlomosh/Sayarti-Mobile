@@ -164,6 +164,7 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "close": MessageLookupByLibrary.simpleMessage("Close"),
     "confirmAppPin": MessageLookupByLibrary.simpleMessage("Confirm App PIN"),
+    "continueText": MessageLookupByLibrary.simpleMessage("Continue"),
     "createAppPin": MessageLookupByLibrary.simpleMessage("Create App PIN"),
     "creditCardNumberOf16Digits": MessageLookupByLibrary.simpleMessage(
       "Credit card number should be of 16 digits",
@@ -218,8 +219,18 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "email": MessageLookupByLibrary.simpleMessage("Email"),
     "emailHint": MessageLookupByLibrary.simpleMessage("Enter your email"),
+    "emailInvalid": MessageLookupByLibrary.simpleMessage(
+      "Enter a valid email address",
+    ),
     "emailNotValid": MessageLookupByLibrary.simpleMessage("Email not valid"),
+    "emailNotVerified": MessageLookupByLibrary.simpleMessage(
+      "Email verification is required",
+    ),
     "emailOptional": MessageLookupByLibrary.simpleMessage("Email (Optional)"),
+    "emailRequired": MessageLookupByLibrary.simpleMessage("Email is required"),
+    "emailTooLong": MessageLookupByLibrary.simpleMessage(
+      "Email must not exceed 320 characters",
+    ),
     "employerAreaCannotBeEmpty": MessageLookupByLibrary.simpleMessage(
       "Employer Area cannot be empty",
     ),
@@ -269,6 +280,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "fieldMaxLengthAlphanumeric34": MessageLookupByLibrary.simpleMessage(
       "Max length of field should remain 34 alphanumeric characters",
     ),
+    "forgotPassword": MessageLookupByLibrary.simpleMessage("Forgot password?"),
     "forgotPasswordOrUsername": MessageLookupByLibrary.simpleMessage(
       "Forgot Password or Username",
     ),
@@ -336,6 +348,9 @@ class MessageLookup extends MessageLookupByLibrary {
       "Get an instant approval for credit\ncard and personal loan application",
     ),
     "intro2Title": MessageLookupByLibrary.simpleMessage("Banking-on-the-Go"),
+    "invalidCredentials": MessageLookupByLibrary.simpleMessage(
+      "Email or password is incorrect",
+    ),
     "invalidMobileFormat": MessageLookupByLibrary.simpleMessage(
       "Entered mobile number format is incorrect",
     ),
@@ -350,6 +365,13 @@ class MessageLookup extends MessageLookupByLibrary {
       "Jordanian national ID",
     ),
     "login": MessageLookupByLibrary.simpleMessage("Login"),
+    "loginDescription": MessageLookupByLibrary.simpleMessage(
+      "Log in to continue managing your car.",
+    ),
+    "loginUnknownError": MessageLookupByLibrary.simpleMessage(
+      "Unable to log in. Please try again.",
+    ),
+    "loginWelcome": MessageLookupByLibrary.simpleMessage("Welcome back"),
     "makeSureYouReInBrightPlace": MessageLookupByLibrary.simpleMessage(
       "Make sure you’re in bright place",
     ),
@@ -574,12 +596,18 @@ class MessageLookup extends MessageLookupByLibrary {
     "passwordMustHaveAtleast1Uppercase": MessageLookupByLibrary.simpleMessage(
       "Password must have atleast 1 uppercase",
     ),
+    "passwordRequired": MessageLookupByLibrary.simpleMessage(
+      "Password is required",
+    ),
     "passwordShouldBeGreaterThan8Characters":
         MessageLookupByLibrary.simpleMessage(
           "Password should be greater than 8 characters",
         ),
     "passwordSpace": MessageLookupByLibrary.simpleMessage(
       "Password should not contain space",
+    ),
+    "passwordTooLong": MessageLookupByLibrary.simpleMessage(
+      "Password must not exceed 72 characters",
     ),
     "passwordValidationText": MessageLookupByLibrary.simpleMessage(
       "Password can only contain english letters, special characters and numbers",
@@ -917,6 +945,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "usernameMustBeOfMinimum7Characters": MessageLookupByLibrary.simpleMessage(
       "Username must be of minimum 7 characters",
     ),
+    "validationError": MessageLookupByLibrary.simpleMessage(
+      "Please check the entered information",
+    ),
     "valueCanNotBeEmpty": MessageLookupByLibrary.simpleMessage(
       "value can not be empty",
     ),
@@ -927,19 +958,6 @@ class MessageLookup extends MessageLookupByLibrary {
     "weNeedYourJordinianIdCardToCheck": MessageLookupByLibrary.simpleMessage(
       "We need your Jordanian ID card to check that you are a real person. Get them ready to scan.",
     ),
-    "loginWelcome": MessageLookupByLibrary.simpleMessage('Welcome back'),
-    "loginDescription": MessageLookupByLibrary.simpleMessage('Log in to continue managing your car.'),
-    "forgotPassword": MessageLookupByLibrary.simpleMessage('Forgot password?'),
-    "continueText": MessageLookupByLibrary.simpleMessage('Continue'),
-    "emailRequired": MessageLookupByLibrary.simpleMessage('Email is required'),
-    "emailInvalid": MessageLookupByLibrary.simpleMessage('Enter a valid email address'),
-    "emailTooLong": MessageLookupByLibrary.simpleMessage('Email must not exceed 320 characters'),
-    "passwordRequired": MessageLookupByLibrary.simpleMessage('Password is required'),
-    "passwordTooLong": MessageLookupByLibrary.simpleMessage('Password must not exceed 72 characters'),
-    "invalidCredentials": MessageLookupByLibrary.simpleMessage('Email or password is incorrect'),
-    "emailNotVerified": MessageLookupByLibrary.simpleMessage('Email verification is required'),
-    "validationError": MessageLookupByLibrary.simpleMessage('Please check the entered information'),
-    "loginUnknownError": MessageLookupByLibrary.simpleMessage('Unable to log in. Please try again.'),
     "zipCodeCannotBeEmpty": MessageLookupByLibrary.simpleMessage(
       "Zip code cannot be empty",
     ),

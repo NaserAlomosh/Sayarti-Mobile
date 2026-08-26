@@ -10,10 +10,10 @@ class LoginContentEntity {
     required this.requiredAction,
   });
 
-  final String accessToken;
-  final String refreshToken;
-  final String tokenType;
-  final int expiresIn;
-  final UserEntity user;
+  final String? accessToken;
+  final String? refreshToken;
+  final String? tokenType;
+  final int? expiresIn;
+  final UserEntity? user;
   final String? requiredAction;
 }

@@ -14,7 +14,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$SplashState {
 
- dynamic get showOnboarding;
+ bool? get showOnboarding;
 /// Create a copy of SplashState
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -25,12 +25,12 @@ $SplashStateCopyWith<SplashState> get copyWith => _$SplashStateCopyWithImpl<Spla
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is SplashState&&const DeepCollectionEquality().equals(other.showOnboarding, showOnboarding));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is SplashState&&(identical(other.showOnboarding, showOnboarding) || other.showOnboarding == showOnboarding));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,const DeepCollectionEquality().hash(showOnboarding));
+int get hashCode => Object.hash(runtimeType,showOnboarding);
 
 @override
 String toString() {
@@ -45,7 +45,7 @@ abstract mixin class $SplashStateCopyWith<$Res>  {
   factory $SplashStateCopyWith(SplashState value, $Res Function(SplashState) _then) = _$SplashStateCopyWithImpl;
 @useResult
 $Res call({
- dynamic showOnboarding
+ bool? showOnboarding
 });
 
 
@@ -65,7 +65,7 @@ class _$SplashStateCopyWithImpl<$Res>
 @pragma('vm:prefer-inline') @override $Res call({Object? showOnboarding = freezed,}) {
   return _then(_self.copyWith(
 showOnboarding: freezed == showOnboarding ? _self.showOnboarding : showOnboarding // ignore: cast_nullable_to_non_nullable
-as dynamic,
+as bool?,
   ));
 }
 
@@ -150,7 +150,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( dynamic showOnboarding)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( bool? showOnboarding)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _SplashState() when $default != null:
 return $default(_that.showOnboarding);case _:
@@ -171,7 +171,7 @@ return $default(_that.showOnboarding);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( dynamic showOnboarding)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( bool? showOnboarding)  $default,) {final _that = this;
 switch (_that) {
 case _SplashState():
 return $default(_that.showOnboarding);case _:
@@ -191,7 +191,7 @@ return $default(_that.showOnboarding);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( dynamic showOnboarding)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( bool? showOnboarding)?  $default,) {final _that = this;
 switch (_that) {
 case _SplashState() when $default != null:
 return $default(_that.showOnboarding);case _:
@@ -206,10 +206,10 @@ return $default(_that.showOnboarding);case _:
 
 
 class _SplashState implements SplashState {
-  const _SplashState({this.showOnboarding = false});
+  const _SplashState({this.showOnboarding});
   
 
-@override@JsonKey() final  dynamic showOnboarding;
+@override final  bool? showOnboarding;
 
 /// Create a copy of SplashState
 /// with the given fields replaced by the non-null parameter values.
@@ -221,12 +221,12 @@ _$SplashStateCopyWith<_SplashState> get copyWith => __$SplashStateCopyWithImpl<_
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _SplashState&&const DeepCollectionEquality().equals(other.showOnboarding, showOnboarding));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _SplashState&&(identical(other.showOnboarding, showOnboarding) || other.showOnboarding == showOnboarding));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,const DeepCollectionEquality().hash(showOnboarding));
+int get hashCode => Object.hash(runtimeType,showOnboarding);
 
 @override
 String toString() {
@@ -241,7 +241,7 @@ abstract mixin class _$SplashStateCopyWith<$Res> implements $SplashStateCopyWith
   factory _$SplashStateCopyWith(_SplashState value, $Res Function(_SplashState) _then) = __$SplashStateCopyWithImpl;
 @override @useResult
 $Res call({
- dynamic showOnboarding
+ bool? showOnboarding
 });
 
 
@@ -261,7 +261,7 @@ class __$SplashStateCopyWithImpl<$Res>
 @override @pragma('vm:prefer-inline') $Res call({Object? showOnboarding = freezed,}) {
   return _then(_SplashState(
 showOnboarding: freezed == showOnboarding ? _self.showOnboarding : showOnboarding // ignore: cast_nullable_to_non_nullable
-as dynamic,
+as bool?,
   ));
 }
 

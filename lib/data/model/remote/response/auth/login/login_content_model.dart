@@ -1,8 +1,10 @@
+import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:sayarti_mobile/data/base/base_transform_response_model.dart';
 import 'package:sayarti_mobile/data/model/remote/response/auth/login/user_model.dart';
 import 'package:sayarti_mobile/domain/entity/remote/auth/login_content_entity.dart';
 
-
+part 'login_content_model.g.dart';
+@JsonSerializable()
 class LoginContentModel extends BaseTransformResponseModel<LoginContentEntity> {
   const LoginContentModel({
     required this.accessToken,
@@ -13,19 +15,15 @@ class LoginContentModel extends BaseTransformResponseModel<LoginContentEntity> {
     required this.requiredAction,
   });
 
-  final String accessToken;
-  final String refreshToken;
-  final String tokenType;
-  final int expiresIn;
-  final UserModel user;
+  final String? accessToken;
+  final String? refreshToken;
+  final String? tokenType;
+  final int? expiresIn;
+  final UserModel? user;
   final String? requiredAction;
 
-  factory LoginContentModel.fromJson(Map<String, dynamic> json) => LoginContentModel(
-    accessToken: json['accessToken'] as String, refreshToken: json['refreshToken'] as String,
-    tokenType: json['tokenType'] as String, expiresIn: (json['expiresIn'] as num).toInt(),
-    user: UserModel.fromJson(json['user'] as Map<String, dynamic>),
-    requiredAction: json['requiredAction'] as String?,
-  );
+  factory LoginContentModel.fromJson(Map<String, dynamic> json) =>
+        _$LoginContentModelFromJson(json);
 
   @override
   LoginContentEntity toEntity() => LoginContentEntity(
@@ -33,7 +31,7 @@ class LoginContentModel extends BaseTransformResponseModel<LoginContentEntity> {
     refreshToken: refreshToken,
     tokenType: tokenType,
     expiresIn: expiresIn,
-    user: user.toEntity(),
+    user: user?.toEntity(),
     requiredAction: requiredAction,
   );
 }

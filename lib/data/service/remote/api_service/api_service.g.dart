@@ -20,47 +20,34 @@ class _ApiService implements ApiService {
   final ParseErrorLogger? errorLogger;
 
   @override
-  Future<HttpResponse<LoginResponseModel>> login(LoginRequestModel request) async {
-    final extra = <String, dynamic>{};
+  Future<HttpResponse<LoginResponseModel>> login(
+    LoginRequestModel request,
+  ) async {
+    final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
-    final headers = <String, dynamic>{};
-    final data = <String, dynamic>{};
-    data.addAll(request.toJson());
-    final options = _setStreamType<LoginResponseModel>(
-      Options(method: 'POST', headers: headers, extra: extra)
-          .compose(_dio.options, 'v1/auth/login', queryParameters: queryParameters, data: data)
+    final _headers = <String, dynamic>{};
+    final _data = <String, dynamic>{};
+    _data.addAll(request.toJson());
+    final _options = _setStreamType<HttpResponse<LoginResponseModel>>(
+      Options(method: 'POST', headers: _headers, extra: _extra)
+          .compose(
+            _dio.options,
+            'v1/auth/login',
+            queryParameters: queryParameters,
+            data: _data,
+          )
           .copyWith(baseUrl: _combineBaseUrls(_dio.options.baseUrl, baseUrl)),
     );
-    final result = await _dio.fetch<Map<String, dynamic>>(options);
-    late LoginResponseModel value;
+    final _result = await _dio.fetch<Map<String, dynamic>>(_options);
+    late LoginResponseModel _value;
     try {
-      value = LoginResponseModel.fromJson(result.data!);
+      _value = LoginResponseModel.fromJson(_result.data!);
     } on Object catch (e, s) {
-      errorLogger?.logError(e, s, options);
+      errorLogger?.logError(e, s, _options, response: _result);
       rethrow;
     }
-    return HttpResponse(value, result);
-  }
-
-  @override
-  Future<HttpResponse<RegisterResponseModel>> register(RegisterRequestModel request) async {
-    final options = _setStreamType<RegisterResponseModel>(Options(method: 'POST').compose(_dio.options, 'v1/auth/register', data: request.toJson()).copyWith(baseUrl: _combineBaseUrls(_dio.options.baseUrl, baseUrl)));
-    final result = await _dio.fetch<Map<String, dynamic>>(options);
-    return HttpResponse(RegisterResponseModel.fromJson(result.data!), result);
-  }
-
-  @override
-  Future<HttpResponse<LoginResponseModel>> verifyEmail(VerifyEmailRequestModel request) async {
-    final options = _setStreamType<LoginResponseModel>(Options(method: 'POST').compose(_dio.options, 'v1/auth/verify-email', data: request.toJson()).copyWith(baseUrl: _combineBaseUrls(_dio.options.baseUrl, baseUrl)));
-    final result = await _dio.fetch<Map<String, dynamic>>(options);
-    return HttpResponse(LoginResponseModel.fromJson(result.data!), result);
-  }
-
-  @override
-  Future<HttpResponse<ResendVerificationResponseModel>> resendVerification(ResendVerificationRequestModel request) async {
-    final options = _setStreamType<ResendVerificationResponseModel>(Options(method: 'POST').compose(_dio.options, 'v1/auth/resend-verification', data: request.toJson()).copyWith(baseUrl: _combineBaseUrls(_dio.options.baseUrl, baseUrl)));
-    final result = await _dio.fetch<Map<String, dynamic>>(options);
-    return HttpResponse(ResendVerificationResponseModel.fromJson(result.data!), result);
+    final httpResponse = HttpResponse(_value, _result);
+    return httpResponse;
   }
 
   RequestOptions _setStreamType<T>(RequestOptions requestOptions) {

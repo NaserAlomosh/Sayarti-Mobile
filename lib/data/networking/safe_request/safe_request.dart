@@ -3,7 +3,6 @@ import 'package:retrofit/dio.dart';
 import 'package:sayarti_mobile/data/base/base_response_model.dart';
 import 'package:sayarti_mobile/data/base/base_transform_response_model.dart';
 import 'package:sayarti_mobile/data/networking/api_result/api_result.dart';
-import 'package:sayarti_mobile/data/networking/error/app_error.dart';
 import 'package:sayarti_mobile/data/networking/error/error_handler.dart';
 import 'package:sayarti_mobile/domain/base/entity/base_response_entity.dart';
 

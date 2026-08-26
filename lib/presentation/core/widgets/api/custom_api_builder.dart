@@ -1,6 +1,6 @@
 import 'dart:ui';
 
-import 'package:sayarti_mobile/data/networking/error/app_error.dart';
+import 'package:sayarti_mobile/data/base/base_response_model.dart';
 import 'package:sayarti_mobile/generated/l10n.dart';
 import 'package:sayarti_mobile/presentation/core/widgets/loading/circular_dialog_loader.dart';
 import 'package:flutter/material.dart';
