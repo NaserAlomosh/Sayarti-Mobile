@@ -26,6 +26,12 @@ import 'package:sayarti_mobile/data/model/remote/request/vehicle/update_vehicle_
 import 'package:sayarti_mobile/data/model/remote/response/vehicle/delete_vehicle_response_model.dart';
 import 'package:sayarti_mobile/data/model/remote/response/vehicle/get_vehicles_response_model.dart';
 import 'package:sayarti_mobile/data/model/remote/response/vehicle/vehicle_response_model.dart';
+import 'package:sayarti_mobile/data/model/remote/request/fuel/create_fuel_record_request_model.dart';
+import 'package:sayarti_mobile/data/model/remote/request/fuel/update_fuel_record_request_model.dart';
+import 'package:sayarti_mobile/data/model/remote/response/fuel/delete_fuel_record_response_model.dart';
+import 'package:sayarti_mobile/data/model/remote/response/fuel/fuel_record_response_model.dart';
+import 'package:sayarti_mobile/data/model/remote/response/fuel/fuel_summary_response_model.dart';
+import 'package:sayarti_mobile/data/model/remote/response/fuel/get_fuel_records_response_model.dart';
 
 part 'api_service.g.dart';
 
@@ -129,4 +135,22 @@ abstract class ApiService {
   Future<HttpResponse<DeleteVehicleResponseModel>> deleteVehicle(
     @Path('vehicleId') String vehicleId,
   );
+
+  @POST('v1/vehicles/{vehicleId}/fuel-records')
+  Future<HttpResponse<FuelRecordResponseModel>> createFuelRecord(@Path('vehicleId') String vehicleId, @Body() CreateFuelRecordRequestModel request);
+
+  @GET('v1/vehicles/{vehicleId}/fuel-records')
+  Future<HttpResponse<GetFuelRecordsResponseModel>> getFuelRecords(@Path('vehicleId') String vehicleId, @Query('page') int page, @Query('size') int size, @Query('sortBy') String? sortBy, @Query('sortDirection') String? sortDirection, @Query('from') DateTime? from, @Query('to') DateTime? to);
+
+  @GET('v1/vehicles/{vehicleId}/fuel-records/{fuelRecordId}')
+  Future<HttpResponse<FuelRecordResponseModel>> getFuelRecord(@Path('vehicleId') String vehicleId, @Path('fuelRecordId') String fuelRecordId);
+
+  @GET('v1/vehicles/{vehicleId}/fuel-records/summary')
+  Future<HttpResponse<FuelSummaryResponseModel>> getFuelSummary(@Path('vehicleId') String vehicleId, @Query('month') String? month);
+
+  @PATCH('v1/vehicles/{vehicleId}/fuel-records/{fuelRecordId}')
+  Future<HttpResponse<FuelRecordResponseModel>> updateFuelRecord(@Path('vehicleId') String vehicleId, @Path('fuelRecordId') String fuelRecordId, @Body() UpdateFuelRecordRequestModel request);
+
+  @DELETE('v1/vehicles/{vehicleId}/fuel-records/{fuelRecordId}')
+  Future<HttpResponse<DeleteFuelRecordResponseModel>> deleteFuelRecord(@Path('vehicleId') String vehicleId, @Path('fuelRecordId') String fuelRecordId);
 }
