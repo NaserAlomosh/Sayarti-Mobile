@@ -196,21 +196,21 @@ POST /api/v1/auth/login
 
 Domain
 
-* LoginContentEntity
-* UserEntity
-* AuthRepository login contract
-* LoginUseCase
-* LoginUseCaseParams
+* [x] LoginContentEntity
+* [x] UserEntity
+* [x] AuthRepository login contract
+* [x] LoginUseCase
+* [x] LoginUseCaseParams
 
 Data
 
-* LoginRequestModel
-* LoginResponseModel
-* LoginContentModel
-* UserModel
-* AuthRepositoryImpl login
-* ApiService login endpoint
-* Data-to-Domain transformation
+* [x] LoginRequestModel
+* [x] LoginResponseModel
+* [x] LoginContentModel
+* [x] UserModel
+* [x] AuthRepositoryImpl login
+* [x] ApiService login endpoint
+* [x] Data-to-Domain transformation
 
 Presentation
 
@@ -253,19 +253,19 @@ Registration creates an unverified LOCAL account and starts email verification.
 
 Domain
 
-* RegistrationEntity
-* AuthRepository register contract
-* RegisterUseCase
-* RegisterUseCaseParams
+* [x] RegistrationEntity
+* [x] AuthRepository register contract
+* [x] RegisterUseCase
+* [x] RegisterUseCaseParams
 
 Data
 
-* RegisterRequestModel
-* RegisterResponseModel
-* RegistrationModel
-* AuthRepositoryImpl register
-* ApiService register endpoint
-* Data-to-Domain transformation
+* [x] RegisterRequestModel
+* [x] RegisterResponseModel
+* [x] RegistrationModel
+* [x] AuthRepositoryImpl register
+* [x] ApiService register endpoint
+* [x] Data-to-Domain transformation
 
 Presentation
 
@@ -306,18 +306,18 @@ OTP is a six-digit numeric string.
 
 Domain
 
-* VerifyEmailUseCase
-* VerifyEmailUseCaseParams
-* AuthRepository verifyEmail contract
-* Reuse authentication session entity where appropriate
+* [x] VerifyEmailUseCase
+* [x] VerifyEmailUseCaseParams
+* [x] AuthRepository verifyEmail contract
+* [x] Reuse authentication session entity where appropriate
 
 Data
 
-* VerifyEmailRequestModel
-* VerifyEmailResponseModel if required
-* Reuse Auth/Login content model where appropriate
-* AuthRepositoryImpl verifyEmail
-* ApiService verifyEmail endpoint
+* [x] VerifyEmailRequestModel
+* [x] VerifyEmailResponseModel if required
+* [x] Reuse Auth/Login content model where appropriate
+* [x] AuthRepositoryImpl verifyEmail
+* [x] ApiService verifyEmail endpoint
 
 Presentation
 
@@ -489,17 +489,17 @@ defaultCurrencyCode
 
 Domain
 
-* CountryEntity
-* ReferenceRepository
-* GetCountriesUseCase
+* [x] CountryEntity
+* [x] ReferenceRepository
+* [x] GetCountriesUseCase
 
 Data
 
-* CountryModel
-* Countries response model
-* ReferenceRepositoryImpl
-* ApiService countries endpoint
-* List → List
+* [x] CountryModel
+* [x] Countries response model
+* [x] ReferenceRepositoryImpl
+* [x] ApiService countries endpoint
+* [x] List → List
 
 Presentation
 
@@ -620,8 +620,8 @@ The backend vehicle feature includes vehicle creation, retrieval, update, mileag
 
 8.1 Get Vehicles
 
-* Domain
-* Data
+* [x] Domain
+* [x] Data
 * Vehicles page
 * Loading state
 * Empty state
@@ -632,8 +632,8 @@ The backend vehicle feature includes vehicle creation, retrieval, update, mileag
 
 8.2 Get Vehicle Details
 
-* Domain
-* Data
+* [x] Domain
+* [x] Data
 * Vehicle details page
 * Runtime verification
 
@@ -641,8 +641,8 @@ The backend vehicle feature includes vehicle creation, retrieval, update, mileag
 
 8.3 Create Vehicle
 
-* Domain
-* Data
+* [x] Domain
+* [x] Data
 * Create vehicle page
 * Validation
 * Refresh vehicles after creation
@@ -652,8 +652,8 @@ The backend vehicle feature includes vehicle creation, retrieval, update, mileag
 
 8.4 Update Vehicle
 
-* Domain
-* Data
+* [x] Domain
+* [x] Data
 * Edit vehicle page
 * Validation
 * Refresh vehicle after update
@@ -663,8 +663,8 @@ The backend vehicle feature includes vehicle creation, retrieval, update, mileag
 
 8.5 Update Vehicle Mileage
 
-* Domain
-* Data
+* [x] Domain
+* [x] Data
 * Mileage UI
 * Mileage validation
 * Runtime verification
@@ -673,8 +673,8 @@ The backend vehicle feature includes vehicle creation, retrieval, update, mileag
 
 8.6 Delete Vehicle
 
-* Domain
-* Data
+* [x] Domain
+* [x] Data
 * Delete confirmation
 * Refresh vehicles after deletion
 * Runtime verification
