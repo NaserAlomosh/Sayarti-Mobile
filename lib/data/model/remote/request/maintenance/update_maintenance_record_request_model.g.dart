@@ -1,0 +1,6 @@
+// GENERATED CODE - DO NOT MODIFY BY HAND
+
+part of 'update_maintenance_record_request_model.dart';
+
+UpdateMaintenanceRecordRequestModel _$UpdateMaintenanceRecordRequestModelFromJson(Map<String, dynamic> json) => UpdateMaintenanceRecordRequestModel(category: maintenanceCategoryNullableFromJson(json['category'] as String?), title: json['title'] as String?, serviceDate: json['serviceDate'] == null ? null : DateTime.parse(json['serviceDate'] as String), mileageKm: (json['mileageKm'] as num?)?.toDouble(), cost: (json['cost'] as num?)?.toDouble(), currencyCode: json['currencyCode'] as String?, serviceProvider: json['serviceProvider'] as String?, notes: json['notes'] as String?);
+Map<String, dynamic> _$UpdateMaintenanceRecordRequestModelToJson(UpdateMaintenanceRecordRequestModel instance) => <String, dynamic>{if (instance.category case final value?) 'category': maintenanceCategoryNullableToJson(value), if (instance.title case final value?) 'title': value, if (instance.serviceDate case final value?) 'serviceDate': value.toIso8601String(), if (instance.mileageKm case final value?) 'mileageKm': value, if (instance.cost case final value?) 'cost': value, if (instance.currencyCode case final value?) 'currencyCode': value, if (instance.serviceProvider case final value?) 'serviceProvider': value, if (instance.notes case final value?) 'notes': value};

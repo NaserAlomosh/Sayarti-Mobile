@@ -32,6 +32,11 @@ import 'package:sayarti_mobile/data/model/remote/response/fuel/delete_fuel_recor
 import 'package:sayarti_mobile/data/model/remote/response/fuel/fuel_record_response_model.dart';
 import 'package:sayarti_mobile/data/model/remote/response/fuel/fuel_summary_response_model.dart';
 import 'package:sayarti_mobile/data/model/remote/response/fuel/get_fuel_records_response_model.dart';
+import 'package:sayarti_mobile/data/model/remote/request/maintenance/create_maintenance_record_request_model.dart';
+import 'package:sayarti_mobile/data/model/remote/request/maintenance/update_maintenance_record_request_model.dart';
+import 'package:sayarti_mobile/data/model/remote/response/maintenance/delete_maintenance_record_response_model.dart';
+import 'package:sayarti_mobile/data/model/remote/response/maintenance/get_maintenance_records_response_model.dart';
+import 'package:sayarti_mobile/data/model/remote/response/maintenance/maintenance_record_response_model.dart';
 
 part 'api_service.g.dart';
 
@@ -153,4 +158,48 @@ abstract class ApiService {
 
   @DELETE('v1/vehicles/{vehicleId}/fuel-records/{fuelRecordId}')
   Future<HttpResponse<DeleteFuelRecordResponseModel>> deleteFuelRecord(@Path('vehicleId') String vehicleId, @Path('fuelRecordId') String fuelRecordId);
+
+  @POST('v1/vehicles/{vehicleId}/maintenance-records')
+  Future<HttpResponse<MaintenanceRecordResponseModel>> createMaintenanceRecord(
+    @Path('vehicleId') String vehicleId,
+    @Body() CreateMaintenanceRecordRequestModel request,
+  );
+
+  @GET('v1/vehicles/{vehicleId}/maintenance-records')
+  Future<HttpResponse<GetMaintenanceRecordsResponseModel>>
+  getMaintenanceRecords(
+    @Path('vehicleId') String vehicleId,
+    @Query('page') int page,
+    @Query('size') int size,
+    @Query('sortBy') String? sortBy,
+    @Query('sortDirection') String? sortDirection,
+    @Query('from') DateTime? from,
+    @Query('to') DateTime? to,
+  );
+
+  @GET(
+    'v1/vehicles/{vehicleId}/maintenance-records/{maintenanceRecordId}',
+  )
+  Future<HttpResponse<MaintenanceRecordResponseModel>> getMaintenanceRecord(
+    @Path('vehicleId') String vehicleId,
+    @Path('maintenanceRecordId') String maintenanceRecordId,
+  );
+
+  @PATCH(
+    'v1/vehicles/{vehicleId}/maintenance-records/{maintenanceRecordId}',
+  )
+  Future<HttpResponse<MaintenanceRecordResponseModel>> updateMaintenanceRecord(
+    @Path('vehicleId') String vehicleId,
+    @Path('maintenanceRecordId') String maintenanceRecordId,
+    @Body() UpdateMaintenanceRecordRequestModel request,
+  );
+
+  @DELETE(
+    'v1/vehicles/{vehicleId}/maintenance-records/{maintenanceRecordId}',
+  )
+  Future<HttpResponse<DeleteMaintenanceRecordResponseModel>>
+  deleteMaintenanceRecord(
+    @Path('vehicleId') String vehicleId,
+    @Path('maintenanceRecordId') String maintenanceRecordId,
+  );
 }

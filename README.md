@@ -721,15 +721,15 @@ Fuel Statistics
 
 The backend roadmap contains a dedicated Maintenance feature.
 
-* Maintenance Entity
-* Maintenance Models
-* Maintenance Repository
-* Maintenance Use Cases
-* Get Maintenance Records
-* Get Maintenance Record
-* Create Maintenance Record
-* Update Maintenance Record
-* Delete Maintenance Record
+* [x] Maintenance Entity
+* [x] Maintenance Models
+* [x] Maintenance Repository
+* [x] Maintenance Use Cases
+* [x] Get Maintenance Records
+* [x] Get Maintenance Record
+* [x] Create Maintenance Record
+* [x] Update Maintenance Record
+* [x] Delete Maintenance Record
 * Maintenance history page
 * Maintenance details page
 * Add maintenance page
@@ -1056,7 +1056,7 @@ Currencies	✅	✅	⬜	⬜
 User Profile	✅	✅	⬜	⬜
 Vehicle Management	⬜	⬜	⬜	⬜
 Fuel Tracking	✅	✅	⬜	⬜
-Maintenance	⬜	⬜	⬜	⬜
+Maintenance	✅	✅	⬜	⬜
 Expenses	⬜	⬜	⬜	⬜
 Reminders	⬜	⬜	⬜	⬜
 Devices	⬜	⬜	N/A	⬜
