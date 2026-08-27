@@ -32,7 +32,7 @@ class _ApiService implements ApiService {
       Options(method: 'POST', headers: _headers, extra: _extra)
           .compose(
             _dio.options,
-            'v1/auth/login',
+            '/auth/login',
             queryParameters: queryParameters,
             data: _data,
           )
@@ -63,7 +63,7 @@ class _ApiService implements ApiService {
       Options(method: 'POST', headers: _headers, extra: _extra)
           .compose(
             _dio.options,
-            'v1/auth/register',
+            '/auth/register',
             queryParameters: queryParameters,
             data: _data,
           )
@@ -94,7 +94,7 @@ class _ApiService implements ApiService {
       Options(method: 'POST', headers: _headers, extra: _extra)
           .compose(
             _dio.options,
-            'v1/auth/verify-email',
+            '/auth/verify-email',
             queryParameters: queryParameters,
             data: _data,
           )
@@ -126,7 +126,7 @@ class _ApiService implements ApiService {
           Options(method: 'POST', headers: _headers, extra: _extra)
               .compose(
                 _dio.options,
-                'v1/auth/resend-verification',
+                '/auth/resend-verification',
                 queryParameters: queryParameters,
                 data: _data,
               )
@@ -159,7 +159,7 @@ class _ApiService implements ApiService {
       Options(method: 'POST', headers: _headers, extra: _extra)
           .compose(
             _dio.options,
-            'v1/auth/google',
+            '/auth/google',
             queryParameters: queryParameters,
             data: _data,
           )
@@ -190,7 +190,7 @@ class _ApiService implements ApiService {
       Options(method: 'POST', headers: _headers, extra: _extra)
           .compose(
             _dio.options,
-            'v1/auth/refresh',
+            '/auth/refresh',
             queryParameters: queryParameters,
             data: _data,
           )
@@ -221,7 +221,7 @@ class _ApiService implements ApiService {
       Options(method: 'POST', headers: _headers, extra: _extra)
           .compose(
             _dio.options,
-            'v1/auth/logout',
+            '/auth/logout',
             queryParameters: queryParameters,
             data: _data,
           )
@@ -249,7 +249,7 @@ class _ApiService implements ApiService {
       Options(method: 'GET', headers: _headers, extra: _extra)
           .compose(
             _dio.options,
-            'v1/reference/countries',
+            '/reference/countries',
             queryParameters: queryParameters,
             data: _data,
           )
@@ -277,7 +277,7 @@ class _ApiService implements ApiService {
       Options(method: 'GET', headers: _headers, extra: _extra)
           .compose(
             _dio.options,
-            'v1/reference/currencies',
+            '/reference/currencies',
             queryParameters: queryParameters,
             data: _data,
           )
@@ -305,7 +305,7 @@ class _ApiService implements ApiService {
       Options(method: 'GET', headers: _headers, extra: _extra)
           .compose(
             _dio.options,
-            'v1/users/me',
+            '/users/me',
             queryParameters: queryParameters,
             data: _data,
           )
@@ -336,7 +336,7 @@ class _ApiService implements ApiService {
       Options(method: 'PATCH', headers: _headers, extra: _extra)
           .compose(
             _dio.options,
-            'v1/users/me',
+            '/users/me',
             queryParameters: queryParameters,
             data: _data,
           )
@@ -367,7 +367,7 @@ class _ApiService implements ApiService {
       Options(method: 'PATCH', headers: _headers, extra: _extra)
           .compose(
             _dio.options,
-            'v1/users/me/country',
+            '/users/me/country',
             queryParameters: queryParameters,
             data: _data,
           )
@@ -398,7 +398,7 @@ class _ApiService implements ApiService {
       Options(method: 'PATCH', headers: _headers, extra: _extra)
           .compose(
             _dio.options,
-            'v1/users/me/default-currency',
+            '/users/me/default-currency',
             queryParameters: queryParameters,
             data: _data,
           )
@@ -426,7 +426,7 @@ class _ApiService implements ApiService {
       Options(method: 'DELETE', headers: _headers, extra: _extra)
           .compose(
             _dio.options,
-            'v1/users/me',
+            '/users/me',
             queryParameters: queryParameters,
             data: _data,
           )
@@ -457,7 +457,7 @@ class _ApiService implements ApiService {
       Options(method: 'POST', headers: _headers, extra: _extra)
           .compose(
             _dio.options,
-            'v1/vehicles',
+            '/vehicles',
             queryParameters: queryParameters,
             data: _data,
           )
@@ -496,7 +496,7 @@ class _ApiService implements ApiService {
       Options(method: 'GET', headers: _headers, extra: _extra)
           .compose(
             _dio.options,
-            'v1/vehicles',
+            '/vehicles',
             queryParameters: queryParameters,
             data: _data,
           )
@@ -526,7 +526,7 @@ class _ApiService implements ApiService {
       Options(method: 'GET', headers: _headers, extra: _extra)
           .compose(
             _dio.options,
-            'v1/vehicles/${vehicleId}',
+            '/vehicles/${vehicleId}',
             queryParameters: queryParameters,
             data: _data,
           )
@@ -558,7 +558,7 @@ class _ApiService implements ApiService {
       Options(method: 'PATCH', headers: _headers, extra: _extra)
           .compose(
             _dio.options,
-            'v1/vehicles/${vehicleId}',
+            '/vehicles/${vehicleId}',
             queryParameters: queryParameters,
             data: _data,
           )
@@ -590,7 +590,7 @@ class _ApiService implements ApiService {
       Options(method: 'PATCH', headers: _headers, extra: _extra)
           .compose(
             _dio.options,
-            'v1/vehicles/${vehicleId}/mileage',
+            '/vehicles/${vehicleId}/mileage',
             queryParameters: queryParameters,
             data: _data,
           )
@@ -620,7 +620,7 @@ class _ApiService implements ApiService {
       Options(method: 'DELETE', headers: _headers, extra: _extra)
           .compose(
             _dio.options,
-            'v1/vehicles/${vehicleId}',
+            '/vehicles/${vehicleId}',
             queryParameters: queryParameters,
             data: _data,
           )
@@ -652,7 +652,7 @@ class _ApiService implements ApiService {
       Options(method: 'POST', headers: _headers, extra: _extra)
           .compose(
             _dio.options,
-            'v1/vehicles/${vehicleId}/fuel-records',
+            '/vehicles/${vehicleId}/fuel-records',
             queryParameters: queryParameters,
             data: _data,
           )
@@ -696,7 +696,7 @@ class _ApiService implements ApiService {
       Options(method: 'GET', headers: _headers, extra: _extra)
           .compose(
             _dio.options,
-            'v1/vehicles/${vehicleId}/fuel-records',
+            '/vehicles/${vehicleId}/fuel-records',
             queryParameters: queryParameters,
             data: _data,
           )
@@ -727,7 +727,7 @@ class _ApiService implements ApiService {
       Options(method: 'GET', headers: _headers, extra: _extra)
           .compose(
             _dio.options,
-            'v1/vehicles/${vehicleId}/fuel-records/${fuelRecordId}',
+            '/vehicles/${vehicleId}/fuel-records/${fuelRecordId}',
             queryParameters: queryParameters,
             data: _data,
           )
@@ -759,7 +759,7 @@ class _ApiService implements ApiService {
       Options(method: 'GET', headers: _headers, extra: _extra)
           .compose(
             _dio.options,
-            'v1/vehicles/${vehicleId}/fuel-records/summary',
+            '/vehicles/${vehicleId}/fuel-records/summary',
             queryParameters: queryParameters,
             data: _data,
           )
@@ -792,7 +792,7 @@ class _ApiService implements ApiService {
       Options(method: 'PATCH', headers: _headers, extra: _extra)
           .compose(
             _dio.options,
-            'v1/vehicles/${vehicleId}/fuel-records/${fuelRecordId}',
+            '/vehicles/${vehicleId}/fuel-records/${fuelRecordId}',
             queryParameters: queryParameters,
             data: _data,
           )
@@ -824,7 +824,7 @@ class _ApiService implements ApiService {
           Options(method: 'DELETE', headers: _headers, extra: _extra)
               .compose(
                 _dio.options,
-                'v1/vehicles/${vehicleId}/fuel-records/${fuelRecordId}',
+                '/vehicles/${vehicleId}/fuel-records/${fuelRecordId}',
                 queryParameters: queryParameters,
                 data: _data,
               )
@@ -859,7 +859,7 @@ class _ApiService implements ApiService {
           Options(method: 'POST', headers: _headers, extra: _extra)
               .compose(
                 _dio.options,
-                'v1/vehicles/${vehicleId}/maintenance-records',
+                '/vehicles/${vehicleId}/maintenance-records',
                 queryParameters: queryParameters,
                 data: _data,
               )
@@ -907,7 +907,7 @@ class _ApiService implements ApiService {
           Options(method: 'GET', headers: _headers, extra: _extra)
               .compose(
                 _dio.options,
-                'v1/vehicles/${vehicleId}/maintenance-records',
+                '/vehicles/${vehicleId}/maintenance-records',
                 queryParameters: queryParameters,
                 data: _data,
               )
@@ -940,7 +940,7 @@ class _ApiService implements ApiService {
       Options(method: 'GET', headers: _headers, extra: _extra)
           .compose(
             _dio.options,
-            'v1/vehicles/${vehicleId}/maintenance-records/${maintenanceRecordId}',
+            '/vehicles/${vehicleId}/maintenance-records/${maintenanceRecordId}',
             queryParameters: queryParameters,
             data: _data,
           )
@@ -973,7 +973,7 @@ class _ApiService implements ApiService {
       Options(method: 'PATCH', headers: _headers, extra: _extra)
           .compose(
             _dio.options,
-            'v1/vehicles/${vehicleId}/maintenance-records/${maintenanceRecordId}',
+            '/vehicles/${vehicleId}/maintenance-records/${maintenanceRecordId}',
             queryParameters: queryParameters,
             data: _data,
           )
@@ -1003,7 +1003,7 @@ class _ApiService implements ApiService {
           Options(method: 'DELETE', headers: _headers, extra: _extra)
               .compose(
                 _dio.options,
-                'v1/vehicles/${vehicleId}/maintenance-records/${maintenanceRecordId}',
+                '/vehicles/${vehicleId}/maintenance-records/${maintenanceRecordId}',
                 queryParameters: queryParameters,
                 data: _data,
               )
@@ -1037,7 +1037,7 @@ class _ApiService implements ApiService {
       Options(method: 'POST', headers: _headers, extra: _extra)
           .compose(
             _dio.options,
-            'v1/vehicles/${vehicleId}/expenses',
+            '/vehicles/${vehicleId}/expenses',
             queryParameters: queryParameters,
             data: _data,
           )
@@ -1081,7 +1081,7 @@ class _ApiService implements ApiService {
       Options(method: 'GET', headers: _headers, extra: _extra)
           .compose(
             _dio.options,
-            'v1/vehicles/${vehicleId}/expenses',
+            '/vehicles/${vehicleId}/expenses',
             queryParameters: queryParameters,
             data: _data,
           )
@@ -1112,7 +1112,7 @@ class _ApiService implements ApiService {
       Options(method: 'GET', headers: _headers, extra: _extra)
           .compose(
             _dio.options,
-            'v1/vehicles/${vehicleId}/expenses/${expenseId}',
+            '/vehicles/${vehicleId}/expenses/${expenseId}',
             queryParameters: queryParameters,
             data: _data,
           )
@@ -1145,7 +1145,7 @@ class _ApiService implements ApiService {
       Options(method: 'PATCH', headers: _headers, extra: _extra)
           .compose(
             _dio.options,
-            'v1/vehicles/${vehicleId}/expenses/${expenseId}',
+            '/vehicles/${vehicleId}/expenses/${expenseId}',
             queryParameters: queryParameters,
             data: _data,
           )
@@ -1176,7 +1176,7 @@ class _ApiService implements ApiService {
       Options(method: 'DELETE', headers: _headers, extra: _extra)
           .compose(
             _dio.options,
-            'v1/vehicles/${vehicleId}/expenses/${expenseId}',
+            '/vehicles/${vehicleId}/expenses/${expenseId}',
             queryParameters: queryParameters,
             data: _data,
           )
@@ -1208,7 +1208,7 @@ class _ApiService implements ApiService {
       Options(method: 'POST', headers: _headers, extra: _extra)
           .compose(
             _dio.options,
-            'v1/vehicles/${vehicleId}/reminders',
+            '/vehicles/${vehicleId}/reminders',
             queryParameters: queryParameters,
             data: _data,
           )
@@ -1238,7 +1238,7 @@ class _ApiService implements ApiService {
       Options(method: 'GET', headers: _headers, extra: _extra)
           .compose(
             _dio.options,
-            'v1/vehicles/${vehicleId}/reminders',
+            '/vehicles/${vehicleId}/reminders',
             queryParameters: queryParameters,
             data: _data,
           )
@@ -1269,7 +1269,7 @@ class _ApiService implements ApiService {
       Options(method: 'GET', headers: _headers, extra: _extra)
           .compose(
             _dio.options,
-            'v1/vehicles/${vehicleId}/reminders/${reminderId}',
+            '/vehicles/${vehicleId}/reminders/${reminderId}',
             queryParameters: queryParameters,
             data: _data,
           )
@@ -1302,7 +1302,7 @@ class _ApiService implements ApiService {
       Options(method: 'PATCH', headers: _headers, extra: _extra)
           .compose(
             _dio.options,
-            'v1/vehicles/${vehicleId}/reminders/${reminderId}',
+            '/vehicles/${vehicleId}/reminders/${reminderId}',
             queryParameters: queryParameters,
             data: _data,
           )
@@ -1333,7 +1333,7 @@ class _ApiService implements ApiService {
       Options(method: 'PATCH', headers: _headers, extra: _extra)
           .compose(
             _dio.options,
-            'v1/vehicles/${vehicleId}/reminders/${reminderId}/complete',
+            '/vehicles/${vehicleId}/reminders/${reminderId}/complete',
             queryParameters: queryParameters,
             data: _data,
           )
@@ -1364,7 +1364,7 @@ class _ApiService implements ApiService {
       Options(method: 'DELETE', headers: _headers, extra: _extra)
           .compose(
             _dio.options,
-            'v1/vehicles/${vehicleId}/reminders/${reminderId}',
+            '/vehicles/${vehicleId}/reminders/${reminderId}',
             queryParameters: queryParameters,
             data: _data,
           )
@@ -1395,7 +1395,7 @@ class _ApiService implements ApiService {
           Options(method: 'GET', headers: _headers, extra: _extra)
               .compose(
                 _dio.options,
-                'v1/vehicles/${vehicleId}/statistics',
+                '/vehicles/${vehicleId}/statistics',
                 queryParameters: queryParameters,
                 data: _data,
               )
@@ -1427,7 +1427,7 @@ class _ApiService implements ApiService {
       Options(method: 'GET', headers: _headers, extra: _extra)
           .compose(
             _dio.options,
-            'v1/vehicles/${vehicleId}/statistics/fuel',
+            '/vehicles/${vehicleId}/statistics/fuel',
             queryParameters: queryParameters,
             data: _data,
           )
@@ -1457,7 +1457,7 @@ class _ApiService implements ApiService {
           Options(method: 'GET', headers: _headers, extra: _extra)
               .compose(
                 _dio.options,
-                'v1/vehicles/${vehicleId}/statistics/maintenance',
+                '/vehicles/${vehicleId}/statistics/maintenance',
                 queryParameters: queryParameters,
                 data: _data,
               )
@@ -1490,7 +1490,7 @@ class _ApiService implements ApiService {
           Options(method: 'GET', headers: _headers, extra: _extra)
               .compose(
                 _dio.options,
-                'v1/vehicles/${vehicleId}/statistics/expenses',
+                '/vehicles/${vehicleId}/statistics/expenses',
                 queryParameters: queryParameters,
                 data: _data,
               )
@@ -1522,7 +1522,7 @@ class _ApiService implements ApiService {
       Options(method: 'GET', headers: _headers, extra: _extra)
           .compose(
             _dio.options,
-            'v1/vehicles/${vehicleId}/statistics/total-cost',
+            '/vehicles/${vehicleId}/statistics/total-cost',
             queryParameters: queryParameters,
             data: _data,
           )
@@ -1532,6 +1532,99 @@ class _ApiService implements ApiService {
     late TrueVehicleCostResponseModel _value;
     try {
       _value = TrueVehicleCostResponseModel.fromJson(_result.data!);
+    } on Object catch (e, s) {
+      errorLogger?.logError(e, s, _options, response: _result);
+      rethrow;
+    }
+    final httpResponse = HttpResponse(_value, _result);
+    return httpResponse;
+  }
+
+  @override
+  Future<HttpResponse<DeviceResponseModel>> registerDevice(
+    RegisterDeviceRequestModel request,
+  ) async {
+    final _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+    final _headers = <String, dynamic>{};
+    final _data = <String, dynamic>{};
+    _data.addAll(request.toJson());
+    final _options = _setStreamType<HttpResponse<DeviceResponseModel>>(
+      Options(method: 'POST', headers: _headers, extra: _extra)
+          .compose(
+            _dio.options,
+            '/devices',
+            queryParameters: queryParameters,
+            data: _data,
+          )
+          .copyWith(baseUrl: _combineBaseUrls(_dio.options.baseUrl, baseUrl)),
+    );
+    final _result = await _dio.fetch<Map<String, dynamic>>(_options);
+    late DeviceResponseModel _value;
+    try {
+      _value = DeviceResponseModel.fromJson(_result.data!);
+    } on Object catch (e, s) {
+      errorLogger?.logError(e, s, _options, response: _result);
+      rethrow;
+    }
+    final httpResponse = HttpResponse(_value, _result);
+    return httpResponse;
+  }
+
+  @override
+  Future<HttpResponse<DeviceResponseModel>> updateFcmToken(
+    String deviceId,
+    UpdateFcmTokenRequestModel request,
+  ) async {
+    final _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+    final _headers = <String, dynamic>{};
+    final _data = <String, dynamic>{};
+    _data.addAll(request.toJson());
+    final _options = _setStreamType<HttpResponse<DeviceResponseModel>>(
+      Options(method: 'PATCH', headers: _headers, extra: _extra)
+          .compose(
+            _dio.options,
+            '/devices/${deviceId}/fcm-token',
+            queryParameters: queryParameters,
+            data: _data,
+          )
+          .copyWith(baseUrl: _combineBaseUrls(_dio.options.baseUrl, baseUrl)),
+    );
+    final _result = await _dio.fetch<Map<String, dynamic>>(_options);
+    late DeviceResponseModel _value;
+    try {
+      _value = DeviceResponseModel.fromJson(_result.data!);
+    } on Object catch (e, s) {
+      errorLogger?.logError(e, s, _options, response: _result);
+      rethrow;
+    }
+    final httpResponse = HttpResponse(_value, _result);
+    return httpResponse;
+  }
+
+  @override
+  Future<HttpResponse<DeleteDeviceResponseModel>> deleteDevice(
+    String deviceId,
+  ) async {
+    final _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+    final _headers = <String, dynamic>{};
+    const Map<String, dynamic>? _data = null;
+    final _options = _setStreamType<HttpResponse<DeleteDeviceResponseModel>>(
+      Options(method: 'DELETE', headers: _headers, extra: _extra)
+          .compose(
+            _dio.options,
+            '/devices/${deviceId}',
+            queryParameters: queryParameters,
+            data: _data,
+          )
+          .copyWith(baseUrl: _combineBaseUrls(_dio.options.baseUrl, baseUrl)),
+    );
+    final _result = await _dio.fetch<Map<String, dynamic>>(_options);
+    late DeleteDeviceResponseModel _value;
+    try {
+      _value = DeleteDeviceResponseModel.fromJson(_result.data!);
     } on Object catch (e, s) {
       errorLogger?.logError(e, s, _options, response: _result);
       rethrow;
@@ -1552,7 +1645,7 @@ class _ApiService implements ApiService {
       Options(method: 'GET', headers: _headers, extra: _extra)
           .compose(
             _dio.options,
-            'v1/vehicles/${vehicleId}/dashboard',
+            '/vehicles/${vehicleId}/dashboard',
             queryParameters: queryParameters,
             data: _data,
           )
@@ -1585,7 +1678,7 @@ class _ApiService implements ApiService {
           Options(method: 'GET', headers: _headers, extra: _extra)
               .compose(
                 _dio.options,
-                'v1/vehicles/${vehicleId}/activity',
+                '/vehicles/${vehicleId}/activity',
                 queryParameters: queryParameters,
                 data: _data,
               )
@@ -1597,99 +1690,6 @@ class _ApiService implements ApiService {
     late GetVehicleActivityResponseModel _value;
     try {
       _value = GetVehicleActivityResponseModel.fromJson(_result.data!);
-    } on Object catch (e, s) {
-      errorLogger?.logError(e, s, _options, response: _result);
-      rethrow;
-    }
-    final httpResponse = HttpResponse(_value, _result);
-    return httpResponse;
-  }
-
-  @override
-  Future<HttpResponse<DeviceResponseModel>> registerDevice(
-    RegisterDeviceRequestModel request,
-  ) async {
-    final _extra = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{};
-    final _headers = <String, dynamic>{};
-    final _data = <String, dynamic>{};
-    _data.addAll(request.toJson());
-    final _options = _setStreamType<HttpResponse<DeviceResponseModel>>(
-      Options(method: 'POST', headers: _headers, extra: _extra)
-          .compose(
-            _dio.options,
-            'v1/devices',
-            queryParameters: queryParameters,
-            data: _data,
-          )
-          .copyWith(baseUrl: _combineBaseUrls(_dio.options.baseUrl, baseUrl)),
-    );
-    final _result = await _dio.fetch<Map<String, dynamic>>(_options);
-    late DeviceResponseModel _value;
-    try {
-      _value = DeviceResponseModel.fromJson(_result.data!);
-    } on Object catch (e, s) {
-      errorLogger?.logError(e, s, _options, response: _result);
-      rethrow;
-    }
-    final httpResponse = HttpResponse(_value, _result);
-    return httpResponse;
-  }
-
-  @override
-  Future<HttpResponse<DeviceResponseModel>> updateFcmToken(
-    String deviceId,
-    UpdateFcmTokenRequestModel request,
-  ) async {
-    final _extra = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{};
-    final _headers = <String, dynamic>{};
-    final _data = <String, dynamic>{};
-    _data.addAll(request.toJson());
-    final _options = _setStreamType<HttpResponse<DeviceResponseModel>>(
-      Options(method: 'PATCH', headers: _headers, extra: _extra)
-          .compose(
-            _dio.options,
-            'v1/devices/${deviceId}/fcm-token',
-            queryParameters: queryParameters,
-            data: _data,
-          )
-          .copyWith(baseUrl: _combineBaseUrls(_dio.options.baseUrl, baseUrl)),
-    );
-    final _result = await _dio.fetch<Map<String, dynamic>>(_options);
-    late DeviceResponseModel _value;
-    try {
-      _value = DeviceResponseModel.fromJson(_result.data!);
-    } on Object catch (e, s) {
-      errorLogger?.logError(e, s, _options, response: _result);
-      rethrow;
-    }
-    final httpResponse = HttpResponse(_value, _result);
-    return httpResponse;
-  }
-
-  @override
-  Future<HttpResponse<DeleteDeviceResponseModel>> deleteDevice(
-    String deviceId,
-  ) async {
-    final _extra = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{};
-    final _headers = <String, dynamic>{};
-    const Map<String, dynamic>? _data = null;
-    final _options = _setStreamType<HttpResponse<DeleteDeviceResponseModel>>(
-      Options(method: 'DELETE', headers: _headers, extra: _extra)
-          .compose(
-            _dio.options,
-            'v1/devices/${deviceId}',
-            queryParameters: queryParameters,
-            data: _data,
-          )
-          .copyWith(baseUrl: _combineBaseUrls(_dio.options.baseUrl, baseUrl)),
-    );
-    final _result = await _dio.fetch<Map<String, dynamic>>(_options);
-    late DeleteDeviceResponseModel _value;
-    try {
-      _value = DeleteDeviceResponseModel.fromJson(_result.data!);
     } on Object catch (e, s) {
       errorLogger?.logError(e, s, _options, response: _result);
       rethrow;
