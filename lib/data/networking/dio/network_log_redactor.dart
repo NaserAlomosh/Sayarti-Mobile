@@ -1,11 +1,13 @@
 const _redactedValue = '***';
 
 final _sensitiveValuePattern = RegExp(
-  r'''(?i)((?:["']?)(?:password|otp|accessToken|refreshToken|idToken|googleIdToken|fcmToken|cookie|set-cookie)(?:["']?)\s*[:=]\s*)(?:"[^"]*"|'[^']*'|[^,\r\n}\]]+)''',
+  r'''((?:["']?)(?:password|otp|accessToken|refreshToken|idToken|googleIdToken|fcmToken|cookie|set-cookie)(?:["']?)\s*[:=]\s*)(?:"[^"]*"|'[^']*'|[^,\r\n}\]]+)''',
+  caseSensitive: false,
 );
 
 final _authorizationPattern = RegExp(
-  r'''(?i)((?:["']?)authorization(?:["']?)\s*[:=]\s*)(?:Bearer\s+)?(?:"[^"]*"|'[^']*'|[^,\r\n}\]]+)''',
+  r'''((?:["']?)authorization(?:["']?)\s*[:=]\s*)(?:Bearer\s+)?(?:"[^"]*"|'[^']*'|[^,\r\n}\]]+)''',
+  caseSensitive: false,
 );
 
 /// Redacts credential values from a logger's rendered output only.

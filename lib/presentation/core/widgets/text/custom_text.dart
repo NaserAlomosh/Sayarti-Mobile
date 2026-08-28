@@ -12,6 +12,7 @@ class _SemanticText extends StatelessWidget {
     this.overflow,
     this.fontWeight,
     this.color,
+    this.fontSize,
   });
 
   final String text;
@@ -21,11 +22,14 @@ class _SemanticText extends StatelessWidget {
   final TextOverflow? overflow;
   final FontWeight? fontWeight;
   final Color? color;
+  final double? fontSize;
 
   @override
   Widget build(BuildContext context) {
     final colors = SayartiThemeColors.of(context);
-    final (fontSize, defaultWeight, height, defaultColor) = switch (role) {
+
+    final (defaultFontSize, defaultWeight, height, defaultColor) =
+        switch (role) {
       _TextRole.title => (24.0, FontWeight.w600, 1.25, colors.titleText),
       _TextRole.hint => (14.0, FontWeight.w400, 1.4, colors.hintText),
       _TextRole.description => (
@@ -44,7 +48,7 @@ class _SemanticText extends StatelessWidget {
       style: TextStyle(
         color: color ?? defaultColor,
         // fontFamily: 'CapitalBank',
-        fontSize: fontSize,
+        fontSize: fontSize ?? defaultFontSize,
         fontWeight: fontWeight ?? defaultWeight,
         height: height,
       ),
@@ -61,6 +65,7 @@ class CustomTitleText extends StatelessWidget {
     this.overflow,
     this.fontWeight,
     this.color,
+    this.fontSize,
   });
 
   final String text;
@@ -69,17 +74,19 @@ class CustomTitleText extends StatelessWidget {
   final TextOverflow? overflow;
   final FontWeight? fontWeight;
   final Color? color;
+  final double? fontSize;
 
   @override
   Widget build(BuildContext context) => _SemanticText(
-    text,
-    role: _TextRole.title,
-    textAlign: textAlign,
-    maxLines: maxLines,
-    overflow: overflow,
-    fontWeight: fontWeight,
-    color: color,
-  );
+        text,
+        role: _TextRole.title,
+        textAlign: textAlign,
+        maxLines: maxLines,
+        overflow: overflow,
+        fontWeight: fontWeight,
+        color: color,
+        fontSize: fontSize,
+      );
 }
 
 class CustomHintText extends StatelessWidget {
@@ -91,6 +98,7 @@ class CustomHintText extends StatelessWidget {
     this.overflow,
     this.fontWeight,
     this.color,
+    this.fontSize,
   });
 
   final String text;
@@ -99,17 +107,19 @@ class CustomHintText extends StatelessWidget {
   final TextOverflow? overflow;
   final FontWeight? fontWeight;
   final Color? color;
+  final double? fontSize;
 
   @override
   Widget build(BuildContext context) => _SemanticText(
-    text,
-    role: _TextRole.hint,
-    textAlign: textAlign,
-    maxLines: maxLines,
-    overflow: overflow,
-    fontWeight: fontWeight,
-    color: color,
-  );
+        text,
+        role: _TextRole.hint,
+        textAlign: textAlign,
+        maxLines: maxLines,
+        overflow: overflow,
+        fontWeight: fontWeight,
+        color: color,
+        fontSize: fontSize,
+      );
 }
 
 class CustomDescriptionText extends StatelessWidget {
@@ -121,6 +131,7 @@ class CustomDescriptionText extends StatelessWidget {
     this.overflow,
     this.fontWeight,
     this.color,
+    this.fontSize,
   });
 
   final String text;
@@ -129,15 +140,17 @@ class CustomDescriptionText extends StatelessWidget {
   final TextOverflow? overflow;
   final FontWeight? fontWeight;
   final Color? color;
+  final double? fontSize;
 
   @override
   Widget build(BuildContext context) => _SemanticText(
-    text,
-    role: _TextRole.description,
-    textAlign: textAlign,
-    maxLines: maxLines,
-    overflow: overflow,
-    fontWeight: fontWeight,
-    color: color,
-  );
+        text,
+        role: _TextRole.description,
+        textAlign: textAlign,
+        maxLines: maxLines,
+        overflow: overflow,
+        fontWeight: fontWeight,
+        color: color,
+        fontSize: fontSize,
+      );
 }

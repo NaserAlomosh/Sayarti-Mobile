@@ -13,7 +13,7 @@ class _LoginForm extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-        CustomAppTextField(
+          CustomAppTextField(
             controller: cubit.emailController,
             labelText: strings.email,
             hintText: strings.emailHint,
@@ -37,7 +37,7 @@ class _LoginForm extends StatelessWidget {
             validator: (value) {
               if (value.isNullOrEmpty) {
                 return S.of(context).passwordCannotBeEmpty;
-              } 
+              }
               return null;
             },
             onChanged: (_) => cubit.checkCamSubmit(),
@@ -111,10 +111,7 @@ class _LoginButton extends StatelessWidget {
         decoration: BoxDecoration(
           gradient: isEnabled
               ? const LinearGradient(
-                  colors: [
-                    Color(0xFF009DB4),
-                    Color(0xFF00BDD5),
-                  ],
+                  colors: [Color(0xFF009DB4), Color(0xFF00BDD5)],
                 )
               : LinearGradient(
                   colors: [
@@ -183,10 +180,7 @@ class _OrDivider extends StatelessWidget {
 }
 
 class _GoogleLoginButton extends StatelessWidget {
-  const _GoogleLoginButton({
-    required this.text,
-    required this.onPressed,
-  });
+  const _GoogleLoginButton({required this.text, required this.onPressed});
 
   final String text;
   final VoidCallback onPressed;
@@ -199,12 +193,8 @@ class _GoogleLoginButton extends StatelessWidget {
         onPressed: onPressed,
         style: OutlinedButton.styleFrom(
           foregroundColor: Colors.white,
-          side: BorderSide(
-            color: Colors.white.withValues(alpha: 0.25),
-          ),
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(8),
-          ),
+          side: BorderSide(color: Colors.white.withValues(alpha: 0.25)),
+          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
           padding: const EdgeInsets.symmetric(horizontal: 14),
         ),
         child: Stack(
@@ -241,25 +231,11 @@ class _SignUpSection extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        Text(
-          'New to Sayarti? ',
-          style: TextStyle(
-            color: Colors.white.withValues(alpha: 0.75),
-            fontSize: 13,
-          ),
-        ),
-        GestureDetector(
-          onTap: () {
-            // TODO: Navigate to Sign Up
-          },
-          child: const Text(
-            'Sign Up',
-            style: TextStyle(
-              color: Color(0xFF00D8F5),
-              fontSize: 13,
-              fontWeight: FontWeight.w600,
-            ),
-          ),
+        CustomHintText('New to Sayarti? '),
+        CustomAppTextButton(
+          text: 'Sign Up',
+          color: Theme.of(context).colorScheme.primary,
+          onTap: (){},
         ),
       ],
     );
