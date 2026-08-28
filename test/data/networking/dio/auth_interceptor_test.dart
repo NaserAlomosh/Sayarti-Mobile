@@ -27,6 +27,139 @@ void main() {
       expect(seenHeaders, ['Bearer access', null]);
     });
 
+    test('removes Authorization from every public auth request', () async {
+      final storage = _FakeStorage(accessToken: 'access');
+      final seenHeaders = <Object?>[];
+      final dio = _buildDio(
+        storage,
+        appHandler: (options) {
+          seenHeaders.add(options.headers['Authorization']);
+          return _jsonResponse(200, {'success': true});
+        },
+      );
+
+      for (final path in [
+        'v1/auth/login',
+        'v1/auth/register',
+        'v1/auth/verify-email',
+        'v1/auth/resend-verification',
+        'v1/auth/google',
+        'v1/auth/refresh',
+      ]) {
+        await dio.post<void>(
+          path,
+          options: Options(headers: {'Authorization': 'Bearer leaked'}),
+        );
+      }
+
+      expect(seenHeaders, everyElement(isNull));
+    });
+
+    for (final path in [
+      'v1/auth/login',
+      'v1/auth/verify-email',
+      'v1/auth/google',
+    ]) {
+      test(
+        '$path saves a trimmed token pair and continues the response',
+        () async {
+          final storage = _FakeStorage();
+          final dio = _buildDio(
+            storage,
+            appHandler: (_) => _authResponse(
+              accessToken: '  session-access  ',
+              refreshToken: '  session-refresh  ',
+            ),
+          );
+
+          final response = await dio.post<Map<String, dynamic>>(path);
+
+          expect(response.statusCode, 200);
+          expect(storage.savedTokens, [('session-access', 'session-refresh')]);
+        },
+      );
+    }
+
+    for (final path in [
+      'v1/auth/register',
+      'v1/auth/resend-verification',
+      'v1/vehicles',
+    ]) {
+      test('$path does not persist response tokens', () async {
+        final storage = _FakeStorage();
+        final dio = _buildDio(
+          storage,
+          appHandler: (_) => _authResponse(
+            accessToken: 'access',
+            refreshToken: 'refresh',
+          ),
+        );
+
+        await dio.post<Map<String, dynamic>>(path);
+
+        expect(storage.savedTokens, isEmpty);
+      });
+    }
+
+    for (final tokens in <(String?, String?)>[
+      (null, 'refresh'),
+      ('access', null),
+      ('  ', 'refresh'),
+      ('access', '  '),
+    ]) {
+      test(
+        'login continues without saving an invalid token pair $tokens',
+        () async {
+          final storage = _FakeStorage();
+          final dio = _buildDio(
+            storage,
+            appHandler: (_) => _authResponse(
+              accessToken: tokens.$1,
+              refreshToken: tokens.$2,
+            ),
+          );
+
+          final response = await dio.post<Map<String, dynamic>>(
+            'v1/auth/login',
+          );
+
+          expect(response.statusCode, 200);
+          expect(storage.savedTokens, isEmpty);
+        },
+      );
+    }
+
+    test('malformed login response continues without saving tokens', () async {
+      final storage = _FakeStorage();
+      final dio = _buildDio(
+        storage,
+        appHandler: (_) =>
+            _jsonResponse(200, {'success': true, 'data': 'bad'}),
+      );
+
+      final response = await dio.post<Map<String, dynamic>>('v1/auth/login');
+
+      expect(response.statusCode, 200);
+      expect(storage.savedTokens, isEmpty);
+    });
+
+    test('successful logout clears the local session', () async {
+      final storage = _FakeStorage(
+        accessToken: 'access',
+        refreshToken: 'refresh',
+      );
+      final dio = _buildDio(
+        storage,
+        appHandler: (_) => _jsonResponse(200, {'success': true}),
+      );
+
+      await dio.post<Map<String, dynamic>>('v1/auth/logout');
+
+      expect(storage.clearCalls, 1);
+      expect(storage.accessToken, isNull);
+      expect(storage.refreshToken, isNull);
+    });
+
     test('refreshes once, rotates both tokens, and retries with the new token',
         () async {
       final storage = _FakeStorage(
@@ -73,28 +206,37 @@ void main() {
         refreshHandler: (_) => _jsonResponse(401, {'success': false}),
       );
 
-      await expectLater(dio.get<void>('v1/vehicles'), throwsA(isA<DioException>()));
+      await expectLater(
+        dio.get<void>('v1/vehicles'),
+        throwsA(isA<DioException>()),
+      );
       expect(storage.clearCalls, 1);
       expect(storage.accessToken, isNull);
       expect(storage.refreshToken, isNull);
     });
 
-    test('missing refresh token clears tokens without a refresh request', () async {
-      final storage = _FakeStorage(accessToken: 'old-access');
-      var refreshCalls = 0;
-      final dio = _buildDio(
-        storage,
-        appHandler: (_) => _jsonResponse(401, {'success': false}),
-        refreshHandler: (_) {
-          refreshCalls++;
-          return _successfulRefresh();
-        },
-      );
+    test(
+      'missing refresh token clears tokens without a refresh request',
+      () async {
+        final storage = _FakeStorage(accessToken: 'old-access');
+        var refreshCalls = 0;
+        final dio = _buildDio(
+          storage,
+          appHandler: (_) => _jsonResponse(401, {'success': false}),
+          refreshHandler: (_) {
+            refreshCalls++;
+            return _successfulRefresh();
+          },
+        );
 
-      await expectLater(dio.get<void>('v1/vehicles'), throwsA(isA<DioException>()));
-      expect(refreshCalls, 0);
-      expect(storage.clearCalls, 1);
-    });
+        await expectLater(
+          dio.get<void>('v1/vehicles'),
+          throwsA(isA<DioException>()),
+        );
+        expect(refreshCalls, 0);
+        expect(storage.clearCalls, 1);
+      },
+    );
 
     test('a refresh endpoint 401 never invokes automatic refresh', () async {
       final storage = _FakeStorage(refreshToken: 'refresh');
@@ -135,7 +277,10 @@ void main() {
         },
       );
 
-      await expectLater(dio.get<void>('v1/vehicles'), throwsA(isA<DioException>()));
+      await expectLater(
+        dio.get<void>('v1/vehicles'),
+        throwsA(isA<DioException>()),
+      );
       expect(refreshCalls, 1);
       expect(appCalls, 2);
     });
@@ -210,6 +355,22 @@ ResponseBody _successfulRefresh() => _jsonResponse(200, {
     'requiredAction': null,
   },
 });
+
+ResponseBody _authResponse({
+  required String? accessToken,
+  required String? refreshToken,
+}) =>
+    _jsonResponse(200, {
+      'success': true,
+      'data': {
+        'accessToken': accessToken,
+        'refreshToken': refreshToken,
+        'tokenType': 'Bearer',
+        'expiresIn': 900,
+        'user': null,
+        'requiredAction': null,
+      },
+    });
 
 ResponseBody _jsonResponse(int statusCode, Map<String, dynamic> body) =>
     ResponseBody.fromString(

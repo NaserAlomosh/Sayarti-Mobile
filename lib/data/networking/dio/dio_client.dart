@@ -2,6 +2,7 @@ import 'package:dio/dio.dart';
 import 'package:flutter/foundation.dart';
 import 'package:pretty_dio_logger/pretty_dio_logger.dart';
 import 'package:sayarti_mobile/data/networking/dio/auth_interceptor.dart';
+import 'package:sayarti_mobile/data/networking/dio/network_log_redactor.dart';
 import 'package:sayarti_mobile/data/networking/dio/network_properties.dart';
 import 'package:sayarti_mobile/domain/storage/auth/auth_session_storage.dart';
 
@@ -42,7 +43,7 @@ class DioClient {
           requestHeader: true,
           responseBody: true,
           responseHeader: true,
-          logPrint: (log) => debugPrint(log.toString()),
+          logPrint: (log) => debugPrint(redactNetworkLog(log)),
         ),
     ]);
   }
