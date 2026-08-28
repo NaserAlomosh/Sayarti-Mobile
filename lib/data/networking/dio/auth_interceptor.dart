@@ -13,6 +13,12 @@ class AuthInterceptor extends Interceptor {
 
   static const _retriedKey = 'authInterceptorRetried';
   static const _refreshPath = 'v1/auth/refresh';
+  static const _logoutPath = 'v1/auth/logout';
+  static const _sessionCreatingPaths = <String>{
+    'v1/auth/login',
+    'v1/auth/verify-email',
+    'v1/auth/google',
+  };
   static const _publicAuthPaths = <String>{
     'v1/auth/login',
     'v1/auth/register',
@@ -45,6 +51,27 @@ class AuthInterceptor extends Interceptor {
     }
 
     handler.next(options);
+  }
+
+  @override
+  void onResponse(
+    Response<dynamic> response,
+    ResponseInterceptorHandler handler,
+  ) async {
+    try {
+      final path = _normalizedPath(response.requestOptions);
+      if (_sessionCreatingPaths.contains(path) &&
+          response.requestOptions.method.toUpperCase() == 'POST') {
+        await _saveSessionFromResponse(response);
+      } else if (path == _logoutPath &&
+          response.requestOptions.method.toUpperCase() == 'POST') {
+        await _sessionStorage.clearTokens();
+      }
+    } catch (_) {
+      // Session persistence must not turn a successful response into an error.
+    }
+
+    handler.next(response);
   }
 
   @override
@@ -148,11 +175,32 @@ class AuthInterceptor extends Interceptor {
   }
 
   bool _isPublicAuthRequest(RequestOptions options) {
-    final path = options.uri.path
-        .replaceFirst(RegExp(r'^/api/'), '')
-        .replaceFirst(RegExp(r'^/'), '')
-        .toLowerCase();
-    return _publicAuthPaths.contains(path);
+    return _publicAuthPaths.contains(_normalizedPath(options));
+  }
+
+  String _normalizedPath(RequestOptions options) => options.uri.path
+      .replaceFirst(RegExp(r'^/api/'), '')
+      .replaceFirst(RegExp(r'^/'), '')
+      .toLowerCase();
+
+  Future<void> _saveSessionFromResponse(Response<dynamic> response) async {
+    final data = response.data;
+    if (data is! Map<String, dynamic>) return;
+
+    final auth = LoginResponseModel.fromJson(data).data;
+    final accessToken = auth?.accessToken?.trim();
+    final refreshToken = auth?.refreshToken?.trim();
+    if (accessToken == null ||
+        accessToken.isEmpty ||
+        refreshToken == null ||
+        refreshToken.isEmpty) {
+      return;
+    }
+
+    await _sessionStorage.saveTokens(
+      accessToken: accessToken,
+      refreshToken: refreshToken,
+    );
   }
 
   String? _bearerToken(Object? header) {
