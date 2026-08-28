@@ -194,6 +194,8 @@ import 'package:sayarti_mobile/presentation/core/theme/cubit/theme_cubit.dart'
     as _i817;
 import 'package:sayarti_mobile/presentation/core/widgets/language/cubit/languge_cubit.dart'
     as _i480;
+import 'package:sayarti_mobile/presentation/features/login/cubit/login_cubit.dart'
+    as _i489;
 import 'package:sayarti_mobile/presentation/features/onboarding/cubit/onboarding_cubit.dart'
     as _i664;
 import 'package:sayarti_mobile/presentation/features/splash/cubit/splash_cubit.dart'
@@ -459,6 +461,9 @@ extension GetItInjectableX on _i174.GetIt {
     );
     gh.lazySingleton<_i506.UpdateFuelRecordUseCase>(
       () => _i506.UpdateFuelRecordUseCase(gh<_i946.FuelRepository>()),
+    );
+    gh.factory<_i489.LoginCubit>(
+      () => _i489.LoginCubit(gh<_i764.LoginUseCase>()),
     );
     return this;
   }

@@ -24,6 +24,7 @@ class MyApp extends StatelessWidget {
               navigatorKey: AppKey.navigator,
               debugShowCheckedModeBanner: false,
               theme: themeState.themeData,
+              themeAnimationCurve: Curves.easeInOut,
               locale: languageState.locale,
               onGenerateRoute: AppRouter.generateRoute,
               initialRoute: Routes.splashView,

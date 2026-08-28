@@ -9,12 +9,12 @@ class CustomOutlinedButton extends StatefulWidget {
     this.backgroundColor,
     this.borderColor,
     this.width,
-    this.height = 56,
-    this.fontSize = 16,
+    this.height = 54,
+    this.fontSize = 14,
     this.fontWeight = FontWeight.w500,
     this.fontFamily,
     this.borderRadius = 12,
-    this.borderWidth = 2,
+    this.borderWidth = 1,
     this.padding = const EdgeInsetsDirectional.only(
       top: 16,
       bottom: 12,
@@ -87,7 +87,7 @@ class _CustomOutlinedButtonState
 
     final textColor = widget.textColor ?? theme.colorScheme.primary;
 
-    final borderColor = widget.borderColor ?? theme.dividerColor;
+    final borderColor = widget.borderColor ?? theme.colorScheme.primary;
     final backgroundColor = widget.backgroundColor ?? Colors.transparent;
 
     Widget button = MaterialButton(

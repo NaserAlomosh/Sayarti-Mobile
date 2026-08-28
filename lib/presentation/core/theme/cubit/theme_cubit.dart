@@ -15,14 +15,14 @@ class ThemeCubit extends Cubit<ThemeState> {
   ThemeCubit()
       : super(
           ThemeState(
-            themeData: const DefaultAppTheme().themeData,
+            themeData: const VipAppTheme().themeData,
           ),
         );
 
   void setDefaultTheme() {
     _setTheme(
       type: AppThemeType.defaultTheme,
-      themeData: const DefaultAppTheme().themeData,
+      themeData: const VipAppTheme().themeData,
     );
   }
 

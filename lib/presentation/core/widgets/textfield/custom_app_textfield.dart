@@ -141,9 +141,9 @@ class CustomAppTextField extends StatefulWidget {
     // Decoration
     this.filled = false,
     this.fillColor,
-    this.contentPadding = const EdgeInsetsDirectional.only(top: 8, bottom: 8),
+    this.contentPadding = const EdgeInsetsDirectional.only(top: 12, bottom: 12),
     this.prefixIconPadding = const EdgeInsetsDirectional.only(
-      start: 4,
+      start: 12,
       end: 12,
     ),
     this.suffixIconPadding = const EdgeInsetsDirectional.only(
@@ -476,24 +476,25 @@ class _CustomAppTextFieldState extends State<CustomAppTextField> {
 
   // Direction
 
-void _handleTextChanged() {
-  if (widget.textDirectionMode != AppTextDirectionMode.auto) {
-    return;
+  void _handleTextChanged() {
+    if (widget.textDirectionMode != AppTextDirectionMode.auto) {
+      return;
+    }
+
+    final direction = _resolveDirection(
+      _currentText,
+      fallbackDirection: Directionality.of(context),
+    );
+
+    if (direction == _detectedDirection) {
+      return;
+    }
+
+    setState(() {
+      _detectedDirection = direction;
+    });
   }
 
-  final direction = _resolveDirection(
-    _currentText,
-    fallbackDirection: Directionality.of(context),
-  );
-
-  if (direction == _detectedDirection) {
-    return;
-  }
-
-  setState(() {
-    _detectedDirection = direction;
-  });
-}
   TextDirection _resolveDirection(
     String value, {
     required TextDirection fallbackDirection,
@@ -520,26 +521,27 @@ void _handleTextChanged() {
     }
   }
 
-TextDirection _detectTextDirection(
-  String value, {
-  required TextDirection fallbackDirection,
-}) {
-  if (value.trim().isEmpty) {
+  TextDirection _detectTextDirection(
+    String value, {
+    required TextDirection fallbackDirection,
+  }) {
+    if (value.trim().isEmpty) {
+      return widget.textDirection ?? fallbackDirection;
+    }
+
+    for (final rune in value.runes) {
+      if (_isArabicRune(rune)) {
+        return TextDirection.rtl;
+      }
+
+      if (_isLatinRune(rune)) {
+        return TextDirection.ltr;
+      }
+    }
+
     return widget.textDirection ?? fallbackDirection;
   }
 
-  for (final rune in value.runes) {
-    if (_isArabicRune(rune)) {
-      return TextDirection.rtl;
-    }
-
-    if (_isLatinRune(rune)) {
-      return TextDirection.ltr;
-    }
-  }
-
-  return widget.textDirection ?? fallbackDirection;
-}
   bool _isArabicRune(int rune) {
     return (rune >= 0x0600 && rune <= 0x06FF) ||
         (rune >= 0x0750 && rune <= 0x077F) ||
@@ -553,7 +555,6 @@ TextDirection _detectTextDirection(
         (rune >= 0x0061 && rune <= 0x007A) ||
         (rune >= 0x00C0 && rune <= 0x024F);
   }
-
 
   // Keyboard and formatting
 
@@ -657,7 +658,7 @@ TextDirection _detectTextDirection(
         ).hasMatch(normalizedValue);
 
         if (!isValid) {
-          return 'Invalid email';
+          return S.of(context).emailInvalid;
         }
 
         break;
@@ -666,14 +667,14 @@ TextDirection _detectTextDirection(
         final phone = normalizedValue.replaceAll(RegExp(r'\s+'), '');
 
         if (!RegExp(r'^\+?\d{7,15}$').hasMatch(phone)) {
-          return 'Invalid phone number';
+          return S.of(context).invalidMobileFormat;
         }
 
         break;
 
       case ValidationType.password:
         if (normalizedValue.length < 8) {
-          return 'Password must be at least 8 characters';
+          return S.of(context).passwordShouldBeGreaterThan8Characters;
         }
 
         break;
@@ -724,63 +725,58 @@ TextDirection _detectTextDirection(
     }
   }
 
-Widget? _buildSuffixIcon() {
-  if (widget.obscureTextOption ==
-      ObscureTextOption.toggleVisibility) {
+  Widget? _buildSuffixIcon() {
+    if (widget.obscureTextOption == ObscureTextOption.toggleVisibility) {
+      return Padding(
+        padding: widget.suffixIconPadding,
+        child: Align(
+          widthFactor: 1,
+          heightFactor: 1,
+          alignment: AlignmentDirectional.centerEnd,
+          child: IconButton(
+            splashRadius: 18,
+            padding: EdgeInsets.zero,
+            constraints: const BoxConstraints(minWidth: 32, minHeight: 32),
+            onPressed: widget.enabled && !widget.readOnly
+                ? () async {
+                    await HapticFeedback.selectionClick();
+
+                    setState(() {
+                      _isPasswordObscured = !_isPasswordObscured;
+                    });
+                  }
+                : null,
+            icon: Icon(
+              _isPasswordObscured
+                  ? Icons.visibility_off_outlined
+                  : Icons.visibility_outlined,
+              size: 20,
+              color: _isPasswordObscured
+                  ? AppColor.greyForHints
+                  : AppColor.blue,
+            ),
+          ),
+        ),
+      );
+    }
+
+    final suffixWidget = widget.suffixIcon ?? widget.suffix;
+
+    if (suffixWidget == null) {
+      return null;
+    }
+
     return Padding(
       padding: widget.suffixIconPadding,
       child: Align(
         widthFactor: 1,
         heightFactor: 1,
         alignment: AlignmentDirectional.centerEnd,
-        child: IconButton(
-          splashRadius: 18,
-          padding: EdgeInsets.zero,
-          constraints: const BoxConstraints(
-            minWidth: 32,
-            minHeight: 32,
-          ),
-          onPressed: widget.enabled && !widget.readOnly
-              ? () async {
-                  await HapticFeedback.selectionClick();
-
-                  setState(() {
-                    _isPasswordObscured =
-                        !_isPasswordObscured;
-                  });
-                }
-              : null,
-          icon: Icon(
-            _isPasswordObscured
-                ? Icons.visibility_off_outlined
-                : Icons.visibility_outlined,
-            size: 20,
-            color: _isPasswordObscured
-                ? AppColor.greyForHints
-                : AppColor.blue,
-          ),
-        ),
+        child: suffixWidget,
       ),
     );
   }
 
-  final suffixWidget =
-      widget.suffixIcon ?? widget.suffix;
-
-  if (suffixWidget == null) {
-    return null;
-  }
-
-  return Padding(
-    padding: widget.suffixIconPadding,
-    child: Align(
-      widthFactor: 1,
-      heightFactor: 1,
-      alignment: AlignmentDirectional.centerEnd,
-      child: suffixWidget,
-    ),
-  );
-}
   Widget? _buildPrefixIcon() {
     final prefixWidget = widget.prefixIcon ?? widget.prefix;
 
@@ -825,8 +821,7 @@ Widget? _buildSuffixIcon() {
     final theme = Theme.of(context);
 
     final inputTheme = theme.inputDecorationTheme;
-    final effectiveBorderColor =
-        widget.borderColor ?? theme.dividerColor;
+    final effectiveBorderColor = widget.borderColor ?? theme.dividerColor;
 
     final effectiveFocusedBorderColor =
         widget.focusedBorderColor ??
@@ -837,14 +832,11 @@ Widget? _buildSuffixIcon() {
         widget.errorBorderColor ?? theme.colorScheme.error;
 
     final effectiveDisabledBorderColor =
-        widget.disabledBorderColor ??
-        theme.disabledColor;
+        widget.disabledBorderColor ?? theme.disabledColor;
 
     final effectiveLabelStyle =
         widget.labelStyle ??
-        TextStyle(
-          color: widget.labelColor ?? theme.primaryColor,
-        );
+        TextStyle(color: widget.labelColor ?? theme.primaryColor);
 
     final effectiveTitleStyle =
         widget.titleStyle ??
@@ -869,7 +861,7 @@ Widget? _buildSuffixIcon() {
               widget.hintColor ??
               inputTheme.hintStyle?.color ??
               theme.hintColor,
-          fontSize: widget.fontSize ?? 18,
+          fontSize: widget.fontSize ?? 16,
           fontWeight: FontWeight.w400,
         );
 
@@ -1037,8 +1029,10 @@ Widget? _buildSuffixIcon() {
         ],
         if (widget.label != null)
           widget.label!
-        else if (widget.labelText.trim().isNotEmpty)
+        else if (widget.labelText.trim().isNotEmpty) ...[
           Text(widget.labelText, style: effectiveLabelStyle),
+          SizedBox(height: 6),
+        ],
         if (widget.height != null)
           SizedBox(height: widget.height, child: field)
         else

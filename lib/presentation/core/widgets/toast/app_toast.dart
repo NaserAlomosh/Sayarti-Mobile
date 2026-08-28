@@ -32,75 +32,79 @@ class AppToast {
     return _show(
       title: title ?? S.of(AppKey.navigatorContext).error,
       description: description,
-      backgroundColor: AppColor.red,
+      backgroundColor: AppColor.bloodRed,
       icon: Icons.error_outline,
       seconds: seconds,
     );
   }
 
-  static Future<dynamic> _show({
-    required String title,
-    required String description,
-    required Color backgroundColor,
-    required IconData icon,
-    required int seconds,
-  }) {
-    final navigatorState = AppKey.navigatorState;
-    final context = navigatorState?.context;
+static Future<dynamic> _show({
+  required String title,
+  required String description,
+  required Color backgroundColor,
+  required IconData icon,
+  required int seconds,
+}) {
+  final navigatorState = AppKey.navigatorState;
+  final context = navigatorState?.context;
 
-    if (context == null) {
-      return Future.value();
-    }
-
-    return AnotherFlushbarCustomWidget(
-      titleText: Text(
-        title,
-        style: const TextStyle(
-          color: AppColor.white,
-          fontSize: 16,
-          fontWeight: FontWeight.w600,
-        ),
-      ),
-      messageText: Text(
-        description,
-        style: const TextStyle(
-          color: AppColor.white,
-          fontSize: 14,
-          fontWeight: FontWeight.w500,
-        ),
-      ),
-      icon: Icon(
-        icon,
-        color: AppColor.white,
-        size: 26,
-      ),
-      shouldIconPulse: false,
-      backgroundColor: backgroundColor,
-      flushbarPosition: FlushbarPosition.top,
-      margin: const EdgeInsets.symmetric(
-        horizontal: 24,
-        vertical: 12,
-      ),
-      padding: const EdgeInsets.symmetric(
-        horizontal: 16,
-        vertical: 14,
-      ),
-      borderRadius: BorderRadius.circular(16),
-      mainButton: IconButton(
-        onPressed: () {
-          final navigator = AppKey.navigatorState;
-
-          if (navigator?.canPop() == true) {
-            navigator?.pop();
-          }
-        },
-        icon: const Icon(
-          Icons.close,
-          color: AppColor.white,
-        ),
-      ),
-      duration: Duration(seconds: seconds),
-      animationDuration: const Duration(milliseconds: 700),
-    ).show(context);
+  if (context == null) {
+    return Future.value();
   }
-}
+
+  final theme = Theme.of(context);
+  final colorScheme = theme.colorScheme;
+
+  final foregroundColor = colorScheme.onPrimary;
+
+  return AnotherFlushbarCustomWidget(
+    titleText: Text(
+      title,
+      style: theme.textTheme.titleMedium?.copyWith(
+        color: foregroundColor,
+        fontSize: 16,
+        fontWeight: FontWeight.w600,
+      ),
+    ),
+    messageText: Text(
+      description,
+      style: theme.textTheme.bodyMedium?.copyWith(
+        color: foregroundColor,
+        fontSize: 14,
+        fontWeight: FontWeight.w500,
+      ),
+    ),
+    icon: Icon(
+      icon,
+      color: foregroundColor,
+      size: 26,
+    ),
+    shouldIconPulse: false,
+    backgroundColor: backgroundColor,
+    flushbarPosition: FlushbarPosition.top,
+    margin: const EdgeInsets.symmetric(
+      horizontal: 24,
+      vertical: 12,
+    ),
+    padding: const EdgeInsets.symmetric(
+      horizontal: 16,
+      vertical: 14,
+    ),
+    borderRadius: BorderRadius.circular(16),
+    mainButton: IconButton(
+      onPressed: () {
+        final navigator = AppKey.navigatorState;
+
+        if (navigator?.canPop() == true) {
+          navigator?.pop();
+        }
+      },
+      icon: Icon(
+        Icons.close,
+        color: foregroundColor,
+      ),
+    ),
+    duration: Duration(seconds: seconds),
+    animationDuration: const Duration(milliseconds: 700),
+  ).show(context);
+}}

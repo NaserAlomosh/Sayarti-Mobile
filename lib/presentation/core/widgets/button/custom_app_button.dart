@@ -7,21 +7,19 @@ class CustomAppButton extends StatefulWidget {
     super.key,
     this.isActive = true,
     this.textColor,
+    this.disabledTextColor,
     this.backgroundColor,
     this.disabledBackgroundColor,
     this.borderColor,
     this.disabledBorderColor,
     this.width,
-    this.height = 56,
-    this.fontSize = 16,
-    this.fontWeight = FontWeight.w600,
+    this.height = 54,
+    this.fontSize = 14,
+    this.fontWeight = FontWeight.w500,
     this.fontFamily,
-    this.borderRadius = 12,
+    this.borderRadius = 14,
     this.borderWidth = 0,
-    this.padding = const EdgeInsetsDirectional.only(
-      top: 16,
-      bottom: 12,
-    ),
+    this.padding = const EdgeInsetsDirectional.only(top: 16, bottom: 12),
     this.margin,
     this.isLoading = false,
     this.loadingWidget,
@@ -30,6 +28,7 @@ class CustomAppButton extends StatefulWidget {
     this.pressedScale = 0.96,
     this.pressAnimationDuration = const Duration(milliseconds: 100),
     this.releaseAnimationDuration = const Duration(milliseconds: 180),
+    this.stateAnimationDuration = const Duration(milliseconds: 250),
   }) : assert(
          pressedScale > 0 && pressedScale <= 1,
          'pressedScale must be greater than 0 and less than or equal to 1.',
@@ -44,8 +43,11 @@ class CustomAppButton extends StatefulWidget {
   final bool isActive;
 
   final Color? textColor;
+  final Color? disabledTextColor;
+
   final Color? backgroundColor;
   final Color? disabledBackgroundColor;
+
   final Color? borderColor;
   final Color? disabledBorderColor;
 
@@ -68,8 +70,13 @@ class CustomAppButton extends StatefulWidget {
 
   final bool enablePressAnimation;
   final double pressedScale;
+
   final Duration pressAnimationDuration;
   final Duration releaseAnimationDuration;
+
+  /// Controls the animation duration when changing between
+  /// enabled and disabled states.
+  final Duration stateAnimationDuration;
 
   @override
   State<CustomAppButton> createState() => _CustomAppButtonState();
@@ -79,9 +86,7 @@ class _CustomAppButtonState extends State<CustomAppButton> {
   bool _pressed = false;
 
   bool get _isEnabled {
-    return widget.isActive &&
-        widget.onPressed != null &&
-        !widget.isLoading;
+    return widget.isActive && widget.onPressed != null && !widget.isLoading;
   }
 
   void _updatePressed(bool value) {
@@ -113,85 +118,98 @@ class _CustomAppButtonState extends State<CustomAppButton> {
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
 
-    final backgroundColor =
+    final enabledBackgroundColor =
         widget.backgroundColor ?? theme.colorScheme.primary;
 
     final disabledBackgroundColor =
         widget.disabledBackgroundColor ?? theme.disabledColor;
 
-    final textColor =
-        widget.textColor ?? theme.colorScheme.onPrimary;
+    final enabledTextColor = widget.textColor ?? theme.colorScheme.onPrimary;
 
-    final borderColor = _isEnabled
+    final disabledTextColor =
+        widget.disabledTextColor ?? enabledTextColor.withValues(alpha: 0.5);
+
+    final currentBackgroundColor = _isEnabled
+        ? enabledBackgroundColor
+        : disabledBackgroundColor;
+
+    final currentTextColor = _isEnabled ? enabledTextColor : disabledTextColor;
+
+    final currentBorderColor = _isEnabled
         ? widget.borderColor
-        : widget.disabledBorderColor ??
-              theme.disabledColor;
+        : widget.disabledBorderColor ?? theme.disabledColor;
 
-    Widget button = MaterialButton(
-      minWidth: widget.width,
+    Widget button = AnimatedContainer(
+      duration: widget.stateAnimationDuration,
+      curve: Curves.easeInOut,
+      width: widget.width,
       height: widget.height,
-      elevation: 0,
-      focusElevation: 0,
-      hoverElevation: 0,
-      highlightElevation: 0,
-      disabledElevation: 0,
-      color: backgroundColor,
-      disabledColor: disabledBackgroundColor,
-      padding: widget.padding,
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(
-          widget.borderRadius,
-        ),
-        side: borderColor == null || widget.borderWidth <= 0
-            ? BorderSide.none
-            : BorderSide(
-                color: borderColor,
-                width: widget.borderWidth,
-              ),
+      decoration: BoxDecoration(
+        color: currentBackgroundColor,
+        borderRadius: BorderRadius.circular(widget.borderRadius),
+        border: currentBorderColor == null || widget.borderWidth <= 0
+            ? null
+            : Border.all(color: currentBorderColor, width: widget.borderWidth),
       ),
-      onPressed: _isEnabled ? widget.onPressed : null,
-      child: AnimatedSwitcher(
-        duration: const Duration(milliseconds: 200),
-        switchInCurve: Curves.easeOut,
-        switchOutCurve: Curves.easeIn,
-        transitionBuilder: (child, animation) {
-          return FadeTransition(
-            opacity: animation,
-            child: ScaleTransition(
-              scale: Tween<double>(
-                begin: 0.92,
-                end: 1,
-              ).animate(animation),
-              child: child,
-            ),
-          );
-        },
-        child: widget.isLoading
-            ? KeyedSubtree(
-                key: const ValueKey('loading'),
-                child:
-                    widget.loadingWidget ??
-                    SizedBox.square(
-                      dimension: 20,
-                      child: CircularProgressIndicator(
-                        strokeWidth: 2,
-                        color: widget.loadingColor ?? textColor,
-                      ),
+      child: Material(
+        color: Colors.transparent,
+        borderRadius: BorderRadius.circular(widget.borderRadius),
+        child: InkWell(
+          onTap: _isEnabled ? widget.onPressed : null,
+          borderRadius: BorderRadius.circular(widget.borderRadius),
+          child: Padding(
+            padding: widget.padding,
+            child: Center(
+              child: AnimatedSwitcher(
+                duration: const Duration(milliseconds: 200),
+                switchInCurve: Curves.easeOut,
+                switchOutCurve: Curves.easeIn,
+                transitionBuilder: (child, animation) {
+                  return FadeTransition(
+                    opacity: animation,
+                    child: ScaleTransition(
+                      scale: Tween<double>(
+                        begin: 0.92,
+                        end: 1,
+                      ).animate(animation),
+                      child: child,
                     ),
-              )
-            : Text(
-                widget.text,
-                key: const ValueKey('text'),
-                textAlign: TextAlign.center,
-                maxLines: 1,
-                overflow: TextOverflow.ellipsis,
-                style: TextStyle(
-                  color: textColor,
-                  fontSize: widget.fontSize,
-                  fontWeight: widget.fontWeight,
-                  fontFamily: widget.fontFamily,
-                ),
+                  );
+                },
+                child: widget.isLoading
+                    ? KeyedSubtree(
+                        key: const ValueKey('loading'),
+                        child:
+                            widget.loadingWidget ??
+                            SizedBox.square(
+                              dimension: 20,
+                              child: CircularProgressIndicator(
+                                strokeWidth: 2,
+                                color: widget.loadingColor ?? currentTextColor,
+                              ),
+                            ),
+                      )
+                    : AnimatedDefaultTextStyle(
+                        duration: widget.stateAnimationDuration,
+                        curve: Curves.easeInOut,
+                        style: TextStyle(
+                          color: currentTextColor,
+                          fontSize: widget.fontSize,
+                          fontWeight: widget.fontWeight,
+                          fontFamily: widget.fontFamily,
+                        ),
+                        child: Text(
+                          widget.text,
+                          key: const ValueKey('text'),
+                          textAlign: TextAlign.center,
+                          maxLines: 1,
+                          overflow: TextOverflow.ellipsis,
+                        ),
+                      ),
               ),
+            ),
+          ),
+        ),
       ),
     );
 

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:sayarti_mobile/data/di/injection.dart';
 import 'package:sayarti_mobile/presentation/core/theme/cubit/theme_cubit.dart';
@@ -13,12 +14,8 @@ Future<void> main() async {
   runApp(
     MultiBlocProvider(
       providers: [
-        BlocProvider<ThemeCubit>(
-          create: (_) => getIt<ThemeCubit>(),
-        ),
-        BlocProvider<LanguageCubit>(
-          create: (_) => getIt<LanguageCubit>(),
-        ),
+        BlocProvider<ThemeCubit>(create: (_) => getIt<ThemeCubit>()),
+        BlocProvider<LanguageCubit>(create: (_) => getIt<LanguageCubit>()),
       ],
       child: const MyApp(),
     ),

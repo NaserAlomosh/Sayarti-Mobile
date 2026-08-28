@@ -4,5 +4,7 @@ class AppImages {
   static const String png = 'assets/png/';
   static const String splashPng = '${png}splash.png';
   static const String onboardingPng = '${png}splash.png';
+  static const String loginBackground = '${png}login_background.png';
+
   static const String logoSvg = '${svg}logo.svg';
 }

@@ -14,7 +14,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$LoginState {
 
- bool get canSubmit; bool get obscurePassword; bool get loginSuccess; String? get requiredAction;
+ bool get canSubmit; bool get loginSuccess; String? get requiredAction;
 /// Create a copy of LoginState
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -25,16 +25,16 @@ $LoginStateCopyWith<LoginState> get copyWith => _$LoginStateCopyWithImpl<LoginSt
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is LoginState&&(identical(other.canSubmit, canSubmit) || other.canSubmit == canSubmit)&&(identical(other.obscurePassword, obscurePassword) || other.obscurePassword == obscurePassword)&&(identical(other.loginSuccess, loginSuccess) || other.loginSuccess == loginSuccess)&&(identical(other.requiredAction, requiredAction) || other.requiredAction == requiredAction));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is LoginState&&(identical(other.canSubmit, canSubmit) || other.canSubmit == canSubmit)&&(identical(other.loginSuccess, loginSuccess) || other.loginSuccess == loginSuccess)&&(identical(other.requiredAction, requiredAction) || other.requiredAction == requiredAction));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,canSubmit,obscurePassword,loginSuccess,requiredAction);
+int get hashCode => Object.hash(runtimeType,canSubmit,loginSuccess,requiredAction);
 
 @override
 String toString() {
-  return 'LoginState(canSubmit: $canSubmit, obscurePassword: $obscurePassword, loginSuccess: $loginSuccess, requiredAction: $requiredAction)';
+  return 'LoginState(canSubmit: $canSubmit, loginSuccess: $loginSuccess, requiredAction: $requiredAction)';
 }
 
 
@@ -45,7 +45,7 @@ abstract mixin class $LoginStateCopyWith<$Res>  {
   factory $LoginStateCopyWith(LoginState value, $Res Function(LoginState) _then) = _$LoginStateCopyWithImpl;
 @useResult
 $Res call({
- bool canSubmit, bool obscurePassword, bool loginSuccess, String? requiredAction
+ bool canSubmit, bool loginSuccess, String? requiredAction
 });
 
 
@@ -62,10 +62,9 @@ class _$LoginStateCopyWithImpl<$Res>
 
 /// Create a copy of LoginState
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? canSubmit = null,Object? obscurePassword = null,Object? loginSuccess = null,Object? requiredAction = freezed,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? canSubmit = null,Object? loginSuccess = null,Object? requiredAction = freezed,}) {
   return _then(_self.copyWith(
 canSubmit: null == canSubmit ? _self.canSubmit : canSubmit // ignore: cast_nullable_to_non_nullable
-as bool,obscurePassword: null == obscurePassword ? _self.obscurePassword : obscurePassword // ignore: cast_nullable_to_non_nullable
 as bool,loginSuccess: null == loginSuccess ? _self.loginSuccess : loginSuccess // ignore: cast_nullable_to_non_nullable
 as bool,requiredAction: freezed == requiredAction ? _self.requiredAction : requiredAction // ignore: cast_nullable_to_non_nullable
 as String?,
@@ -153,10 +152,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( bool canSubmit,  bool obscurePassword,  bool loginSuccess,  String? requiredAction)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( bool canSubmit,  bool loginSuccess,  String? requiredAction)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _LoginState() when $default != null:
-return $default(_that.canSubmit,_that.obscurePassword,_that.loginSuccess,_that.requiredAction);case _:
+return $default(_that.canSubmit,_that.loginSuccess,_that.requiredAction);case _:
   return orElse();
 
 }
@@ -174,10 +173,10 @@ return $default(_that.canSubmit,_that.obscurePassword,_that.loginSuccess,_that.r
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( bool canSubmit,  bool obscurePassword,  bool loginSuccess,  String? requiredAction)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( bool canSubmit,  bool loginSuccess,  String? requiredAction)  $default,) {final _that = this;
 switch (_that) {
 case _LoginState():
-return $default(_that.canSubmit,_that.obscurePassword,_that.loginSuccess,_that.requiredAction);case _:
+return $default(_that.canSubmit,_that.loginSuccess,_that.requiredAction);case _:
   throw StateError('Unexpected subclass');
 
 }
@@ -194,10 +193,10 @@ return $default(_that.canSubmit,_that.obscurePassword,_that.loginSuccess,_that.r
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( bool canSubmit,  bool obscurePassword,  bool loginSuccess,  String? requiredAction)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( bool canSubmit,  bool loginSuccess,  String? requiredAction)?  $default,) {final _that = this;
 switch (_that) {
 case _LoginState() when $default != null:
-return $default(_that.canSubmit,_that.obscurePassword,_that.loginSuccess,_that.requiredAction);case _:
+return $default(_that.canSubmit,_that.loginSuccess,_that.requiredAction);case _:
   return null;
 
 }
@@ -209,11 +208,10 @@ return $default(_that.canSubmit,_that.obscurePassword,_that.loginSuccess,_that.r
 
 
 class _LoginState implements LoginState {
-  const _LoginState({this.canSubmit = false, this.obscurePassword = true, this.loginSuccess = false, this.requiredAction});
+  const _LoginState({this.canSubmit = false, this.loginSuccess = false, this.requiredAction});
   
 
 @override@JsonKey() final  bool canSubmit;
-@override@JsonKey() final  bool obscurePassword;
 @override@JsonKey() final  bool loginSuccess;
 @override final  String? requiredAction;
 
@@ -227,16 +225,16 @@ _$LoginStateCopyWith<_LoginState> get copyWith => __$LoginStateCopyWithImpl<_Log
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _LoginState&&(identical(other.canSubmit, canSubmit) || other.canSubmit == canSubmit)&&(identical(other.obscurePassword, obscurePassword) || other.obscurePassword == obscurePassword)&&(identical(other.loginSuccess, loginSuccess) || other.loginSuccess == loginSuccess)&&(identical(other.requiredAction, requiredAction) || other.requiredAction == requiredAction));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _LoginState&&(identical(other.canSubmit, canSubmit) || other.canSubmit == canSubmit)&&(identical(other.loginSuccess, loginSuccess) || other.loginSuccess == loginSuccess)&&(identical(other.requiredAction, requiredAction) || other.requiredAction == requiredAction));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,canSubmit,obscurePassword,loginSuccess,requiredAction);
+int get hashCode => Object.hash(runtimeType,canSubmit,loginSuccess,requiredAction);
 
 @override
 String toString() {
-  return 'LoginState(canSubmit: $canSubmit, obscurePassword: $obscurePassword, loginSuccess: $loginSuccess, requiredAction: $requiredAction)';
+  return 'LoginState(canSubmit: $canSubmit, loginSuccess: $loginSuccess, requiredAction: $requiredAction)';
 }
 
 
@@ -247,7 +245,7 @@ abstract mixin class _$LoginStateCopyWith<$Res> implements $LoginStateCopyWith<$
   factory _$LoginStateCopyWith(_LoginState value, $Res Function(_LoginState) _then) = __$LoginStateCopyWithImpl;
 @override @useResult
 $Res call({
- bool canSubmit, bool obscurePassword, bool loginSuccess, String? requiredAction
+ bool canSubmit, bool loginSuccess, String? requiredAction
 });
 
 
@@ -264,10 +262,9 @@ class __$LoginStateCopyWithImpl<$Res>
 
 /// Create a copy of LoginState
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? canSubmit = null,Object? obscurePassword = null,Object? loginSuccess = null,Object? requiredAction = freezed,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? canSubmit = null,Object? loginSuccess = null,Object? requiredAction = freezed,}) {
   return _then(_LoginState(
 canSubmit: null == canSubmit ? _self.canSubmit : canSubmit // ignore: cast_nullable_to_non_nullable
-as bool,obscurePassword: null == obscurePassword ? _self.obscurePassword : obscurePassword // ignore: cast_nullable_to_non_nullable
 as bool,loginSuccess: null == loginSuccess ? _self.loginSuccess : loginSuccess // ignore: cast_nullable_to_non_nullable
 as bool,requiredAction: freezed == requiredAction ? _self.requiredAction : requiredAction // ignore: cast_nullable_to_non_nullable
 as String?,

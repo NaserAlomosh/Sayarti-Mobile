@@ -38,9 +38,9 @@ class DioClient {
       ),
       if (kDebugMode)
         PrettyDioLogger(
-          requestBody: false,
-          requestHeader: false,
-          responseBody: false,
+          requestBody: true,
+          requestHeader: true,
+          responseBody: true,
           responseHeader: true,
           logPrint: (log) => debugPrint(log.toString()),
         ),

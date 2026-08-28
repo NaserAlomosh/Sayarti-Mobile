@@ -9,5 +9,7 @@ part 'splash_cubit.freezed.dart';
 class SplashCubit extends BaseCubit<SplashState> {
   SplashCubit() : super(const SplashState());
 
-  Future<void> initSplash() async {}
+  Future<void> initSplash() async {
+    emit(state.copyWith(showOnboarding: false));
+  }
 }
